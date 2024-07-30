@@ -35,6 +35,27 @@ body {
 
 .text {
     font-family: "MiSans", sans-serif;
+    text-align: center;
+    color: white;
+    filter: blur(0.35px);
+    animation: text 5s linear infinite;
+
+}
+
+@keyframes text {
+    0% {
+        text-shadow: 0 0 20px #ffffff90;
+    }
+    50% {
+        text-shadow: 0 0 10px #ffffff90;
+    }
+    100% {
+        text-shadow: 0 0 20px #ffffff90;
+    }
+}
+
+#win8-link-text {
+    text-underline: none;
 }
 
 #title {
@@ -179,6 +200,19 @@ body {
     text-align: center;
     font-size: 14px;
     color: white;
-    filter: blur(0.75px);
+    filter: blur(0.35px);
     margin-left: -185px;
+}
+
+#win8-title {
+    font-size: 36px;
+}
+
+#win10-horror {
+    font-size: 24px;
+}
+
+#win10-horror-text {
+    font-size: 30px;
+    color: red;
 }
