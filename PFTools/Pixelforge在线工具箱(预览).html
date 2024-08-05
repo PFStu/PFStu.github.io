@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PixelForge网页工具箱</title>
+    <style>
+        div {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <img src="https://p.cdn-static.cn/92476_17223447822113.png?imageView2/2/w/2000/q/89/format/webp" alt="顶部图像">
+    <p>公告:暂无</p>
+</head>
+<body>
+    <!-- 备注:复制下面代码添加新标签 -->
+    <div>
+         <h1>Base64加密解密工具</h1>
+         <p>预览:</p>
+         <p>===============</p>
+    <input type="text" id="inputText" placeholder="输入...(仅持英文和英文字符)">
+    <button onclick="encode()">加密Base64</button>
+    <button onclick="decode()">解密Base64</button>
+    <h2>输出:</h2>
+    <p id="result"></p>
+    <script src="script.js"></script>
+
+    <script>
+        function encode() {
+            var inputText = document.getElementById('inputText').value;
+            var encoded = btoa(inputText);
+            document.getElementById('result').innerText = encoded;
+        }
+        
+        function decode() {
+            var inputText = document.getElementById('inputText').value;
+            var decoded = atob(inputText);
+            document.getElementById('result').innerText = decoded;
+        }
+           </script>
+ <button onclick="window.location.href='https://i-460.wwentua.com:446/08042000194078454bb/2024/08/04/b0f1bab81a8ce0bad8414c9ed467a166.exe?st=TnFqP0xQX7d0WtgADCuNCA&e=1722775406&b=UUEOb1UmUTFQMwJgAXFTsgTbXqID51H4U4YN6AamBKUEswmmAYdYuFGzA_aABtAOCUrBbKVYyA31WYA_c_c&fi=194078454&pid=36-157-211-48&up=2&mp=1&co=0'">立即下载</button>
+       </div>
+        <div>
+      <h1>极简计算器</h1>
+          <p>预览:</p>
+          <p>===============</p>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .calculator {
+            width: 200px;
+            margin: auto;
+            border: 1px solid #ccc;
+        }
+        
+        .display {
+            width: 100%;
+            height: 40px;
+            text-align: right;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+        }
+        
+        button {
+            height: 30px;
+            background-color: #eee;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <input type="text" class="display" disabled>
+        <div class="buttons">
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="appendValue('%')">%</button>
+            <button onclick="appendValue('sqrt(')">√</button>
+            <button onclick="appendValue('^')">x</button>
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button onclick="appendValue('+')">+</button>
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button onclick="appendValue('-')">-</button>
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button onclick="appendValue('*')">*</button>
+            <button onclick="appendValue('0')">0</button>
+            <button onclick="appendValue('.')">.</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="appendValue('/')">/</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+    <script>
+        const display = document.querySelector('.display');
+        
+        function appendValue(value) {
+            display.value += value;
+        }
+        
+        function clearDisplay() {
+            display.value = '';
+        }
+        
+        function calculate() {
+            try {
+                display.value = eval(display.value).toFixed(2);
+            } catch (error) {
+                display.value = '未知错误';
+            }
+        }
+    </script>
+        <div>
+         <h1>时间和计时</h1>
+         <p>预览:</p>
+         <p>===============</p>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .timer-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .timer-section input {
+            width: 200px;
+            padding: 5px;
+        }
+        
+        #timerDisplay {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="time-display">
+        <span id="currentTime">当前时间:</span>
+        <span id="clock">00:00:00.000</span>
+    </div>
+    <div class="timer-section">
+        <input type="text" id="timerInput" placeholder="HH:MM:SS">
+        <button onclick="startCountdown()">开始计时</button>
+        <div id="timerDisplay">剩余时间: 00:00:00</div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        // 时钟功能
+        function updateClock() {
+            const now = new Date();
+            const time = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}.${now.getMilliseconds().toString().padStart(3, '0')}`;
+            document.getElementById('clock').textContent = time;
+            document.getElementById('currentTime').textContent = "当前时间:";
+        }
+        
+        // 计时器功能
+        let countdownInterval;
+        function startCountdown() {
+            const inputTime = document.getElementById('timerInput').value;
+            const [hours, minutes, seconds] = inputTime.split(':').map(Number);
+            const totalSeconds = hours * 3600 + minutes * 60 + seconds;
+        
+            let remainingSeconds = totalSeconds;
+            countdownInterval = setInterval(() => {
+                remainingSeconds--;
+                if (remainingSeconds < 0) {
+                    clearInterval(countdownInterval);
+                    alert('时间到');
+                } else {
+                    const hours = Math.floor(remainingSeconds / 3600);
+                    const minutes = Math.floor((remainingSeconds % 3600) / 60);
+                    const seconds = remainingSeconds % 60;
+                    const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                    document.getElementById('timerDisplay').textContent = `剩余时间: ${formattedTime}`;
+                }
+            }, 1000);
+        }
+        
+        // 启动时钟
+        setInterval(updateClock, 1);
+    </script>
+        <div>
+         <h1>音频超速播放器</h1>
+         <p>预览:</p>
+         <p>===============</p>
+<input type="file" id="audioFile" accept=".mp3, .wav, .wma, .ogg" />
+<div id="unsupportedFileType" style="display: none;">不支持这个文件类型</div>
+
+<div id="player">
+    <audio id="audio" controls></audio>
+    <div>
+        播放速度: <input type="number" id="speedInput" min="1" max="100" value="1">
+        <button id="applySpeed">应用</button>
+    </div>
+</div>
+
+<script>
+    document.getElementById('audioFile').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!['audio/mpeg', 'audio/wav', 'audio/wma', 'audio/ogg'].includes(file.type)) {
+            document.getElementById('unsupportedFileType').style.display = 'block';
+            document.getElementById('player').style.display = 'none';
+            return;
+        }
+        document.getElementById('unsupportedFileType').style.display = 'none';
+        document.getElementById('player').style.display = 'block';
+        
+        const url = URL.createObjectURL(file);
+        document.getElementById('audio').src = url;
+    });
+
+    document.getElementById('applySpeed').addEventListener('click', function() {
+        const speed = document.getElementById('speedInput').value;
+        document.getElementById('audio').playbackRate = speed;
+    });
+</script>
+<div>
+         <h1>中文ASCII码加密解密工具</h1>
+         <p>预览:</p>
+         <p>===============</p>
+    <div>
+        <label for="plaintext">键入你的文本:</label>
+        <input type="text" id="plaintext" placeholder="输入后点击加密/解密">
+    </div>
+    <div>
+        <button onclick="encryptText()">加密</button>
+        <button onclick="decryptText()">解密</button>
+    </div>
+    <div>
+        <label for="ciphertext">输出:</label>
+        <textarea id="ciphertext" rows="4" cols="50"></textarea>
+    </div>
+
+    <script>
+        function encryptText() {
+            let plaintext = document.getElementById('plaintext').value;
+            let ciphertext = '';
+            for (let i = 0; i < plaintext.length; i++) {
+                let charCode = plaintext.charCodeAt(i);
+                // Simple encryption: increase ASCII value by 1
+                charCode = charCode + 1;
+                ciphertext += String.fromCharCode(charCode);
+            }
+            document.getElementById('ciphertext').value = ciphertext;
+        }
+        
+        function decryptText() {
+            let ciphertext = document.getElementById('plaintext').value; // Reuse input for decryption
+            let plaintext = '';
+            for (let i = 0; i < ciphertext.length; i++) {
+                let charCode = ciphertext.charCodeAt(i);
+                // Simple decryption: decrease ASCII value by 1
+                charCode = charCode - 1;
+                plaintext += String.fromCharCode(charCode);
+            }
+            document.getElementById('ciphertext').value = plaintext;
+        }
+    </script>
+    <!-- 备注:到这即可 -->
+</body>
+</html>
