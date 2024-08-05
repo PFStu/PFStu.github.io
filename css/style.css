@@ -6,7 +6,7 @@
 
 @font-face {
     font-family: "MiSans";
-    src: url("font/MiSans-Semibold.ttf");
+    src: url("../fonts/MiSans-Semibold.ttf");
 }
 
 body {
@@ -77,104 +77,6 @@ body {
     margin-top: 100px;
 }
 
-.btn-container {
-    width: 600px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.btn {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 180px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(65, 105, 225, 0.5);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    border-radius: 30px;
-    color: white;
-    z-index: 1;
-    font-weight: 400;
-    text-decoration: none;
-    overflow: hidden;
-    transition: 0.5s;
-    backdrop-filter: blur(15px);
-}
-
-.btn:hover a{
-    letter-spacing: 3px;
-}
-
-.btn a::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
-    transform: skewX(45deg) translateX(0);
-    transition: 0.5s;
-    z-index: -1;
-}
-
-.btn:hover a::before {
-    transform: skewX(45deg) translateX(200%);
-}
-
-.btn::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -5px;
-    width: 50px;
-    height: 10px;
-    background: rgba(255, 0, 0, 1);
-    border-radius: 10px;
-    transition: 0.5s;
-    z-index: 0;
-}
-
-.btn:hover::before {
-    bottom: 0;
-    height: 50%;
-    width: 80%;
-    border-radius: 30px;
-    transition-delay: 0.5s;
-    background: rgba(255, 0, 0, 1);
-    filter: blur(15px);
-    z-index: -2;
-}
-
-.btn::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: -5px;
-    width: 50px;
-    height: 10px;
-    background: rgba(255, 0, 0, 1);
-    border-radius: 10px;
-    transition: 0.5s;
-    z-index: -1;
-    filter: blur(15px);
-}
-
-.btn:hover::after {
-    top: 0;
-    height: 100%;
-    width: 100%;
-    border-radius: 30px;
-    transition-delay: 0.5s;
-    background: rgba(255, 0, 0, 1);
-    filter: blur(15px);
-    z-index: -2;
-}
 #about_us {
     position: absolute;
     top: 300px;
@@ -202,6 +104,7 @@ body {
     color: white;
     filter: blur(0.35px);
     margin-left: -185px;
+    background-attachment: fixed;
 }
 
 #win8-title {
@@ -212,7 +115,15 @@ body {
     font-size: 24px;
 }
 
-#win10-horror-text {
-    font-size: 30px;
+#win10-horror-tips {
+    font-size: 18px;
     color: red;
+}
+
+#pixelpe-title {
+    font-size: 36px;
+}
+
+#Tools-title {
+    font-size: 36px;
 }
