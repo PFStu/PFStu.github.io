@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,7 +15,11 @@
         }
     </style>
     <img src="https://p.cdn-static.cn/92476_17223447822113.png?imageView2/2/w/2000/q/89/format/webp" alt="顶部图像">
-    <p>公告:暂无</p>
+<a href="https://pfstu.github.io/PFTools/Download.html">
+    <img src="https://30078178.s21i.faiusr.com/4/6/ABUIABAEGAAg9tXbtQYosNOOtgEw5gI4TA.png" alt="Image">
+</a>
+
+    <p>公告:下载页面已制作!点击上方的"免费下载所有代码即可(目前还未制作)。"</p>
 </head>
 <body>
     <!-- 备注:复制下面代码添加新标签 -->
@@ -43,9 +47,7 @@
             document.getElementById('result').innerText = decoded;
         }
            </script>
- <button onclick="window.location.href='https://i-460.wwentua.com:446/08042000194078454bb/2024/08/04/b0f1bab81a8ce0bad8414c9ed467a166.exe?st=TnFqP0xQX7d0WtgADCuNCA&e=1722775406&b=UUEOb1UmUTFQMwJgAXFTsgTbXqID51H4U4YN6AamBKUEswmmAYdYuFGzA_aABtAOCUrBbKVYyA31WYA_c_c&fi=194078454&pid=36-157-211-48&up=2&mp=1&co=0'">立即下载</button>
        </div>
-        <div>
       <h1>极简计算器</h1>
           <p>预览:</p>
           <p>===============</p>
@@ -275,6 +277,283 @@
                 plaintext += String.fromCharCode(charCode);
             }
             document.getElementById('ciphertext').value = plaintext;
+        }
+    </script>
+         <h1>文本朗读工具</h1>
+         <p>预览:</p>
+         <p>===============</p>
+    <div>
+        <textarea id="text-input" rows="4" cols="50" placeholder="请输入您想朗读的文本..."></textarea>
+        <button id="read-button" onclick="readText()">朗读</button>
+    </div>
+    <script src="text_reader.js"></script>
+
+    <script>
+        function readText() {
+            var text = document.getElementById('text-input').value;
+            var speech = new SpeechSynthesisUtterance();
+            speech.text = text;
+            speech.lang = 'zh-CN';
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
+         <h1>可视化十六进制代码编辑工具</h1>
+         <p>预览:</p>
+         <p>===============</p>
+ <div class="color-picker">
+    <div>
+        <label for="r">R:</label>
+        <input type="range" id="r" min="0" max="255" value="255" oninput="updateColor()">
+    </div>
+    <div>
+        <label for="g">G:</label>
+        <input type="range" id="g" min="0" max="255" value="255" oninput="updateColor()">
+    </div>
+    <div>
+        <label for="b">B:</label>
+        <input type="range" id="b" min="0" max="255" value="255" oninput="updateColor()">
+    </div>
+    <div>
+        <label for="a">透明度:</label>
+        <input type="range" id="a" min="0" max="1" step="0.01" value="1" oninput="updateColor()">
+    </div>
+    <div class="preview" id="preview"></div>
+    <div id="hexCode"></div>
+</div>
+
+<style>
+.color-picker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.color-picker div {
+    margin: 10px;
+}
+.preview {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000;
+}
+</style>
+
+<script>
+function updateColor() {
+    const r = document.getElementById('r').value;
+    const g = document.getElementById('g').value;
+    const b = document.getElementById('b').value;
+    const a = document.getElementById('a').value;
+
+    const color = `rgba(${r}, ${g}, ${b}, ${a})`;
+    const hex = `#${(parseInt(r, 10) << 16 | parseInt(g, 10) << 8 | parseInt(b, 10)).toString(16).padStart(6, '0')}`;
+
+    document.getElementById('preview').style.backgroundColor = color;
+    document.getElementById('hexCode').textContent = `十六进制颜色代码: ${hex.toUpperCase()}`;
+}
+
+updateColor();
+</script>
+<h1>简易货币汇率</h1>
+<p>预览:</p>
+         <p>===============</p>
+    <div class="container">
+        <h3>货币转换器（人民币至美元、欧元、英镑、日元）</h3>
+        <input type="number" id="amount" placeholder="请输入人民币金额">
+        <select id="currency">
+            <option value="USD">美元</option>
+            <option value="EUR">欧元</option>
+            <option value="GBP">英镑</option>
+            <option value="JPY">日元</option>
+        </select>
+        <button onclick="window.currencyConverter()">转换</button>
+        <p id="resultCNYtobe"></p> <!-- 修改输出元素的ID -->
+    </div>
+
+    <script>
+        // 使用IIFE封装，避免命名冲突
+        (function() {
+            // 将 'YOUR_API_KEY' 替换为你在 ExchangeRatesAPI 获取的实际API密钥
+            const API_KEY = 'YOUR_API_KEY';
+            const API_URL = 'https://api.exchangerate-api.com/v4/latest/CNY';
+
+            async function fetchExchangeRate() {
+                const response = await fetch(`${API_URL}?access_key=${API_KEY}`);
+                const data = await response.json();
+                return data.rates;
+            }
+
+            async function convertCurrency() {
+                const amountInput = document.getElementById('amount');
+                const currencyInput = document.getElementById('currency');
+                const resultOutput = document.getElementById('resultCNYtobe'); // 使用新的ID
+
+                const amount = parseFloat(amountInput.value);
+                const currency = currencyInput.value;
+
+                if (isNaN(amount) || amount <= 0) {
+                    resultOutput.innerText = '请输入有效的金额。';
+                    return;
+                }
+
+                const rates = await fetchExchangeRate();
+                const rate = rates[currency];
+                const convertedAmount = amount * rate;
+                resultOutput.innerText = `${amount} 人民币 = ${convertedAmount.toFixed(2)} ${currency}`;
+            }
+
+            // 将函数暴露给全局作用域，以便按钮可以调用
+            window.currencyConverter = convertCurrency;
+        })();
+    </script>
+    <h1>十进制转换二进制</h1>
+<p>预览:</p>
+         <p>===============</p>
+    <script>
+        function convertToBinary() {
+            // TAT
+            var decimalNumber = document.getElementById('decimalInput').value;
+            // waw
+            var binaryNumber = parseInt(decimalNumber, 10).toString(2);
+            // fuck you
+            document.getElementById('binaryOutput').innerHTML = binaryNumber;
+        }
+    </script>
+    <form>
+        <label for="decimalInput">输入十进制数:</label>
+        <input type="text" id="decimalInput" name="decimalInput">
+        <input type="button" value="转换" onclick="convertToBinary()">
+    </form>
+    <p>二进制结果: <span id="binaryOutput"></span></p>
+    <h1>时间简表工具</h1>
+<p>预览:</p>
+         <p>===============</p>
+    <div id="currentDate"></div>
+    <div id="lunarDate"></div>
+    <div id="season"></div>
+    <div id="daysToNextSaturday"></div>
+    <div id="dayOfYear"></div>
+    <div id="chineseFestival"></div>
+    <div id="solarTerms"></div>
+    <div id="internationalFestival"></div>
+
+    <script>
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = today.getMonth() + 1;
+        const day = today.getDate();
+        const hours = today.getHours();
+        const minutes = today.getMinutes();
+        const dayOfWeek = today.getDay();
+
+        // 当前时间，星期显示为中文“星期X”
+        const weekDays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+        const weekDay = weekDays[dayOfWeek];
+        document.getElementById('currentDate').innerHTML = `当前时间：${year}年${month}月${day}日，${weekDay}，${hours}时${minutes}分`;
+
+        // 显示季节
+        const seasons = ["冬季", "春季", "夏季", "秋季", "冬季"];
+        const season = seasons[Math.floor((month - 1) / 3)];
+        document.getElementById('season').innerHTML = `当前季节：${season}`;
+
+        // 显示今天距离周六还有天
+        const daysToNextSaturday = (6 - dayOfWeek + 7) % 7;
+        document.getElementById('daysToNextSaturday').innerHTML = `今天距离周六还有${daysToNextSaturday}天`;
+
+        // 显示今天是今年的第几天
+        const dayOfYear = Math.floor((today - new Date(year, 0, 0)) / 1000 / 60 / 60 / 24) + 1;
+        document.getElementById('dayOfYear').innerHTML = `今天是今年的第${dayOfYear}天`;
+
+        // 简化的农历日期计算
+        function getLunarDate(year, month, day) {
+            // 这里使用一个简化的算法，仅用于示例
+            // 实际的农历转换需要一个更复杂的算法
+            const lunarNewYear = new Date(year, 0, 23); // 假设农历正月初一在1月23日
+            const daysSinceLunarNewYear = Math.floor((today - lunarNewYear) / 1000 / 60 / 60 / 24);
+            const lunarMonth = Math.ceil((daysSinceLunarNewYear - 1) / 30) + 1;
+            const lunarDay = (daysSinceLunarNewYear - 1) % 30 + 1;
+            document.getElementById('lunarDate').innerHTML = `农历：${lunarMonth}月${lunarDay}日`;
+        }
+
+        getLunarDate(year, month, day);
+
+        // 显示中国传统节日
+        const chineseFestival = checkChineseFestival(year, month, day);
+        document.getElementById('chineseFestival').innerHTML = chineseFestival;
+
+        // 显示节气
+        const solarTerms = checkSolarTerms(month, day);
+        document.getElementById('solarTerms').innerHTML = solarTerms;
+
+        // 显示国际节日
+        const internationalFestival = checkInternationalFestival(month, day);
+        document.getElementById('internationalFestival').innerHTML = internationalFestival;
+
+        function checkChineseFestival(year, month, day) {
+            const festivals = {
+                "春节": [1, 23], // 假设春节在公历1月23日
+                "元宵节": [1, 15],
+                "龙抬头、社日节": [2, 2],
+                "清明节": [4, 5],
+                "端午节": [5, 5],
+                "七夕节": [7, 7],
+                "中秋节": [8, 15],
+                "重阳节": [9, 9],
+                "除夕": [12, 31] // 假设除夕在12月31日
+            };
+            for (const [festival, [fMonth, fDay]] of Object.entries(festivals)) {
+                if (month === fMonth && day === fDay) {
+                    return `今天是：${festival}`;
+                }
+            }
+            return "今天不是节日";
+        }
+
+        function checkSolarTerms(month, day) {
+            const terms = {
+                "立春": [2, 4],
+                "雨水": [2, 19],
+                "惊蛰": [3, 5],
+                "春分": [3, 20],
+                "清明": [4, 4],
+                "谷雨": [4, 19],
+                "立夏": [5, 5],
+                "小满": [5, 20],
+                "芒种": [6, 5],
+                "夏至": [6, 21],
+                "小暑": [7, 6],
+                "大暑": [7, 22],
+                "立秋": [8, 7],
+                "处暑": [8, 22],
+                "白露": [9, 7],
+                "秋分": [9, 22],
+                "寒露": [10, 8],
+                "霜降": [10, 23],
+                "立冬": [11, 7],
+                "小雪": [11, 22],
+                "大雪": [12, 6],
+                "冬至": [12, 21],
+                "小寒": [1, 5],
+                "大寒": [1, 20]
+            };
+            for (const [term, [tMonth, tDay]] of Object.entries(terms)) {
+                if (month === tMonth && day === tDay) {
+                    return `今天是：${term}`;
+                }
+            }
+            return "今天没有节气";
+        }
+
+        function checkInternationalFestival(month, day) {
+            const festivals = {
+                "六一儿童节": [6, 1],
+                "圣诞节": [12, 25]
+            };
+            for (const [festival, [fMonth, fDay]] of Object.entries(festivals)) {
+                if (month === fMonth && day === fDay) {
+                    return `今天是：${festival}`;
+                }
+            }
+            return "今天没有国际节日";
         }
     </script>
     <!-- 备注:到这即可 -->
