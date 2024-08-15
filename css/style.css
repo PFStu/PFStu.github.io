@@ -43,7 +43,7 @@ body ::after {
     top: 0;
     left: 0;
     backdrop-filter: blur(10px);
-    z-index: -1000;
+    z-index: -10;
 }
 
 
@@ -125,7 +125,7 @@ body ::after {
 .text {
     font-family: "MiSans", sans-serif;
     text-align: center;
-    color: rgba(255,255,255, 0.65);
+    color: rgb(255,255,255);
     filter: blur(0.35px);
     animation: text 5s linear infinite;
 
@@ -147,11 +147,6 @@ body ::after {
     text-underline: none;
 }
 
-#title {
-    font-size: 36px;
-    color: white;
-    text-align: center;
-}
 
 #subtitle {
     font-size: 24px;
@@ -214,4 +209,68 @@ body ::after {
 
 #Tools-title {
     font-size: 36px;
+}
+
+@keyframes ScrollIn {
+    from {
+        opacity: 0;
+        scale: 0.5;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+.btn {
+    position: relative;
+    width: 250px;
+    height: 32px;
+    left: 50%;
+    margin-left: -8.975%;
+    background: rgb(0, 0, 0);
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+.btn ::before {
+    margin-left: -45%;
+    margin-top: 3%;
+    content: "";
+    position: absolute;
+    width: 325px;
+    height: 50px;
+    background:
+            linear-gradient(to bottom, #00ccff, #df00f9);
+    z-index: -10;
+    animation: rotate 4s linear infinite;
+}
+
+.btn ::after {
+    content: "";
+    margin-left: 1.2%;
+    margin-top: -1.02261815%;
+    position: absolute;
+    width: 240px;
+    height: 23px;
+    background:rgb(0, 0, 50);
+    border-radius: 20px;
+}
+.btn h1 {
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    text-shadow: 2px 2px darkblue;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
