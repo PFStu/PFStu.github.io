@@ -40,82 +40,6 @@ body ::after {
     z-index: -10;
 }
 
-
-@keyframes background {
-    0%, 100% {
-        background-size:
-                130vmax 130vmax,
-                80vmax 80vmax,
-                90vmax 90vmax,
-                110vmax 110vmax,
-                90vmax 90vmax;
-        background-position:
-                -80vmax -80vmax,
-                60vmax -30vmax,
-                10vmax 10vmax,
-                -30vmax -10vmax,
-                50vmax 50vmax;
-    }
-    25% {
-        background-size:
-                100vmax 100vmax,
-                90vmax 90vmax,
-                100vmax 100vmax,
-                90vmax 90vmax,
-                60vmax 60vmax;
-        background-position:
-                -60vmax -90vmax,
-                50vmax -40vmax,
-                0 -200vmax,
-                -40vmax -20vmax,
-                40vmax 60vmax;
-    }
-    50% {
-        background-size:
-                80vmax 80vmax,
-                110vmax 110vmax,
-                80vmax 80vmax,
-                60vmax 60vmax,
-                80vmax 80vmax;
-        background-position:
-                -50vmax -70vmax,
-                40vmax -30vmax,
-                10vmax 0,
-                20vmax 10vmax,
-                30vmax 70vmax;
-    }
-    75% {
-        background-size:
-                90vmax 90vmax,
-                90vmax 90vmax,
-                100vmax 100vmax,
-                90vmax 90vmax,
-                70vmax 70vmax;
-        background-position:
-                -50vmax -80vmax,
-                50vmax -30vmax,
-                20vmax 0,
-                -10vmax 10vmax,
-                40vmax 60vmax;
-    }
-}
-.star {
-    position: absolute;
-    background-color: white;
-    border-radius: 50%;
-    animation: starAnimation linear infinite;
-}
-
-
-@keyframes starAnimation {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(100vw);
-    }
-}
-
 .text {
     font-family: "MiSans", sans-serif;
     text-align: center;
@@ -287,5 +211,13 @@ body ::after {
 }
 
 #tips {
+    font-size: 38px;
+}
+
+#PF-Windows10-title {
+    font-size: 38px;
+}
+
+#PF-WebGame-title {
     font-size: 38px;
 }
