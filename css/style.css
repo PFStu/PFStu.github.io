@@ -46,20 +46,9 @@ body ::after {
     color: rgb(255,255,255);
     filter: blur(0.35px);
     animation: text 5s linear infinite;
-
+    text-shadow: 0 0 10px #ffffff90;
 }
 
-@keyframes text {
-    0% {
-        text-shadow: 0 0 20px #ffffff90;
-    }
-    50% {
-        text-shadow: 0 0 10px #ffffff90;
-    }
-    100% {
-        text-shadow: 0 0 20px #ffffff90;
-    }
-}
 
 #win8-link-text {
     text-underline: none;
