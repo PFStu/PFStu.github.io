@@ -10,9 +10,8 @@
 }
 
 body {
-    background: linear-gradient(125deg, #99cc00, #669966, #2980b9, #9966cc, #9900cc);
-    background-size:400%;
-    animation: backgroundmove 40s ease infinite;
+    background: linear-gradient(-125deg, #99aa00, #669966, #2980b9, #9966cc, #9900cc);
+    //animation: backgroundmove 40s ease infinite;
 }
 
 @keyframes backgroundmove {
@@ -49,7 +48,30 @@ body ::after {
     text-shadow: 0 0 10px #ffffff90;
 }
 
+a {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    padding: 20px;
+    text-decoration: none;
+    transition: .5s;
+    border-radius: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(to right, #2980b9, #9966cc);
+    border: 2px solid #fff3;
+}
 
+a p{
+    transition: 1s;
+    position: relative;
+    z-index: 1;
+}
+
+a p:hover {
+    color: yellow;
+}
 #win8-link-text {
     text-underline: none;
 }
@@ -127,50 +149,6 @@ body ::after {
         opacity: 1;
         scale: 1;
     }
-}
-
-.btn {
-    position: relative;
-    width: 250px;
-    height: 32px;
-    transform: translatex(-50%);
-    left: 50%;
-    background: rgb(0, 0, 0);
-    border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-
-.btn ::before {
-    margin-left: -45%;
-    margin-top: 3%;
-    content: "";
-    position: absolute;
-    width: 325px;
-    height: 50px;
-    background:
-            linear-gradient(to bottom, #00ccff, #df00f9);
-    z-index: -10;
-    animation: rotate 4s linear infinite;
-}
-
-.btn ::after {
-    content: "";
-    margin-left: 1.2%;
-    margin-top: -1.02261815%;
-    position: absolute;
-    width: 240px;
-    height: 23px;
-    background:rgb(0, 0, 50);
-    border-radius: 20px;
-}
-.btn h1 {
-    color: white;
-    font-size: 24px;
-    text-align: center;
-    text-shadow: 2px 2px darkblue;
 }
 
 @keyframes rotate {
