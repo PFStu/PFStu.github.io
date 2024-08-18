@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,7 @@
             height: auto;
         }
     </style>
-    <img src="https://p.cdn-static.cn/92476_17223447822113.png?imageView2/2/w/2000/q/89/format/webp" alt="顶部图像">
+    <img src="https://30078178.s21i.faiusr.com/2/6/ABUIABACGAAgq7yGtgYo8Pbl7Qcw6QM4WA.jpg" alt="顶部图像">
 <a href="https://pfstu.github.io/PFTools/Download.html">
     <img src="https://30078178.s21i.faiusr.com/4/6/ABUIABAEGAAg9tXbtQYosNOOtgEw5gI4TA.png" alt="Image">
 </a>
@@ -48,6 +48,7 @@
         }
            </script>
        </div>
+    <div>
       <h1>极简计算器</h1>
           <p>预览:</p>
           <p>===============</p>
@@ -130,7 +131,8 @@
             }
         }
     </script>
-        <div>
+  </div>
+     <div>
          <h1>时间和计时</h1>
          <p>预览:</p>
          <p>===============</p>
@@ -152,8 +154,6 @@
             margin-top: 10px;
         }
     </style>
-</head>
-
 <body>
     <div class="time-display">
         <span id="currentTime">当前时间:</span>
@@ -198,11 +198,11 @@
                 }
             }, 1000);
         }
-        
         // 启动时钟
         setInterval(updateClock, 1);
     </script>
-        <div>
+       </div>
+       <div>
          <h1>音频超速播放器</h1>
          <p>预览:</p>
          <p>===============</p>
@@ -237,7 +237,8 @@
         document.getElementById('audio').playbackRate = speed;
     });
 </script>
-<div>
+     </div>
+         <div>
          <h1>中文ASCII码加密解密工具</h1>
          <p>预览:</p>
          <p>===============</p>
@@ -279,6 +280,8 @@
             document.getElementById('ciphertext').value = plaintext;
         }
     </script>
+           </div>
+       <div>
          <h1>文本朗读工具</h1>
          <p>预览:</p>
          <p>===============</p>
@@ -297,7 +300,9 @@
             window.speechSynthesis.speak(speech);
         }
     </script>
-         <h1>可视化十六进制代码编辑工具</h1>
+         </div>
+       <div>
+         <h1>可视化十六进制颜色代码编辑工具</h1>
          <p>预览:</p>
          <p>===============</p>
  <div class="color-picker">
@@ -353,6 +358,8 @@ function updateColor() {
 
 updateColor();
 </script>
+         </div>
+       <div>
 <h1>简易货币汇率</h1>
 <p>预览:</p>
          <p>===============</p>
@@ -366,13 +373,11 @@ updateColor();
             <option value="JPY">日元</option>
         </select>
         <button onclick="window.currencyConverter()">转换</button>
-        <p id="resultCNYtobe"></p> <!-- 修改输出元素的ID -->
+        <p id="resultCNYtobe"></p>
     </div>
 
     <script>
-        // 使用IIFE封装，避免命名冲突
         (function() {
-            // 将 'YOUR_API_KEY' 替换为你在 ExchangeRatesAPI 获取的实际API密钥
             const API_KEY = 'YOUR_API_KEY';
             const API_URL = 'https://api.exchangerate-api.com/v4/latest/CNY';
 
@@ -385,7 +390,7 @@ updateColor();
             async function convertCurrency() {
                 const amountInput = document.getElementById('amount');
                 const currencyInput = document.getElementById('currency');
-                const resultOutput = document.getElementById('resultCNYtobe'); // 使用新的ID
+                const resultOutput = document.getElementById('resultCNYtobe');
 
                 const amount = parseFloat(amountInput.value);
                 const currency = currencyInput.value;
@@ -401,10 +406,12 @@ updateColor();
                 resultOutput.innerText = `${amount} 人民币 = ${convertedAmount.toFixed(2)} ${currency}`;
             }
 
-            // 将函数暴露给全局作用域，以便按钮可以调用
+            // GPT:将函数暴露给全局作用域，以便按钮可以调用
             window.currencyConverter = convertCurrency;
         })();
     </script>
+         </div>
+         <div>
     <h1>十进制转换二进制</h1>
 <p>预览:</p>
          <p>===============</p>
@@ -424,6 +431,8 @@ updateColor();
         <input type="button" value="转换" onclick="convertToBinary()">
     </form>
     <p>二进制结果: <span id="binaryOutput"></span></p>
+        </div>
+       <div>
     <h1>时间简表工具</h1>
 <p>预览:</p>
          <p>===============</p>
@@ -556,6 +565,195 @@ updateColor();
             return "今天没有国际节日";
         }
     </script>
+   </div>
+  <div>    
+<h1>随机语句显示工具</h1>
+<p>预览:</p>
+         <p>===============</p>
+<script>
+const quotes = [
+    {
+        quote: "知识就是力量。",
+        translation:"Knowledge is power.",
+        author: "弗朗西斯·培根"
+    },
+    {
+        quote: "我思故我在。",
+        translation: "I think, therefore I am.",
+        author: "笛卡尔"
+    },
+    {
+        quote: "时间就是金钱。",
+        translation: "Time is money.",
+        author: "本杰明·富兰克林"
+    },
+    {
+        quote: "海上生明月，天涯共此时。",
+        translation: "The moon is born above the sea,From afar, we share this sight with thee.",
+        author: "张九龄"
+    },
+      {
+        quote: "但愿人长久，千里共婵娟。",
+        translation: "May we live long and well,Though apart, together we dwell.",
+        author: "苏轼"
+    },
+      {
+        quote: "两岸猿声啼不住，轻舟已过万重山。",
+        translation: "The monkeys' cries on both banks don't cease,My light boat glides past countless hills with ease.",
+        author: "王之涣"
+    },
+      {
+        quote: "会当凌绝顶，一览众山小。",
+        translation: "We shall climb the highest peak,And see all mountains small and meek.",
+        author: "杜甫"
+    },
+      {
+        quote: "无边落木萧萧下，不尽长江滚滚来。",
+        translation: "Leaves fall endlessly, a rustling sound,The Yangtze flows on, forever unbound.",
+        author: "杜甫"
+    },
+      {
+        quote: "明月几时有？把酒问青天。",
+        translation: "When will the bright moon appear?I lift my cup and ask the azure sky.",
+        author: "苏轼"
+    },
+      {
+        quote: "人生得意须尽欢，莫使金樽空对月。",
+        translation: "When life brings joy, one must fully partake,Don't let the golden cup face the moon, alone and forsake..",
+        author: "李白"
+    },
+      {
+        quote: "欲穷千里目，更上一层楼。",
+        translation: "To see a thousand miles, climb one more floor,To reach beyond the horizon, seek ever more.",
+        author: "王之涣"
+    },
+      {
+        quote: "山重水复疑无路，柳暗花明又一村。",
+        translation: "Mountains multiply, waters loop, a path seems lost,Yet through dark willows, bright flowers, a new village is crossed.",
+        author: "陆游"
+    },
+      {
+        quote: "纸上得来终觉浅，绝知此事要躬行。",
+        translation: "What's learned on paper seems shallow at best,To truly know, one must act, put theory to the test.",
+        author: "陆游"
+    },
+    {
+        quote: "月落乌啼霜满天，江枫渔火对愁眠。",
+        translation:"At moonset cry the crows, streaking the frosty sky,Dimly lit fishing boats‘neath maples sadly lie.",
+        author: "张继"
+    },
+    {
+        quote: "孤帆远影碧空尽，唯见长江天际流。",
+        translation:"A lonely sail's distant shadow fades into the azure sky,Only the Yangtze's flow is seen, stretching to the edge of the eye.",
+        author: "李白"
+    },
+
+      {
+        quote: "星垂平野阔，月涌大江流。",
+        translation:"Stars hang low over the vast plains, the moon rises, making the great river surge.",
+        author: "杜甫"
+    },
+
+      {
+        quote: "大漠孤烟直，长河落日圆。",
+        translation:"In the vast desert, a lone smoke rises straight,The long river flows, with the setting sun's round gate.",
+        author: "王维"
+    },
+
+      {
+        quote: "笨鸟先飞早入林，笨人勤学早成材。",
+        translation:"A slow bird must start flying early to get to the woods first; a slow person must study diligently to succeed early. ",
+        author: "《省世格言》"
+    },
+
+      {
+        quote: "书山有路勤为径，学海无涯苦作舟。",
+        translation:"In the mountain of books, diligence is the path; in the sea of learning, suffering is the boat.",
+        author: "《增广贤文》"
+    },
+
+      {
+        quote: "不怨天，不尤人。",
+        translation:"Do not complain about heaven, nor blame others.",
+        author: "《论语》"
+    },
+
+      {
+        quote: "生于忧患，死于安乐。",
+        translation:"Knowledge is power.",
+        author: "孟子"
+    },
+
+      {
+        quote: "知识就是力量。",
+        translation:"One is born into troubles, and dies in ease.",
+        author: "弗朗西斯·培根"
+    },
+
+      {
+        quote: "三思而后行。",
+        translation:"Think three times before you act.",
+        author: "《论语》"
+    },
+
+      {
+        quote: "知之者不如好之者，好之者不如乐之者。",
+        translation:"Those who know it are not as good as those who love it, and those who love it are not as good as those who take pleasure in it.",
+        author: "《论语》"
+    },
+
+      {
+        quote: "工欲善其事，必先利其器。",
+        translation:"If a craftsman wishes to do his work well, he must first sharpen his tools.",
+        author: "《论语》"
+    },
+
+      {
+        quote: "三人行，必有我师焉。",
+        translation:"When walking with three people, I can always find a teacher among them.",
+        author: "《论语》"
+    },
+{
+        quote: "学而不思则罔，思而不学则殆。",
+        translation:"If you study without thinking, you will be lost; if you think without studying, you will be in danger.",
+        author: "《论语》"
+    },
+{
+        quote: "天行健，君子以自强不息。",
+        translation:"Think three times before you act.",
+        author: "《论语》"
+    },
+{
+        quote: "三思而后行。",
+        translation:"Think three times before you act.",
+        author: "《论语》"
+    },
+
+  
+  
+];
+
+function getRandomQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    return quotes[randomIndex];
+}
+
+function updateQuote() {
+    const quote = getRandomQuote();
+    document.getElementById('quote').innerText = quote.quote;
+    document.getElementById('translation').innerText = quote.translation;
+    document.getElementById('author').innerText = quote.author;
+}
+
+window.onload = updateQuote;
+</script>
+</head>
+<body>
+<h1>随机语句</h1>
+<p id="quote"></p>
+<p>EN:<span id="translation"></span></p>
+<p>——  <span id="author"></span></p>
+  <p>(随机显示一句，页面打开和刷新时切换)</p>
     <!-- 备注:到这即可 -->
 </body>
 </html>
