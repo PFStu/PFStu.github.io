@@ -60,7 +60,7 @@ function toggleTheme(button) {
     const body = document.body;
     const bgColor = window.getComputedStyle(body).backgroundImage;
     if (bgColor === "linear-gradient(-125deg, rgb(153, 170, 0), rgb(102, 153, 102), rgb(41, 128, 185), rgb(153, 102, 204), rgb(153, 0, 204))"){
-        body.style.background = "linear-gradient(-125deg, rgb(72, 61, 139), rgb(75, 2, 130), rgb(0, 0, 139), rgb(0, 90, 0), rgb(128, 128, 0))";
+        body.style.background = "linear-gradient(-125deg, rgb(72, 61, 139), rgb(75, 2, 130), rgb(0, 0, 139), rgb(0, 50, 0), rgb(32, 32, 0))";
     }else{
         body.style.background = "linear-gradient(-125deg, rgb(153, 170, 0), rgb(102, 153, 102), rgb(41, 128, 185), rgb(153, 102, 204), rgb(153, 0, 204))"
     }
