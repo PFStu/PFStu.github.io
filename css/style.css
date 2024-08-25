@@ -179,13 +179,13 @@ a p:hover {
     top: 10px;
     left: 10px;
     color: white;
-    background-color: rebeccapurple;
+    background: linear-gradient(135deg, #ff6e7f, #bfe9ff);
     padding: 10px 20px;
     font-family: 'Arial', sans-serif;
     font-size: 18px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    animation: pulse 10s infinite;
+    animation: pulse 2s infinite;
     overflow: hidden;
 }
 
