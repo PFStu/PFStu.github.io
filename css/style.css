@@ -11,19 +11,6 @@
 
 body {
     background: linear-gradient(-125deg, #99aa00, #669966, #2980b9, #9966cc, #9900cc);
-    //animation: backgroundmove 40s ease infinite;
-}
-
-@keyframes backgroundmove {
-    0% {
-        background-position: 0 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0 50%;
-    }
 }
 
 body ::after {
@@ -34,8 +21,6 @@ body ::after {
     height: 100%;
     top: 0;
     left: 0;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     z-index: -10;
 }
 
@@ -194,13 +179,13 @@ a p:hover {
     top: 10px;
     left: 10px;
     color: white;
-    background: linear-gradient(135deg, #ff6e7f, #bfe9ff);
+    background-color: rebeccapurple;
     padding: 10px 20px;
     font-family: 'Arial', sans-serif;
     font-size: 18px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    animation: pulse 2s infinite;
+    animation: pulse 10s infinite;
     overflow: hidden;
 }
 
@@ -209,7 +194,7 @@ a p:hover {
         transform: scale(1);
     }
     50% {
-        transform: scale(1.02);
+        transform: scale(1.01);
     }
     100% {
         transform: scale(1);
