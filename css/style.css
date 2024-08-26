@@ -51,7 +51,16 @@ a {
     transform: translateX(-50%);
     z-index: 1;
 }
-
+a #themebtn {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    background: linear-gradient(45deg, #000, #333);
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
 
 a::before {
     content: '';
@@ -65,6 +74,18 @@ a::before {
     transition: opacity 0.1s ease;
     z-index: -1;
     overflow: hidden;
+}
+
+a #themebtn::before {
+    display:block;
+}
+
+a #themebtn:hover{
+    opacity: 1;
+}
+
+a #themebtn:hover::before {
+    opacity: 1;
 }
 
 a:hover {
@@ -220,17 +241,6 @@ a:hover::before {
     }
 }
 
-#themebtn {
-    padding: 15px 30px;
-    font-size: 18px;
-    color: white;
-    background: linear-gradient(45deg, #000, #333);
-    border: 3.5px solid #fff; /* 加粗边框 */
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
 
 #themebtn:hover {
     background: linear-gradient(45deg, #333, #000);
@@ -258,7 +268,6 @@ a:hover::before {
     padding: 15px 30px;
     font-size: 18px;
     color: white;
-    border: 3.5px solid #fff; /* 加粗边框 */
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -278,7 +287,6 @@ a:hover::before {
     padding: 15px 30px;
     font-size: 18px;
     color: white;
-    border: 3.5px solid #fff; /* 加粗边框 */
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -295,7 +303,6 @@ a:hover::before {
     font-size: 18px;
     color: white;
     background-color: #3498db;
-    border: 3.5px solid #fff; /* 加粗边框 */
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
