@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PF软件集</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .header {
+            background-color: #0e0303;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .search-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #search-input {
+            padding: 10px;
+            width: 30%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        #search-button {
+            padding: 10px 20px;
+            background-color: #fff;
+            border: none;
+            border-radius: 10px;
+            color: #000;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.1s;
+        }
+
+        #search-button:hover {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .softs {
+            padding: 20px;
+        }
+
+        .softcard {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .softcard img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .line, .lineopc {
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+        }
+
+        a {
+            display: inline-block;
+            margin-right: 10px;
+            color: #000;
+            background-color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            background-color: #000;
+            color: #fff
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>PF软件集</h1>
+        <p>许多专业,有趣,使用的软件分享</p>
+    </div>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="搜索软件...">
+        <button id="search-button">搜索</button>
+    </div>
+    <div class="softs">
+        <div class="class">
+            <h1>系统工具</h1>
+            <p>System tools</p>
+        </div>
+        <div class="softcard" id="Translucenttb">
+            <h2>TranslucentTB</h2>
+            <p>64bit,System:Windows 8/10/11</p>
+            <p>TranslucentTB是一款Windows系统的工具,它可以使你的任务栏背景透明,使你的任务栏看起来更加美观。</p>
+            <img src="img/Translucenttb.jpg" alt="TranslucentTB">
+            <div class="lineopc"></div>
+            <a href="https://apps.microsoft.com/detail/9pf4kz2vn4w9?launch=true&mode=full&hl=zh-cn&gl=cn&ocid=bingwebsearch" target="_blank">下载(MicrosoftStore)</a>
+            <a href="https://www.123pan.com/s/vxMXjv-G0lDH" target="_blank">下载(123网盘)</a>
+        </div>
+        <div class="line"></div>
+        <div class="softcard" id="LivelyWallpaper">
+            <h2>LivelyWallpaper</h2>
+            <p>64bit,System:Windows 10/11</p>
+            <p>LivelyWallpaper是一款Windows系统的工具,它可以使你的桌面背景动起来,让你的桌面看起来更加生动。</p>
+            <img src="img/LivelyWallpaper.jpg" alt="LivelyWallpaper">
+            <div class="lineopc"></div>
+            <a href="https://apps.microsoft.com/detail/9ntm2qc6qws7?hl=zh-cn&gl=CN" target="_blank">下载(MicrosoftStore)</a>
+            <a href="https://www.123pan.com/s/vxMXjv-n0lDH" target="_blank">下载(123网盘)</a>
+        </div>
+        <div class="line"></div>
+        <div class="softcard" id="PowerToys">
+            <h2>PowerToys</h2>
+            <p>64bit,System:Windows 10/11</p>
+            <p>PowerToys是一款Windows系统的工具,它可以使你的Windows体验更加流畅,更加顺滑。</p>
+            <img src="img/PowerToys.jpg" alt="PowerToys">
+            <div class="lineopc"></div>
+            <a href="https://apps.microsoft.com/detail/xp89dcgq3k6vld?hl=zh-cn&gl=CN" target="_blank">下载(MicrosoftStore)</a>
+            <a href="https://www.123pan.com/s/vxMXjv-s0lDH" target="_blank">下载(123网盘)</a>
+        </div>
+    </div>
+    <script>
+        document.getElementById('search-button').addEventListener('click', function() {
+            const searchTerm = document.getElementById('search-input').value;
+            const regex = new RegExp(searchTerm, 'i');
+            const softcards = document.querySelectorAll('.softcard');
+
+            softcards.forEach(function(softcard) {
+                const title = softcard.querySelector('h2').textContent;
+                if (regex.test(title)) {
+                    softcard.style.display = 'block';
+                } else {
+                    softcard.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
