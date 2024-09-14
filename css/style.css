@@ -304,6 +304,7 @@ a:hover::before {
     font-size: 18px;
     color: white;
     background-color: #3498db; /* 背景颜色 */
+    border: none;
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
