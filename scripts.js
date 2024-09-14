@@ -30,12 +30,6 @@ window.onload = function(){
     t["innerHTML"] = r;
 }
 
-audio = new Audio("../music/Tek(Sped up).mp3");
-audio.play();
-audio.playbackRate = 0.825;
-let frameCount = 0;
-let fps = 0;
-
 function updateFPS() {
     fps = frameCount;
     document.getElementById("fps").textContent = "FPS: " + fps;
