@@ -9,15 +9,115 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #1e1e1e;
+            color: #e0e0e0;
             text-align: center;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .header {
-            background-color: #0e0303;
-            color: white;
-            padding: 10px 0;
+            background-color: #121212;
+            color: #ffffff;
+            padding: 20px 0;
             text-align: center;
+        }
+
+        .dark-theme .theme-toggle {
+            position: absolute;
+            box-shadow: 0px 0px 10px #444;
+            padding: 20px;
+            background-color: #2d2e36;
+            top: 20px;
+            right: 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 1s;
+        }
+
+        .light-theme .theme-toggle {
+            position: absolute;
+            box-shadow: 0px 0px 10px #fff;
+            padding: 20px;
+            background-color: #fff;
+            top: 20px;
+            right: 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 1s;
+        }
+
+        .dark-theme {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+
+        .dark-theme #search-input {
+            padding: 10px;
+            width: 30%;
+            border: 1px solid #444;
+            border-radius: 10px;
+            font-size: 16px;
+            background-color: #333;
+            color: #ffffff;
+        }
+
+        .dark-theme .softcard {
+            background-color: #2c2c2c;
+        }
+
+        .dark-theme a {
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 10px;
+            color: #ffffff;
+            background-color: #444;
+            transition: 0.3s;
+        }
+
+        .light-theme {
+            background-color: #f4f4f4;
+            color: #000000;
+        }
+
+        .light-theme #search-input {
+            padding: 10px;
+            width: 30%;
+            border: 1px solid #d0d0d0;
+            border-radius: 10px;
+            font-size: 16px;
+            background-color: #fff;
+            color: #000;
+        }
+
+        .light-theme .softcard {
+            background-color: #ffffff;
+        }
+
+        .light-theme .line, .light-theme .lineopc {
+            border-top: 1px solid #ddd;
+        }
+
+        .light-theme a {
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 10px;
+            color: #000;
+            background-color: #fff;
+            transition: 0.3s;
+        }
+
+        .light-theme a:hover {
+            background-color: #000;
+            color: #ffffff;
+        }
+
+        .light-theme #search-button {
+            background-color: #e0e0e0;
+            color: #000;
+        }
+
+        .light-theme #search-button:hover {
+            background-color: #d0d0d0;
         }
 
         .search-container {
@@ -25,27 +125,19 @@
             margin: 20px 0;
         }
 
-        #search-input {
-            padding: 10px;
-            width: 30%;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-
         #search-button {
             padding: 10px 20px;
-            background-color: #fff;
+            background-color: #777;
             border: none;
             border-radius: 10px;
-            color: #000;
+            color: #ffffff;
             font-size: 16px;
             cursor: pointer;
-            transition: 0.1s;
+            transition: 0.3s;
         }
 
         #search-button:hover {
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #999;
         }
 
         .softs {
@@ -53,11 +145,10 @@
         }
 
         .softcard {
-            background-color: white;
             padding: 20px;
             margin-bottom: 20px;
             border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .softcard img {
@@ -67,31 +158,27 @@
         }
 
         .line, .lineopc {
-            border-top: 1px solid #ddd;
+            border-top: 1px solid #444;
             margin: 20px 0;
         }
 
-        a {
-            display: inline-block;
-            margin-right: 10px;
-            color: #000;
-            background-color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            transition: 0.3s;
-        }
-
         a:hover {
-            background-color: #000;
-            color: #fff
+            background-color: #666;
+            color: #ffffff;
+        }
+        
+        .important {
+            color: lightblue;
         }
     </style>
 </head>
-<body>
+<body class="dark-theme">
     <div class="header">
         <h1>PF软件集</h1>
         <p>许多专业,有趣,使用的软件分享</p>
+        <p class="important">*如有任何侵犯您的权益,请联系ch_bow@126.com或qq3814084009删除</p>
+        <p class="important">*123盘更新较慢</p>
+        <img id="theme-toggle" class="theme-toggle" src="img/dark.jpg" alt="切换主题" width="30px"> 
     </div>
     <div class="search-container">
         <input type="text" id="search-input" placeholder="搜索软件...">
@@ -139,8 +226,87 @@
             <img src="img/Modern.jpg" alt="ModrenFix">
             <div class="lineopc"></div>
             <a href="https://www.123pan.com/s/vxMXjv-C0lDH" target="_blank">下载(123网盘)</a>
+        </div>
+        <div class="line"></div>
+        <div class="class">
+        <div class="softcard" id="Everything">
+            <h2>Everything</h2>
+            <p>64_32bit,System:Windows 7/8/10/11</p>
+            <p>Everything是一款Windows系统的工具,它可以快速搜索你电脑中的文件,文件夹,压缩包,图片,视频,音乐等。</p>
+            <img src="img/Everything.jpg" alt="Everything">
+            <div class="lineopc"></div>
+            <a href="https://www.voidtools.com/zh-cn/" target="_blank">下载(官网)</a>
+            <a href="https://www.123pan.com/s/vxMXjv-nSlDH" target="_blank">下载(123网盘)</a>
+        </div>
+        <div class="line"></div>
+        <div class="softcard" id="7zip">
+            <h2>7-Zip</h2>
+            <p>64_32bit,System:Windows 7/8/10/11</p>
+            <p>7-Zip是一款Windows系统的工具,它可以快速压缩/解压文件,文件夹,压缩包,图片,视频,音乐等。</p>
+            <img src="img/7-zip.jpg" alt="7-Zip">
+            <div class="lineopc"></div>
+            <a href="https://www.7-zip.org/download.html" target="_blank">下载(官网)</a>
+            <a href="https://www.123pan.com/s/vxMXjv-WSlDH" target="_blank">下载(123网盘)</a>
+        </div>
+        <div class="line"></div>
+        <div class="softcard" id="Motrix">
+            <h2>Motrix</h2>
+            <p>64bit,System:Windows 7/8/10/11</p>
+            <p>Motrix是一款Windows系统的工具,它可以快速下载/上传文件,文件夹,压缩包,图片,视频,音乐等。</p>
+            <img src="img/Motrix.jpg">
+            <div class="lineopc"></div>
+            <a href="https://motrix.app/" target="_blank">下载(官网)</a>
+        </div>
+        <div class="line"></div>
+        <div class="softcard" id="UltraISO">
+            <h2>UltraISO</h2>
+            <p>64_32bit,System:Windows 7/8/10/11</p>
+            <p>UltraISO是一款Windows系统的工具,它可以快速制作/修复ISO镜像文件。</p>
+            <img src="img/UltraISO.jpg" alt="UltraISO">
+            <div class="lineopc"></div>
+            <a href="https://www.ultraiso.com/" target="_blank">下载(官网)</a>
+            <a href="https://www.123pan.com/s/vxMXjv-CSlDH" target="_blank">下载(123网盘)</a>
+        </div>
+        <div class="line"></div>
+        <div class="class">
+        <div class="softcard" id="ResourceHacker">
+            <h2>Resource Hacker</h2>
+            <p>64_32bit,System:Windows 7/8/10/11</p>
+            <p>Resource Hacker是一款Windows系统的工具,它可以快速修改/修复二进制资源文件。</p>
+            <img src="img/resourcehacker.jpg" alt="ResourceHacker">
+            <div class="lineopc"></div>
+            <a href="https://www.angusj.com/resourcehacker/" target="_blank">下载(官网)</a>
+            <a href="https://www.123pan.com/s/vxMXjv-OSlDH" target="_blank">下载(123网盘)</a>
+        </div>
+        <div class="line"></div>
+        <div class="softcard" id="Cmder">
+            <h2>Cmder</h2>
+            <p>64_32bit,System:Windows 7/8/10/11</p>
+            <p>Cmder是一款强大的命令行工具,它可以执行许多Terminal没有的命令。</p>
+            <img src="img/Cmder.jpg" alt="Cmder">
+            <div class="lineopc"></div>
+            <a href="https://cmder.app/" target="_blank">下载(官网)</a>
+            <a href="https://www.123pan.com/s/vxMXjv-DSlDH" target="_blank">下载(123网盘)</a>
+        </div>
     </div>
     <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        let isDarkTheme = true;
+
+        themeToggle.addEventListener('click', function() {
+            isDarkTheme = !isDarkTheme;
+
+            if (isDarkTheme) {
+                document.body.classList.add('dark-theme');
+                document.body.classList.remove('light-theme');
+                themeToggle.src = 'img/dark.jpg';
+            } else {
+                document.body.classList.add('light-theme');
+                document.body.classList.remove('dark-theme');
+                themeToggle.src = 'img/light.jpg';
+            }
+        });
+
         document.getElementById('search-button').addEventListener('click', function() {
             const searchTerm = document.getElementById('search-input').value;
             const regex = new RegExp(searchTerm, 'i');
