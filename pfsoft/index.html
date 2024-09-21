@@ -15,6 +15,16 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
+        .goback {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 16px;
+            background-color: #777eee;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
         .header {
             background-color: #121212;
             color: #ffffff;
@@ -65,7 +75,7 @@
             background-color: #2c2c2c;
         }
 
-        .dark-theme a {
+        .dark-theme a:not(.goback) {
             text-decoration: none;
             padding: 10px;
             border-radius: 10px;
@@ -97,7 +107,7 @@
             border-top: 1px solid #ddd;
         }
 
-        .light-theme a {
+        .light-theme a:not(.goback) {
             text-decoration: none;
             padding: 10px;
             border-radius: 10px;
@@ -153,6 +163,7 @@
 
         .softcard img {
             max-width: 100%;
+            max-height: 200px;
             height: auto;
             border-radius: 10px;
         }
@@ -179,13 +190,23 @@
         <p class="important">*如有任何侵犯您的权益,请联系ch_bow@126.com或qq3814084009删除</p>
         <p class="important">*123盘更新较慢</p>
         <img id="theme-toggle" class="theme-toggle" src="img/dark.jpg" alt="切换主题" width="30px"> 
+        <div class="selection_container">
+            <a href="#System Tools" class="select_class" id="_System Tools">系统工具</a>
+            <a href="#Office Tools" class="select_class" id="_Office Tools">办公工具</a>
+            <a href="#Game Tools" class="select_class" id="_Game Tools">游戏工具</a>
+            <a href="#Programming Tools" class="select_class" id="_Programming Tools">编程工具</a>
+            <a href="#Other Tools" class="select_class" id="_Other Tools">其他工具</a>
+        </div>
+        <div class="goback">
+            <a href="javascript:window.scrollTo({top:0,behavior:'smooth'});">返回顶部</a>
+        </div>
     </div>
     <div class="search-container">
         <input type="text" id="search-input" placeholder="搜索软件...">
         <button id="search-button">搜索</button>
     </div>
     <div class="softs">
-        <div class="class">
+        <div class="class" id="System Tools">
             <h1>系统工具</h1>
             <p>System tools</p>
         </div>
@@ -287,6 +308,59 @@
             <div class="lineopc"></div>
             <a href="https://cmder.app/" target="_blank">下载(官网)</a>
             <a href="https://www.123pan.com/s/vxMXjv-DSlDH" target="_blank">下载(123网盘)</a>
+        </div>
+        <div class="class" id="Office Tools">
+            <h1>办公工具</h1>
+            <p>Office tools</p>
+        </div>
+        <div class="softcard" id="WPS Office">
+            <h2>WPS Office</h2>
+            <p>64_32bit,System:Windows >=xp</p>
+            <p>WPS Office是一款办公软件,它可以快速创建/编辑/预览文档,表格,演示文稿,幻灯片等。</p>
+            <img src="img/WPS.jpg" alt="WPS Office">
+            <div class="lineopc"></div>
+            <a href="https://www.wps.cn/product/wps-office" target="_blank">下载(官网)</a>
+            <a href="https://www.123pan.com/s/vxMXjv-TclDH" target="_blank">下载(123网盘)</a>
+        </div>
+        <div class="class" id="Game Tools">
+            <h1>游戏工具</h1>
+            <p>Game tools</p>
+        </div>
+        <div class="softcard" id="Origin">
+            <h2>MSI Afterburner</h2>
+            <p>64_32bit,System:Windows 7/8/10/11</p>
+            <p>MSI Afterburner是一款游戏&显卡提升工具,它可以提升你的游戏体验,让你的游戏更加流畅。</p>
+            <img src="img/MSI.jpg" alt="MSI">
+            <div class="lineopc"></div>
+            <a href="https://www.msi.com/Landing/afterburner/graphics-cards" target="_blank">下载(官网)</a>
+            <a href="https://www.123pan.com/s/vxMXjv-3clDH" target="_blank">下载(123网盘)</a>
+        </div>
+        <div class="class">
+            <h1 id="Programming Tools">编程工具</h1>
+            <p>Programming tools</p>
+        </div>
+        <div class="softcard" id="Sublime Text">
+            <h2>Sublime Text</h2>
+            <p>64_32bit,System:Windows 7/8/10/11</p>
+            <p>Sublime Text是一款强大的文本编辑器,它可以快速编写代码,进行各种语言的编程。</p>
+            <img src="img/Sublime Text.jpg" alt="Sublime Text">
+            <div class="lineopc"></div>
+            <a href="https://www.sublimetext.com/3" target="_blank">下载(官网)</a>
+            <a href="https://www.123pan.com/s/vxMXjv-hclDH" target="_blank">下载(123网盘)</a>
+        </div>
+        <div class="class">
+            <h1 id="Other Tools">其他工具</h1>
+            <p>Other tools</p>
+        </div>
+        <div class="line"></div>
+        <div class="softcard" id="Wireshark">
+            <h2>Wireshark</h2>
+            <p>64_32bit,System:Windows 7/8/10/11</p>
+            <p>Wireshark是一款网络分析工具,它可以捕捉和分析网络数据包,帮助你分析网络流量。</p>
+            <img src="img/Wireshark.jpg" alt="Wireshark">
+            <div class="lineopc"></div>
+            <a href="https://www.wireshark.org/download.html" target="_blank">下载(官网)</a>
+            <a href="https://www.123pan.com/s/vxMXjv-HclDH" target="_blank">下载(123网盘)</a>
         </div>
     </div>
     <script>
