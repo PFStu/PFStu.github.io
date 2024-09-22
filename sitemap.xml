@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <!-- Created By http://www.zhetao.com/sitemapcreator,  URLs: 6 Generated at: 2024-09-22 10:49:35 -->
+
+  <url>
+    <loc>https://pfstu.netlify.app/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://pfstu.netlify.app/bilipage/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://pfstu.netlify.app/pfsoft/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://pfstu.netlify.app/pe/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://pfstu.netlify.app/pftools/pftools</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://pfstu.netlify.app/pfwins/pfwindows</loc>
+    <priority>1.00</priority>
+  </url>
+
+</urlset>
