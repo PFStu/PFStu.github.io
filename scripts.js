@@ -102,3 +102,81 @@ setInterval(function() {
 }, 3000);
 
 
+
+let isOpen = false;
+    
+function toggleAnnouncements() {
+    const announcements = document.getElementById('announcements');
+    if (isOpen) {
+        announcements.style.maxHeight = '0';
+    } else {
+        announcements.style.maxHeight = '200px'; // 根据内容高度调整
+    }
+    isOpen = !isOpen;
+}
+
+function getHoliday(date) {
+    const holidays = {
+        '01-01': '元旦🎁',
+        '01-10': '110宣传日👮‍♂️',
+        '01-27': '国际大屠杀纪念日',
+        '01-08': '周恩来逝世纪念日',
+        '01-26': '国际海关日',
+        '02-13': '国际无线电日',
+        '02-17': '国际穿山甲日',
+        '02-20': '世界社会公正日',
+        '02-24': '元宵节',
+        '02-04': '世界抗癌日',
+        '02-19': '邓小平逝世纪念日',
+        '02-14': '情人节💖',
+        '03-05': '学雷锋纪念日',
+        '03-07': '女生节👩',
+        '03-11': '龙抬头',
+        '03-12': '植树节',
+        '03-15': '消费者权益日',
+        '03-21': '国际海豹日',
+        '03-21': '世界森林日',
+        '03-22': '世界水日',
+        '03-23': '世界气象日',
+        '03-24': '世界防治结核病日',
+        '04-06': '世界卫生日',
+        '04-22': '世界地球日',
+        '04-23': '世界图书和版权日',
+        '05-01': '劳动节',
+        '05-04': '青年节',
+        '05-05': '五一劳动节',
+        '05-21': '劳动节',
+        '05-31': '端午节',
+        '06-01': '儿童节',
+        '07-01': '建党节',
+        '08-01': '建军节',
+        '09-10': '教师节',
+        '09-03': '抗日战争胜利纪念日',
+        '09-22': '国际熊猫节',
+        '04-01': '愚人节🤣',
+        '05-01': '劳动节🙌',
+        '09-18': '918事变 铭记历史',
+        '10-01': '国庆节 China',
+        '12-25': '圣诞节[Merry Christmas]🎄'
+    };
+
+    const formattedDate = date.toISOString().slice(5, 10); // 获取 MM-DD 格式
+    return holidays[formattedDate] || '';
+}
+
+function displayHoliday() {
+    const today = new Date();
+    const holiday = getHoliday(today);
+    const holidayElement = document.getElementById('holiday');
+    
+    if (holiday) {
+        holidayElement.textContent = `今天是 ${today.toLocaleDateString()}，节日：${holiday}`;
+    } else {
+        holidayElement.textContent = `今天是 ${today.toLocaleDateString()}，没有节日。`;
+    }
+}
+
+window.onload = function() {
+    displayHoliday();
+    setInterval(displayHoliday, 1000 * 60 * 60); // 每小时更新一次节日
+}
