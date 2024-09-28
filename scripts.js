@@ -1,10 +1,3 @@
-function formatTime(time) {
-    let [hours, minutes] = time.split(':');
-    hours = hours.length  === 1 ? '0' + hours : hours;
-    minutes = minutes.length  === 1 ? '0' + minutes : minutes;
-    return `${hours}:${minutes}`;
-}
-
 
 
 
@@ -23,31 +16,6 @@ function getRandomTip(array) {
     return array[randomIndex]
 }
 
-
-window.onload = function(){
-    const r = getRandomTip(tipslist);
-    window.onload =function(){const t = document.getElementById("t");}
-    t["innerHTML"] = r;
-}
-
-function updateFPS() {
-    fps = frameCount;
-    document.getElementById("fps").textContent = "FPS: " + fps;
-    frameCount = 0;
-}
-
-function incrementFrame() {
-    frameCount++;
-}
-
-// 每秒钟更新一次FPS
-setInterval(updateFPS, 1000);
-
-// 每帧调用一次incrementFrame
-requestAnimationFrame(function tick() {
-    incrementFrame();
-    requestAnimationFrame(tick);
-});
 
 function toggleTheme(button) {
     button.classList.toggle('active');
@@ -110,7 +78,7 @@ function toggleAnnouncements() {
     if (isOpen) {
         announcements.style.maxHeight = '0';
     } else {
-        announcements.style.maxHeight = '200px'; // 根据内容高度调整
+        announcements.style.maxHeight = '250px'; // 根据内容高度调整
     }
     isOpen = !isOpen;
 }
@@ -159,24 +127,6 @@ function getHoliday(date) {
         '10-01': '国庆节 China',
         '12-25': '圣诞节[Merry Christmas]🎄'
     };
-
-    const formattedDate = date.toISOString().slice(5, 10); // 获取 MM-DD 格式
-    return holidays[formattedDate] || '';
 }
 
-function displayHoliday() {
-    const today = new Date();
-    const holiday = getHoliday(today);
-    const holidayElement = document.getElementById('holiday');
-    
-    if (holiday) {
-        holidayElement.textContent = `今天是 ${today.toLocaleDateString()}，节日：${holiday}`;
-    } else {
-        holidayElement.textContent = `今天是 ${today.toLocaleDateString()}，没有节日。`;
-    }
-}
 
-window.onload = function() {
-    displayHoliday();
-    setInterval(displayHoliday, 1000 * 60 * 60); // 每小时更新一次节日
-}
