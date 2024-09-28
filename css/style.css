@@ -10,7 +10,21 @@
 }
 
 body {
-    background: linear-gradient(-125deg, #99aa00, #669966, #2980b9, #9966cc, #9900cc);
+    background: linear-gradient(-125deg, rgb(72, 61, 139), rgb(75, 2, 130), rgb(0, 0, 139), rgb(0, 50, 0), rgb(32, 32, 0));
+    animation: backgroundmove 20s linear infinite;
+    background-size: 400% 400%;
+}
+
+@keyframes backgroundmove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 body ::after {
@@ -336,7 +350,7 @@ h2 {
     list-style: none;
     padding: 0;
     margin: 0;
-    max-height: 0;
+    max-height: 0; 
     overflow: hidden;
     transition: max-height 0.5s ease;
 }
