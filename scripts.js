@@ -1,12 +1,10 @@
-
-
-
 setInterval(function(){
     let min = new Date().getMinutes();
     let hours = new Date().getHours();
     let time = hours + ":" + min;
-    document.getElementById("clock").innerHTML = formatTime(time);
+    document.getElementById("clock").innerHTML = time;
 },1000);
+
 
 let tipslist = ["耐得心头气，方为有志人","强人前有路，弱人前有山","留得青山在，不愁没柴烧","吃得苦中苦，方为人上人","只要功夫深，铁杵磨成针"];
 
@@ -28,7 +26,7 @@ function toggleTheme(button) {
     }
 }
 async function measureDownloadSpeed() {
-    const fileSize = 1024 * 1024 * 5; // 5MB
+    const fileSize = 1024 * 1024 * 50; 
     const downloadUrl = `https://httpbin.org/bytes/${fileSize}`;
 
     // 测量下载速度
@@ -125,8 +123,18 @@ function getHoliday(date) {
         '05-01': '劳动节🙌',
         '09-18': '918事变 铭记历史',
         '10-01': '国庆节 China',
-        '12-25': '圣诞节[Merry Christmas]🎄'
+        '12-25': '圣诞节[Merry Christmas]🎄',
     };
+
+    // 格式化日期为 MM-DD
+    const formattedDate = date.toISOString().slice(5, 10);
+    const holidayMessage = holidays[formattedDate] || '无节日';
+
+    // 将信息显示到元素#holiday上
+    document.getElementById('holiday').textContent = holidayMessage;
 }
 
+// 示例调用
+const currentDate = new Date(); // 使用当前日期
+window.onload = () => getHoliday(currentDate);
 
