@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('https://30078178.s21i.faiusr.com/2/6/ABUIABACGAAggrPltwYo1q2dqQQw0AU4jgM.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat; /* 防止背景图片循环显示 */
+            background-attachment: fixed; /* 固定背景图片 */
+            transition: background-image 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .toggle-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .toggle-container label {
+            margin-bottom: 5px;
+        }
+        .highlight-box {
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            margin-top: 50px; /* 下移标题文字 */
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 添加文字阴影效果 */
+        }
+        .bilibili-box, .qq-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+            transition: box-shadow 0.3s ease;
+            width: calc(100% - 100px); /* 比设备分辨率小50个像素点 */
+            max-width: 800px; /* 设置最大宽度 */
+        }
+        .bilibili-box:hover, .qq-box:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        }
+        .bilibili-box h2, .qq-box h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.5em;
+        }
+        .bilibili-box p, .qq-box p {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* 让按钮对齐 */
+            padding: 10px 0;
+            border-bottom: 1px dashed gray; /* 添加灰色虚线分割 */
+        }
+        .bilibili-box p:last-child, .qq-box p:last-child {
+            border-bottom: none; /* 去掉最后一个段落的分割线 */
+        }
+        .bilibili-box img, .qq-box img {
+            width: 32px;
+            height: 32px;
+            margin-right: 10px;
+        }
+        .bilibili-box button, .qq-box button {
+            background-color: transparent;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            margin-left: 10px; /* 将按钮移到文字右边 */
+            transition: transform 0.2s ease, color 0.2s ease; /* 添加悬浮动画 */
+        }
+        .bilibili-box button:hover, .qq-box button:hover {
+            transform: scale(1.2); /* 悬浮时放大 */
+            color: #007bff; /* 悬浮时改变颜色 */
+        }
+    </style>
+</head>
+<body id="body">
+    <h1>关于和联系我们</h1>
+    <div class="toggle-container">
+        <div class="highlight-box">
+            <label for="blur-toggle">开启模糊</label>
+            <input type="checkbox" id="blur-toggle" checked>
+        </div>
+    </div>
+    <div class="bilibili-box">
+        <h2>我们的b站账号</h2>
+        <p>
+            <img src="https://ts4.cn.mm.bing.net/th?id=ODLS.ad4e97a4-b985-4354-ada4-a4101fa9ec50&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2" alt="图标">
+            一百10000000
+            <button onclick="window.location.href='https://b23.tv/Td6Se7z'">→</button>
+        </p>
+        <p>
+            <img src="https://ts4.cn.mm.bing.net/th?id=ODLS.ad4e97a4-b985-4354-ada4-a4101fa9ec50&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2" alt="图标">
+            Bowme
+            <button onclick="window.location.href='https://b23.tv/MOJJ4be'">→</button>
+        </p>
+        <p>
+            <img src="https://ts4.cn.mm.bing.net/th?id=ODLS.ad4e97a4-b985-4354-ada4-a4101fa9ec50&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2" alt="图标">
+            UTF-8s
+            <button onclick="window.location.href='https://b23.tv/chMqs70'">→</button>
+        </p>
+    </div>
+    <div class="qq-box">
+        <h2>我们的QQ</h2>
+        <p>
+            <img src="https://30078178.s21i.faiusr.com/2/6/ABUIABACGAAgntDqtwYo9KqOEjBkOGQ.jpg" alt="图标">
+            𝑃𝑖𝑥𝑒𝑙𝐹𝑜𝑟𝑔𝑒(群)
+            <button onclick="copyToClipboard('929578771')">复制</button>
+        </p>
+    </div>
+
+    <script>
+        const body = document.getElementById('body');
+        const blurToggle = document.getElementById('blur-toggle');
+
+        blurToggle.addEventListener('change', function() {
+            if (this.checked) {
+                body.style.backgroundImage = "url('https://30078178.s21i.faiusr.com/2/6/ABUIABACGAAggrPltwYo1q2dqQQw0AU4jgM.jpg')";
+            } else {
+                body.style.backgroundImage = "url('https://30078178.s21i.faiusr.com/2/6/ABUIABACGAAgyKvStwYo8L6wVjDQBTiWAw.jpg')";
+            }
+        });
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text);
+        }
+    </script>
+</body>
+</html>
