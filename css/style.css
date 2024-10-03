@@ -1,379 +1,200 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-@font-face {
-    font-family: "MiSans";
-    src: url("../fonts/MiSans-Semibold.ttf");
-}
-
 body {
-    background: linear-gradient(-125deg, rgb(72, 61, 139), rgb(75, 2, 130), rgb(0, 0, 139), rgb(0, 50, 0), rgb(32, 32, 0));
-    animation: backgroundmove 20s linear infinite;
-    background-size: 400% 400%;
-}
-
-@keyframes backgroundmove {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-body ::after {
-    content: "";
-    display: flex;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -10;
-}
-
-.text {
-    font-family: "MiSans", sans-serif;
-    text-align: center;
-    color: rgb(255,255,255);
-    filter: blur(0.35px);
-    animation: text 5s linear infinite;
-    text-shadow: 0 0 10px #ffffff90;
-}
-a {
-    text-shadow: 0 0 15px #ffffff90;
-    letter-spacing: 1.0px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    padding: 15px 30px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 24px;
-    transition: 0.2s;
-    border-radius: 20px;
-    background: #000;
-    position: relative;
-    overflow: hidden;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-}
-a #themebtn {
-    padding: 15px 30px;
-    font-size: 18px;
-    color: white;
-    background: linear-gradient(45deg, #000, #333);
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-a::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #fff, #ccc);
-    opacity: 0;
-    transition: opacity 0.1s ease;
-    z-index: -1;
-    overflow: hidden;
-}
-
-a #themebtn::before {
-    display:block;
-}
-
-a #themebtn:hover{
-    opacity: 1;
-}
-
-a #themebtn:hover::before {
-    opacity: 1;
-}
-
-a:hover {
-    color: #000; /* 发光后将字体改为黑色 */
-    background: #fff;
-    box-shadow: 0 0 20px #fff, 0 0 10px #fff, 0 0 10px #fff;
-    overflow: hidden;
-}
-a:hover::before {
-    opacity: 1;
-}
-
-
-#subtitle {
-    font-size: 24px;
-    color: white;
-    text-align: center;
-}
-
-#welcome {
-    font-size: 36px;
-    color: white;
-    text-align: center;
-    margin-top: 100px;
-}
-
-#about_us {
-    position: absolute;
-    top: 300px;
-    left: 50%;
-    margin-left: -85px;
-    font-family: "MiSans", sans-serif;
-}
-
-#thanks {
-    text-align: center;
-    font-size: 24px;
-    color: white;
-}
-
-#footer {
-    bottom: 0;
-    width: 100%;
-    height: 20px;
-}
-
-#copyright {
-    position: absolute;
-    left: 50%;
-    bottom: 10px;
-    text-align: center;
-    font-size: 14px;
-    color: white;
-    filter: blur(0.35px);
-    margin-left: -185px;
-    display: none;
-}
-
-#win8-title {
-    font-size: 36px;
-}
-
-#win10-horror {
-    font-size: 24px;
-}
-
-#win10-horror-tips {
-    font-size: 18px;
-    color: red;
-}
-
-#pixelpe-title {
-    font-size: 36px;
-}
-
-#Tools-title {
-    font-size: 36px;
-}
-
-@keyframes ScrollIn {
-    from {
-        opacity: 0;
-        scale: 0.5;
-    }
-    to {
-        opacity: 1;
-        scale: 1;
-    }
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.div {
-    background-color: rgba(255, 255, 255, 0.205);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
-    border: none;
-    width: 60%;
-    height: 60%;
-    left: 50%;
-    margin-left: 20%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    justify-content: center;
     align-items: center;
-    transition: .3s
+    flex-direction: column;
+    height: 100vh;
+    transition: 0.3s;
 }
 
-.div:hover{
-    transform: scale(1.05);
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 15px 20px;
 }
 
-#clock {
-    font-size: 64px;
-}
-
-#tips {
-    font-size: 38px;
-}
-
-#PF-Windows10-title {
-    font-size: 38px;
-}
-
-#PF-WebGame-title {
-    font-size: 38px;
-}
-
-#fps {
-    position: fixed;
-    top: 10px;
-    left: 10px;
+.logo {
+    display: flex;
+    align-items: center;
     color: white;
-    background: linear-gradient(135deg, #ff6e7f, #bfe9ff);
-    padding: 10px 20px;
-    font-family: 'Arial', sans-serif;
-    font-size: 18px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    animation: pulse 2s infinite;
-    overflow: hidden;
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.01);
-    }
-    100% {
-        transform: scale(1);
-    }
+.logo img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
 }
 
-
-#themebtn:hover {
-    background: linear-gradient(45deg, #333, #000);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-}
-
-#themebtn:active {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-#themebtn.active {
-    background: linear-gradient(45deg, #fff, #ccc);
-    color: black;
-}
-
-#themebtn.active:hover {
-    background: linear-gradient(45deg, #ccc, #fff);
-}
-
-#us {
-    position: absolute;
-    top: 70px;
-    right: 10px;
-    background-color: green; /* 添加与#us一致的样式 */
-    padding: 15px 30px;
-    font-size: 18px;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-#us:hover {
-    background-color: darkgreen; /* 悬停时颜色 */
-}
-
-#ds {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: blue; /* 添加与#ds一致的样式 */
-    padding: 15px 30px;
-    font-size: 18px;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-#ds:hover {
-    background-color: darkblue; /* 悬停时颜色 */
-}
-
-.speed-button {
-    padding: 15px 30px;
-    font-size: 18px;
-    color: white;
-    background-color: #3498db; /* 背景颜色 */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.speed-button:hover {
-    background-color: #2980b9; /* 悬停时的背景颜色 */
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px #00000033;
-}
-
-#board {
-    background: rgba(255, 255, 255, 0.205);
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    max-width: 600px;
-    margin: auto;
-    animation: fadeIn 0.5s ease;
-}
-h2 {
-    text-align: center;
-    cursor: pointer;
-    color: #333;
-}
-#announcements {
+.nav-links {
+    display: flex;
     list-style: none;
     padding: 0;
     margin: 0;
-    max-height: 0; 
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-}
-.announcement {
-    background: #f9f9f927;
-    border: 1px solid #dddddd2d;
-    border-radius: 8px;
-    padding: 15px;
-    margin: 10px 0;
-    transition: transform 0.2s;
-}
-.announcement:hover {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 
-#Amtoggle {
-    padding: 10px;
-    text-align: center;
-    cursor: pointer;
-    background-color: #ffffff22;
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
     border-radius: 5px;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+
+.nav-links a:hover {
+    background-color: #1c5aa1;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 3px 0;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* 默认隐藏 */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #333;
+        width: 100%;
+    }
+    
+    .nav-links.active {
+        display: flex; /* 当active类存在时显示导航链接 */
+    }
+
+    .menu-toggle {
+        display: flex; /* 小屏幕下显示汉堡菜单 */
+    }
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.text.title {
+    font-size: 36px;
+    font-family: 'CS', cursive;
+    background: linear-gradient(to right, #f77062, #fe5196, #ff0080, #7c4dff, #4568dc, #2980b9, #2c3e50);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.light-theme .text.title {
+    font-size: 36px;
+    font-family: 'CS', cursive;
+    background: linear-gradient(to right, #f77062, #fe5196, #ff0080, #7c4dff, #4568dc, #2980b9, #2c3e50);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dark-theme .text.title {
+    font-size: 36px;
+    font-family: 'CS', cursive;
+    background: linear-gradient(to right, #f77062, #fe5196, #ff0080, #7c4dff, #4568dc, #2980b9, #2c3e50);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+@font-face {
+    font-family: 'MiSans';
+    src: url('../fonts/MiSans-Semibold.ttf');
+}
+
+@font-face {
+    font-family: 'CS';
+    src: url('../fonts/CS.ttf');
+}
+
+a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 2px;
+    border-radius: 5px;
+    transition: 0.3s;
+    background-color: gray;
+}
+
+a:hover {
+    background-color: #1c5aa1;
+}
+
+.div {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.div p:first-child {
+    font-size: 38px;
+}
+
+.text {
+    text-align: center;
+    font-family: 'MiSans' , Arial, Helvetica, sans-serif;
+    color:#000;
+}
+
+.light-theme .sections{
+    background: #fff;
+}
+
+.dark-theme{
+    background: #333;
+}
+
+.light-theme .text{
+    text-align: center;
+    font-family: 'MiSans' , Arial, Helvetica, sans-serif;
+    color:#000;
+}
+
+.dark-theme .text{
+    text-align: center;
+    font-family: 'MiSans' , Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+
+#themeToggle {
+    border-radius: 20px;
+    background-color: gray;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
 }
