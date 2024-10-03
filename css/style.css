@@ -1,0 +1,200 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    transition: 0.3s;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 15px 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.logo img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+    border-radius: 5px;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+
+.nav-links a:hover {
+    background-color: #1c5aa1;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 3px 0;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* 默认隐藏 */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #333;
+        width: 100%;
+    }
+    
+    .nav-links.active {
+        display: flex; /* 当active类存在时显示导航链接 */
+    }
+
+    .menu-toggle {
+        display: flex; /* 小屏幕下显示汉堡菜单 */
+    }
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.text.title {
+    font-size: 36px;
+    font-family: 'CS', cursive;
+    background: linear-gradient(to right, #f77062, #fe5196, #ff0080, #7c4dff, #4568dc, #2980b9, #2c3e50);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.light-theme .text.title {
+    font-size: 36px;
+    font-family: 'CS', cursive;
+    background: linear-gradient(to right, #f77062, #fe5196, #ff0080, #7c4dff, #4568dc, #2980b9, #2c3e50);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dark-theme .text.title {
+    font-size: 36px;
+    font-family: 'CS', cursive;
+    background: linear-gradient(to right, #f77062, #fe5196, #ff0080, #7c4dff, #4568dc, #2980b9, #2c3e50);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+@font-face {
+    font-family: 'MiSans';
+    src: url('../fonts/MiSans-Semibold.ttf');
+}
+
+@font-face {
+    font-family: 'CS';
+    src: url('../fonts/CS.ttf');
+}
+
+a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 2px;
+    border-radius: 5px;
+    transition: 0.3s;
+    background-color: gray;
+}
+
+a:hover {
+    background-color: #1c5aa1;
+}
+
+.div {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.div p:first-child {
+    font-size: 38px;
+}
+
+.text {
+    text-align: center;
+    font-family: 'MiSans' , Arial, Helvetica, sans-serif;
+    color:#000;
+}
+
+.light-theme .sections{
+    background: #fff;
+}
+
+.dark-theme{
+    background: #333;
+}
+
+.light-theme .text{
+    text-align: center;
+    font-family: 'MiSans' , Arial, Helvetica, sans-serif;
+    color:#000;
+}
+
+.dark-theme .text{
+    text-align: center;
+    font-family: 'MiSans' , Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+
+#themeToggle {
+    border-radius: 20px;
+    background-color: gray;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+}
