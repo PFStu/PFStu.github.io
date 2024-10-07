@@ -18,12 +18,12 @@
             <button id="themeToggle">切换主题</button>
             <nav>
                 <ul class="nav-links">
-                    <li><a id="home-link" href="#">主页</a></li>
-                    <li><a id="about-link" href="pages/About.html">关于</a></li>
-                    <li><a id="projects-link" href="#">项目</a></li>
-                    <li><a id="tools-link" href="#">工具</a></li>
-                    <li><a id="resources-link" href="#">资源</a></li>
-                    <li><a id="software-link" href="#">软件</a></li>
+                    <li><a id="home-link" href=""t>主页</a></li>
+                    <li><a id="about-link" href="pages/About.html" target="_blank">关于</a></li>
+                    <li><a id="projects-link" href="#projects">项目</a></li>
+                    <li><a id="tools-link" href="PFTools/PFTools.html"  target="_blank">工具</a></li>
+                    <li><a id="resources-link" href="pfsources/index.html"  target="_blank">资源</a></li>
+                    <li><a id="software-link" href="pfsoft/index.html"  target="_blank">软件</a></li>
                 </ul>
             </nav>
             <div class="menu-toggle" id="menuToggle">
@@ -33,6 +33,29 @@
             </div>
         </div>
     </header>
+    <div class="filter"></div>
+    <div class="board" id="board">
+        <div class="b-title">
+            <span class="text">🎉公告版🎉</span>
+        </div>
+        <div class="close-btn" onclick="closeboard()">
+            <span class="text" id="close-btn">×</span>
+        </div>
+        <div class="b-items">
+            <div class="b-item">
+                <span class="text">10/7 修改</span>
+            </div>
+            <div class="b-item">
+                <span class="text">如果本网站有任何侵权或者你想反馈什么，划到最底下点击我们的邮箱</span>
+            </div>
+            <div class="b-item">
+                <span class="text">可以点击右上角的"×"关闭公告板</span>
+            </div>
+            <div class="b-item">
+                <span class="text">本公告栏每月显示一次</span>
+            </div>
+        </div>
+    </div>
     <h1 class="text title" id="title">Pixel Forge Studio Website</h1>
     <h1 id="subtitle" class="text">PixelForge工作室网站</h1>
     <div></div>
@@ -116,7 +139,7 @@
         <p>&nbsp;&nbsp;&nbsp;</p>
         <a href="mailto:mc_bow@outlook.com" class="text">Email: <EMAIL>mc_bow@outlook.com</EMAIL></a>
         <a href="https://github.com/PFStu/PFStu.github.io" class="text">Github Repo</a>
-        <a href="javascript:navigator.clipboard.writeText('929578771');alert('已复制QQ号码至剪贴板，可随时粘贴')" class="text" target="_blank">QQ</a>
+        <a onclick="copyqq();" class="text" target="_blank">QQ</a>
     </footer>
     <script src="scripts.js"></script>
 </body>
