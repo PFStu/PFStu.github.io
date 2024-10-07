@@ -45,12 +45,14 @@ body {
     transition: color 0.3s;
     border-radius: 5px;
     padding: 10px;
-    transition: 0.3s;
+    transition: 0.6s;
+    background-color: #1d1919;
 }
 
 
 .nav-links a:hover {
-    background-color: #1c5aa1;
+    background-color: #ae4efc;
+    box-shadow: 0 0 10px #ae4efc;
 }
 
 .menu-toggle {
@@ -68,7 +70,7 @@ body {
 
 @media (max-width: 768px) {
     .nav-links {
-        display: none; /* 默认隐藏 */
+        display: none;
         flex-direction: column;
         position: absolute;
         top: 60px;
@@ -78,11 +80,11 @@ body {
     }
     
     .nav-links.active {
-        display: flex; /* 当active类存在时显示导航链接 */
+        display: flex;
     }
 
     .menu-toggle {
-        display: flex; /* 小屏幕下显示汉堡菜单 */
+        display: flex;
     }
 }
 
@@ -137,11 +139,12 @@ a {
     margin: 2px;
     border-radius: 5px;
     transition: 0.3s;
-    background-color: gray;
+    background-color: #4b4b4b;
 }
 
 a:hover {
-    background-color: #1c5aa1;
+    background-color: #ae4efc;
+    box-shadow: 0 0 30px #ae4efc;
 }
 
 .div {
@@ -188,6 +191,12 @@ a:hover {
     border: none;
     cursor: pointer;
     padding: 10px;
+    transition: 0.6s;
+}
+
+#themeToggle:hover {
+    background-color: #b6b6b6;
+    box-shadow: 0 0 10px #b6b6b6;
 }
 
 footer {
@@ -197,4 +206,47 @@ footer {
     align-items: center;
     background-color: #333;
     padding: 10px;
+}
+
+.board{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    top: 30%;
+    background-color: #929090c5;
+    text-align: center;
+    width: 50%;
+    border-radius: 10px;
+    z-index: 1000;
+    display: none;
+}
+
+.board .text {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.board .close-btn {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    padding: 2px;
+    border-radius: 10px;
+    background-color: #ff0000;
+    cursor: pointer;
+}
+
+.filter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.103);
+    backdrop-filter: blur(5px);
+    z-index: 999; 
+    display: none;
 }
