@@ -15,15 +15,18 @@
                 <img src="https://pfstu.github.io/favicon.png" alt="Logo">
                 <span class="logo-text">Pixel Forge Studio</span>
             </div>
-            <button id="themeToggle">切换主题</button>
+            <button id="themeToggle"></button>
+            <div class="time">
+                <span class="title" id="time"></span>
+            </div>
             <nav>
                 <ul class="nav-links">
-                    <li><a id="home-link" href="#">主页</a></li>
-                    <li><a id="about-link" href="pages/About.html">关于</a></li>
-                    <li><a id="projects-link" href="#">项目</a></li>
-                    <li><a id="tools-link" href="#">工具</a></li>
-                    <li><a id="resources-link" href="#">资源</a></li>
-                    <li><a id="software-link" href="#">软件</a></li>
+                    <li><a id="home-link" href="" title="首页"></a></li>
+                    <li><a id="about-link" href="pages/About.html" target="_blank" title="关于"></a></li>
+                    <li><a id="projects-link" href="#projects" title="项目"></a></li>
+                    <li><a id="tools-link" href="PFTools/PFTools.html"  target="_blank" title="工具"></a></li>
+                    <li><a id="resources-link" href="pfsources/index.html"  target="_blank" title="资源"></a></li>
+                    <li><a id="software-link" href="pfsoft/index.html"  target="_blank" title="软件"></a></li>
                 </ul>
             </nav>
             <div class="menu-toggle" id="menuToggle">
@@ -114,10 +117,12 @@
     <footer>
         <a class="text">2023-2024 Pixel Forge Studio</a>
         <p>&nbsp;&nbsp;&nbsp;</p>
-        <a href="mailto:mc_bow@outlook.com" class="text">Email: <EMAIL>mc_bow@outlook.com</EMAIL></a>
+        <a href="mailto:6mc_bow@outlook.com" class="text">Email: <EMAIL>mc_bow@outlook.com</EMAIL></a>
         <a href="https://github.com/PFStu/PFStu.github.io" class="text">Github Repo</a>
-        <a href="javascript:navigator.clipboard.writeText('929578771');alert('已复制QQ号码至剪贴板，可随时粘贴')" class="text" target="_blank">QQ</a>
+        <a onclick="copyqq();" class="text" target="_blank">QQ</a>
     </footer>
-    <script src="scripts.js"></script>
+    <script src="js/scripts.js"></script>
+    <div class="mouse">
+    </div>
 </body>
 </html>

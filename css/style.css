@@ -44,13 +44,15 @@ body {
     text-decoration: none;
     transition: color 0.3s;
     border-radius: 5px;
-    padding: 10px;
-    transition: 0.3s;
+    padding: 20px 25px;
+    transition: 0.6s;
+    background-color: #1d1919;
 }
 
 
 .nav-links a:hover {
-    background-color: #1c5aa1;
+    background-color: #ae4efc;
+    box-shadow: 0 0 10px #ae4efc;
 }
 
 .menu-toggle {
@@ -68,8 +70,8 @@ body {
 
 @media (max-width: 768px) {
     .nav-links {
-        display: none; /* 默认隐藏 */
-        flex-direction: column;
+        display: none;
+        flex-direction: row;
         position: absolute;
         top: 60px;
         right: 0;
@@ -78,11 +80,11 @@ body {
     }
     
     .nav-links.active {
-        display: flex; /* 当active类存在时显示导航链接 */
+        display: flex;
     }
 
     .menu-toggle {
-        display: flex; /* 小屏幕下显示汉堡菜单 */
+        display: flex;
     }
 }
 
@@ -93,7 +95,7 @@ body {
 
 .text.title {
     font-size: 36px;
-    font-family: 'CS', cursive;
+    font-family: 'MiSans', cursive;
     background: linear-gradient(to right, #f77062, #fe5196, #ff0080, #7c4dff, #4568dc, #2980b9, #2c3e50);
     -webkit-background-clip: text;
     background-clip: text;
@@ -102,20 +104,22 @@ body {
 
 .light-theme .text.title {
     font-size: 36px;
-    font-family: 'CS', cursive;
+    font-family: 'MiSans', cursive;
     background: linear-gradient(to right, #f77062, #fe5196, #ff0080, #7c4dff, #4568dc, #2980b9, #2c3e50);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    transition: 0.6s;
 }
 
 .dark-theme .text.title {
     font-size: 36px;
-    font-family: 'CS', cursive;
+    font-family: 'MiSans', cursive;
     background: linear-gradient(to right, #f77062, #fe5196, #ff0080, #7c4dff, #4568dc, #2980b9, #2c3e50);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    transition: 0.6s;
 }
 
 
@@ -124,10 +128,6 @@ body {
     src: url('../fonts/MiSans-Semibold.ttf');
 }
 
-@font-face {
-    font-family: 'CS';
-    src: url('../fonts/CS.ttf');
-}
 
 a {
     display: inline-block;
@@ -137,11 +137,12 @@ a {
     margin: 2px;
     border-radius: 5px;
     transition: 0.3s;
-    background-color: gray;
+    background-color: #4b4b4b;
 }
 
 a:hover {
-    background-color: #1c5aa1;
+    background-color: #ae4efc;
+    box-shadow: 0 0 30px #ae4efc;
 }
 
 .div {
@@ -188,6 +189,12 @@ a:hover {
     border: none;
     cursor: pointer;
     padding: 10px;
+    transition: 0.6s;
+}
+
+#themeToggle:hover {
+    background-color: #b6b6b6;
+    box-shadow: 0 0 10px #b6b6b6;
 }
 
 footer {
@@ -198,3 +205,18 @@ footer {
     background-color: #333;
     padding: 10px;
 }
+
+.title {
+    font-size: 36px;
+    font-family: 'MiSans', cursive;
+    background: linear-gradient(to right, #bef762, #51fead, #00c3ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#home-link {background-size: 65%;background-image: url(../img/Home.svg);background-position: center;background-repeat: no-repeat;}
+#about-link {background-size: 30%;background-image: url(../img/About.svg);background-position: center;background-repeat: no-repeat;}
+#projects-link {background-size: 65%;background-image: url(../img/Projects.svg);background-position: center;background-repeat: no-repeat;}
+#tools-link {background-size: 30%;background-image: url(../img/Tools.svg);background-position: center;background-repeat: no-repeat;}
+#resources-link {background-size: 40%;background-image: url(../img/Resources.svg);background-position: center;background-repeat: no-repeat;}
+#software-link {background-size: 50%;background-image: url(../img/Software.svg);background-position: center;background-repeat: no-repeat;}
