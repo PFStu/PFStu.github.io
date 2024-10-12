@@ -1,26 +1,3 @@
-
-window.onload = function(){
-    document.getElementById("board").style.display = "none";
-    document.getElementsByClassName("filter")[0].style.display = "none";
-    showBoard();
-}
-
-function showBoard() {
-    const lastShown = localStorage.getItem('boardLastShown');
-    const currentTime = new Date().getTime();
-
-    if (!lastShown || (currentTime - parseInt(lastShown)) > 30 * 24 * 60 * 60 * 1000) {
-        document.getElementById("board").style.display = "block";
-        document.getElementsByClassName("filter")[0].style.display = "block";
-        localStorage.setItem('boardLastShown', currentTime);
-    }
-}
-
-function closeboard() {
-    document.getElementById("board").style.display = "none";
-    document.getElementsByClassName("filter")[0].style.display = "none";
-}
-
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.querySelector('.nav-links');
 
