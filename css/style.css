@@ -220,3 +220,39 @@ footer {
 #tools-link {background-size: 30%;background-image: url(../img/Tools.svg);background-position: center;background-repeat: no-repeat;}
 #resources-link {background-size: 40%;background-image: url(../img/Resources.svg);background-position: center;background-repeat: no-repeat;}
 #software-link {background-size: 50%;background-image: url(../img/Software.svg);background-position: center;background-repeat: no-repeat;}
+<<<<<<< HEAD
+=======
+
+.scrollline {
+    position: fixed;
+    top: 0;
+    right: 10px;
+    height: 100%;
+    width: 2px;
+    background-color: #000;
+}
+
+.scrolldot {
+    position: fixed;
+    top: 0;
+    right: 2.89px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #6818fd;
+    box-shadow: 0 0 15px #6818fd;
+    animation: scrolldot 3s infinite;
+}
+
+@keyframes scrolldot {
+    0% {
+        box-shadow: 0 0 15px #6818fd;
+    }
+    50% {
+        box-shadow: 0 0 5px #6818fd;
+    }
+    100% {
+        box-shadow: 0 0 15px #6818fd;
+    }
+}
+>>>>>>> e7bcf6b39b745f4917668866cac405b88bcadbd9

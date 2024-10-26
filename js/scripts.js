@@ -48,3 +48,17 @@ function timeupdate() {
     let time = hour + ":" + min + ":" + sec;
     document.getElementById("time").innerHTML = time;
 }
+<<<<<<< HEAD
+=======
+
+function scrollDotMove() {
+    let dot = document.getElementById("scrollDot");
+    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    let windowHeight = window.innerHeight;
+    let bodyHeight = document.body.scrollHeight;
+    let scrollPercent = (scrollTop / (bodyHeight - windowHeight)) * 100;
+    dot.style.top = (scrollPercent * 0.95) + "%";
+}
+
+window.addEventListener("scroll", scrollDotMove);
+>>>>>>> e7bcf6b39b745f4917668866cac405b88bcadbd9
