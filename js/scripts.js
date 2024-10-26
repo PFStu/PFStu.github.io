@@ -69,9 +69,9 @@ document.querySelectorAll(".titlebox").forEach(function(titlebox) {
         const yPercent = (y / rect.height) * 100;
         const tiltX = (yPercent - 50) * 0.5;
         const tiltY = (xPercent - 50) * -0.5;
-        titlebox.style.transform = `perspective(500px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+        titlebox.style.transform = `perspective(250px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
     });
     titlebox.addEventListener("mouseout", function() {
-        titlebox.style.transform = `perspective(500px) rotateX(0deg) rotateY(0deg)`;
+        titlebox.style.transform = `perspective(100px) rotateX(0deg) rotateY(0deg)`;
     });
 });

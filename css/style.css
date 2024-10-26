@@ -94,32 +94,45 @@ body {
 }
 
 .text.title {
-    font-size: 36px;
-    font-family: 'MiSans', cursive;
+    font-size: 50px;
     background: linear-gradient(to right, #f77062, #fe5196, #ff0080, #7c4dff, #4568dc, #2980b9, #2c3e50);
-    -webkit-background-clip: text;
+    background-size: 300%;
     background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: backgroundAnimation 10s linear infinite;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .light-theme .text.title {
-    font-size: 36px;
-    font-family: 'MiSans', cursive;
+    font-size: 50px;
     background: linear-gradient(to right, #f77062, #fe5196, #ff0080, #7c4dff, #4568dc, #2980b9, #2c3e50);
-    -webkit-background-clip: text;
+    background-size: 300%;
     background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    transition: 0.6s;
+    animation: backgroundAnimation 10s linear infinite;
 }
 
 .dark-theme .text.title {
-    font-size: 36px;
-    font-family: 'MiSans', cursive;
+    font-size: 50px;
     background: linear-gradient(to right, #f77062, #fe5196, #ff0080, #7c4dff, #4568dc, #2980b9, #2c3e50);
-    -webkit-background-clip: text;
+    background-size: 300%;
     background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    transition: 0.6s;
+    animation: backgroundAnimation 10s linear infinite;
 }
 
 
