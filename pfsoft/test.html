@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分区示例</title>
+    <style>
+        .dark-theme {
+            background-color: black;
+            color: white;
+        }
+        .light-theme {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <img id="themeToggle" src="img/light.jpg" alt="切换主题">
+    
+    <nav>
+        <a href="#section1">跳转到分区 1</a>
+        <a href="#section2">跳转到分区 2</a>
+        <a href="#section3">跳转到分区 3</a>
+        <a href="#section4">跳转到分区 4</a>
+    </nav>
+
+    <div id="section1">分区 1 内容</div>
+    <div id="section2">分区 2 内容</div>
+    <div id="section3">分区 3 内容</div>
+    <div id="section4" style="height: 100vh;">分区 4 内容</div>
+
+    <script>
+        let isDarkTheme = false;
+        const themeToggle = document.getElementById('themeToggle');
+
+        themeToggle.addEventListener('click', function() {
+            isDarkTheme = !isDarkTheme;
+
+            if (isDarkTheme) {
+                document.body.classList.add('dark-theme');
+                document.body.classList.remove('light-theme');
+                themeToggle.src = 'img/dark.jpg';
+            } else {
+                document.body.classList.add('light-theme');
+                document.body.classList.remove('dark-theme');
+                themeToggle.src = 'img/light.jpg';
+            }
+        });
+    </script>
+</body>
+</html>

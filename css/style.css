@@ -1,0 +1,255 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    transition: 0.3s;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 15px 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.logo img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+    border-radius: 5px;
+    padding: 20px 25px;
+    transition: 0.6s;
+    background-color: #1d1919;
+}
+
+
+.nav-links a:hover {
+    background-color: #ae4efc;
+    box-shadow: 0 0 10px #ae4efc;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 3px 0;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: row;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #333;
+        width: 100%;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.text.title {
+    font-size: 36px;
+    font-family: 'MiSans', cursive;
+    background: linear-gradient(to right, #f77062, #fe5196, #ff0080, #7c4dff, #4568dc, #2980b9, #2c3e50);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.light-theme .text.title {
+    font-size: 36px;
+    font-family: 'MiSans', cursive;
+    background: linear-gradient(to right, #f77062, #fe5196, #ff0080, #7c4dff, #4568dc, #2980b9, #2c3e50);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.6s;
+}
+
+.dark-theme .text.title {
+    font-size: 36px;
+    font-family: 'MiSans', cursive;
+    background: linear-gradient(to right, #f77062, #fe5196, #ff0080, #7c4dff, #4568dc, #2980b9, #2c3e50);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.6s;
+}
+
+
+@font-face {
+    font-family: 'MiSans';
+    src: url('../fonts/MiSans-Semibold.ttf');
+}
+
+
+a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 2px;
+    border-radius: 5px;
+    transition: 0.3s;
+    background-color: #4b4b4b;
+}
+
+a:hover {
+    background-color: #ae4efc;
+    box-shadow: 0 0 30px #ae4efc;
+}
+
+.div {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.div p:first-child {
+    font-size: 38px;
+}
+
+.text {
+    text-align: center;
+    font-family: 'MiSans' , Arial, Helvetica, sans-serif;
+    color:#000;
+}
+
+.light-theme .sections{
+    background: #fff;
+}
+
+.dark-theme{
+    background: #333;
+}
+
+.light-theme .text{
+    text-align: center;
+    font-family: 'MiSans' , Arial, Helvetica, sans-serif;
+    color:#000;
+}
+
+.dark-theme .text{
+    text-align: center;
+    font-family: 'MiSans' , Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+
+#themeToggle {
+    border-radius: 20px;
+    background-color: gray;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: 0.6s;
+}
+
+#themeToggle:hover {
+    background-color: #b6b6b6;
+    box-shadow: 0 0 10px #b6b6b6;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+}
+
+.title {
+    font-size: 36px;
+    font-family: 'MiSans', cursive;
+    background: linear-gradient(to right, #bef762, #51fead, #00c3ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#home-link {background-size: 65%;background-image: url(../img/Home.svg);background-position: center;background-repeat: no-repeat;}
+#about-link {background-size: 30%;background-image: url(../img/About.svg);background-position: center;background-repeat: no-repeat;}
+#projects-link {background-size: 65%;background-image: url(../img/Projects.svg);background-position: center;background-repeat: no-repeat;}
+#tools-link {background-size: 30%;background-image: url(../img/Tools.svg);background-position: center;background-repeat: no-repeat;}
+#resources-link {background-size: 40%;background-image: url(../img/Resources.svg);background-position: center;background-repeat: no-repeat;}
+#software-link {background-size: 50%;background-image: url(../img/Software.svg);background-position: center;background-repeat: no-repeat;}
+
+.scrollline {
+    position: fixed;
+    top: 0;
+    right: 10px;
+    height: 100%;
+    width: 2px;
+    background-color: #000;
+}
+
+.scrolldot {
+    position: fixed;
+    top: 0;
+    right: 2.89px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #6818fd;
+    box-shadow: 0 0 15px #6818fd;
+    animation: scrolldot 3s infinite;
+}
+
+@keyframes scrolldot {
+    0% {
+        box-shadow: 0 0 15px #6818fd;
+    }
+    50% {
+        box-shadow: 0 0 5px #6818fd;
+    }
+    100% {
+        box-shadow: 0 0 15px #6818fd;
+    }
+}
