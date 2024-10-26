@@ -123,6 +123,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: backgroundAnimation 10s linear infinite;
+    text-shadow: 0 0 10px #6818fdbd;
 }
 
 .dark-theme .text.title {
@@ -147,7 +148,7 @@ a {
     color: white;
     text-decoration: none;
     padding: 10px;
-    margin: 2px;
+    margin: 5px;
     border-radius: 5px;
     transition: 0.3s;
     background-color: #4b4b4b;
@@ -184,18 +185,17 @@ a:hover {
     box-shadow: 0 0 20px #4a18fd;
 }
 
-.titlebox2 {
-    padding: 0 10px;
-    margin-top: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: transparent;
-    border-radius: 5px;
-    border: 2px solid #184dfd;
-    transition: 0.2s;
-    box-shadow: 0 0 20px #181cfd;
+.titlebox:hover {
+    animation: titlebox 2s infinite;
+}
+
+@keyframes titlebox {
+    0%,100% {
+        box-shadow: 0 0 50px #4a18fd;
+    }
+    50% {
+        box-shadow: 0 0 5px #4a18fd;
+    }
 }
 
 .text {
@@ -203,6 +203,9 @@ a:hover {
     font-family: 'MiSans' , Arial, Helvetica, sans-serif;
     color:#000;
     margin: 5px;
+    padding: 10px;
+    margin: 0;
+    text-shadow: #4a18fd8f 0 0 42.5px;
 }
 
 .light-theme .sections{
