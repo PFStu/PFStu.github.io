@@ -220,6 +220,8 @@ footer {
 #tools-link {background-size: 30%;background-image: url(../img/Tools.svg);background-position: center;background-repeat: no-repeat;}
 #resources-link {background-size: 40%;background-image: url(../img/Resources.svg);background-position: center;background-repeat: no-repeat;}
 #software-link {background-size: 50%;background-image: url(../img/Software.svg);background-position: center;background-repeat: no-repeat;}
+<<<<<<< HEAD
+=======
 
 .scrollline {
     position: fixed;
@@ -253,3 +255,4 @@ footer {
         box-shadow: 0 0 15px #6818fd;
     }
 }
+>>>>>>> e7bcf6b39b745f4917668866cac405b88bcadbd9

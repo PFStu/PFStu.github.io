@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PixelForge网页工具箱</title>
+    <style>
+        div {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <img src="https://30078178.s21i.faiusr.com/2/6/ABUIABACGAAgq7yGtgYo8Pbl7Qcw6QM4WA.jpg" alt="顶部图像">
+<a href="https://pfstu.github.io/PFTools/Download.html">
+    <img src="https://30078178.s21i.faiusr.com/4/6/ABUIABAEGAAg9tXbtQYosNOOtgEw5gI4TA.png" alt="Image">
+</a>
+
+    <p>公告:下载页面已制作!点击上方的"免费下载所有代码即可(目前还未制作)。"</p>
+</head>
+<body>
+    <!-- 备注:复制下面代码添加新标签 -->
+    <div>
+         <h1>Base64加密解密工具</h1>
+         <p>预览:</p>
+         <p>===============</p>
+    <input type="text" id="inputText" placeholder="输入...(仅持英文和英文字符)">
+    <button onclick="encode()">加密Base64</button>
+    <button onclick="decode()">解密Base64</button>
+    <h2>输出:</h2>
+    <p id="result"></p>
+    <script src="script.js"></script>
+
+    <script>
+        function encode() {
+            var inputText = document.getElementById('inputText').value;
+            var encoded = btoa(inputText);
+            document.getElementById('result').innerText = encoded;
+        }
+        
+        function decode() {
+            var inputText = document.getElementById('inputText').value;
+            var decoded = atob(inputText);
+            document.getElementById('result').innerText = decoded;
+        }
+           </script>
+       </div>
+    <div>
+      <h1>极简计算器</h1>
+          <p>预览:</p>
+          <p>===============</p>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .calculator {
+            width: 200px;
+            margin: auto;
+            border: 1px solid #ccc;
+        }
+        
+        .display {
+            width: 100%;
+            height: 40px;
+            text-align: right;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+        }
+        
+        button {
+            height: 30px;
+            background-color: #eee;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <input type="text" class="display" disabled>
+        <div class="buttons">
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="appendValue('%')">%</button>
+            <button onclick="appendValue('sqrt(')">√</button>
+            <button onclick="appendValue('^')">x</button>
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button onclick="appendValue('+')">+</button>
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button onclick="appendValue('-')">-</button>
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button onclick="appendValue('*')">*</button>
+            <button onclick="appendValue('0')">0</button>
+            <button onclick="appendValue('.')">.</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="appendValue('/')">/</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+    <script>
+        const display = document.querySelector('.display');
+        
+        function appendValue(value) {
+            display.value += value;
+        }
+        
+        function clearDisplay() {
+            display.value = '';
+        }
+        
+        function calculate() {
+            try {
+                display.value = eval(display.value).toFixed(2);
+            } catch (error) {
+                display.value = '未知错误';
+            }
+        }
+    </script>
+  </div>
+     <div>
+         <h1>时间和计时</h1>
+         <p>预览:</p>
+         <p>===============</p>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .timer-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .timer-section input {
+            width: 200px;
+            padding: 5px;
+        }
+        
+        #timerDisplay {
+            margin-top: 10px;
+        }
+    </style>
+<body>
+    <div class="time-display">
+        <span id="currentTime">当前时间:</span>
+        <span id="clock">00:00:00.000</span>
+    </div>
+    <div class="timer-section">
+        <input type="text" id="timerInput" placeholder="HH:MM:SS">
+        <button onclick="startCountdown()">开始计时</button>
+        <div id="timerDisplay">剩余时间: 00:00:00</div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        // 时钟功能
+        function updateClock() {
+            const now = new Date();
+            const time = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}.${now.getMilliseconds().toString().padStart(3, '0')}`;
+            document.getElementById('clock').textContent = time;
+            document.getElementById('currentTime').textContent = "当前时间:";
+        }
+        
+        // 计时器功能
+        let countdownInterval;
+        function startCountdown() {
+            const inputTime = document.getElementById('timerInput').value;
+            const [hours, minutes, seconds] = inputTime.split(':').map(Number);
+            const totalSeconds = hours * 3600 + minutes * 60 + seconds;
+        
+            let remainingSeconds = totalSeconds;
+            countdownInterval = setInterval(() => {
+                remainingSeconds--;
+                if (remainingSeconds < 0) {
+                    clearInterval(countdownInterval);
+                    alert('时间到');
+                } else {
+                    const hours = Math.floor(remainingSeconds / 3600);
+                    const minutes = Math.floor((remainingSeconds % 3600) / 60);
+                    const seconds = remainingSeconds % 60;
+                    const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                    document.getElementById('timerDisplay').textContent = `剩余时间: ${formattedTime}`;
+                }
+            }, 1000);
+        }
+        // 启动时钟
+        setInterval(updateClock, 1);
+    </script>
+       </div>
+       <div>
+         <h1>音频超速播放器</h1>
+         <p>预览:</p>
+         <p>===============</p>
+<input type="file" id="audioFile" accept=".mp3, .wav, .wma, .ogg" />
+<div id="unsupportedFileType" style="display: none;">不支持这个文件类型</div>
+
+<div id="player">
+    <audio id="audio" controls></audio>
+    <div>
+        播放速度: <input type="number" id="speedInput" min="1" max="100" value="1">
+        <button id="applySpeed">应用</button>
+    </div>
+</div>
+
+<script>
+    document.getElementById('audioFile').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!['audio/mpeg', 'audio/wav', 'audio/wma', 'audio/ogg'].includes(file.type)) {
+            document.getElementById('unsupportedFileType').style.display = 'block';
+            document.getElementById('player').style.display = 'none';
+            return;
+        }
+        document.getElementById('unsupportedFileType').style.display = 'none';
+        document.getElementById('player').style.display = 'block';
+        
+        const url = URL.createObjectURL(file);
+        document.getElementById('audio').src = url;
+    });
+
+    document.getElementById('applySpeed').addEventListener('click', function() {
+        const speed = document.getElementById('speedInput').value;
+        document.getElementById('audio').playbackRate = speed;
+    });
+</script>
+     </div>
+         <div>
+         <h1>中文ASCII码加密解密工具</h1>
+         <p>预览:</p>
+         <p>===============</p>
+    <div>
+        <label for="plaintext">键入你的文本:</label>
+        <input type="text" id="plaintext" placeholder="输入后点击加密/解密">
+    </div>
+    <div>
+        <button onclick="encryptText()">加密</button>
+        <button onclick="decryptText()">解密</button>
+    </div>
+    <div>
+        <label for="ciphertext">输出:</label>
+        <textarea id="ciphertext" rows="4" cols="50"></textarea>
+    </div>
+
+    <script>
+        function encryptText() {
+            let plaintext = document.getElementById('plaintext').value;
+            let ciphertext = '';
+            for (let i = 0; i < plaintext.length; i++) {
+                let charCode = plaintext.charCodeAt(i);
+                // Simple encryption: increase ASCII value by 1
+                charCode = charCode + 1;
+                ciphertext += String.fromCharCode(charCode);
+            }
+            document.getElementById('ciphertext').value = ciphertext;
+        }
+        
+        function decryptText() {
+            let ciphertext = document.getElementById('plaintext').value; // Reuse input for decryption
+            let plaintext = '';
+            for (let i = 0; i < ciphertext.length; i++) {
+                let charCode = ciphertext.charCodeAt(i);
+                // Simple decryption: decrease ASCII value by 1
+                charCode = charCode - 1;
+                plaintext += String.fromCharCode(charCode);
+            }
+            document.getElementById('ciphertext').value = plaintext;
+        }
+    </script>
+           </div>
+       <div>
+         <h1>文本朗读工具</h1>
+         <p>预览:</p>
+         <p>===============</p>
+    <div>
+        <textarea id="text-input" rows="4" cols="50" placeholder="请输入您想朗读的文本..."></textarea>
+        <button id="read-button" onclick="readText()">朗读</button>
+    </div>
+    <script src="text_reader.js"></script>
+
+    <script>
+        function readText() {
+            var text = document.getElementById('text-input').value;
+            var speech = new SpeechSynthesisUtterance();
+            speech.text = text;
+            speech.lang = 'zh-CN';
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
+         </div>
+       <div>
+         <h1>可视化十六进制颜色代码编辑工具</h1>
+         <p>预览:</p>
+         <p>===============</p>
+ <div class="color-picker">
+    <div>
+        <label for="r">R:</label>
+        <input type="range" id="r" min="0" max="255" value="255" oninput="updateColor()">
+    </div>
+    <div>
+        <label for="g">G:</label>
+        <input type="range" id="g" min="0" max="255" value="255" oninput="updateColor()">
+    </div>
+    <div>
+        <label for="b">B:</label>
+        <input type="range" id="b" min="0" max="255" value="255" oninput="updateColor()">
+    </div>
+    <div>
+        <label for="a">透明度:</label>
+        <input type="range" id="a" min="0" max="1" step="0.01" value="1" oninput="updateColor()">
+    </div>
+    <div class="preview" id="preview"></div>
+    <div id="hexCode"></div>
+</div>
+
+<style>
+.color-picker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.color-picker div {
+    margin: 10px;
+}
+.preview {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000;
+}
+</style>
+
+<script>
+function updateColor() {
+    const r = document.getElementById('r').value;
+    const g = document.getElementById('g').value;
+    const b = document.getElementById('b').value;
+    const a = document.getElementById('a').value;
+
+    const color = `rgba(${r}, ${g}, ${b}, ${a})`;
+    const hex = `#${(parseInt(r, 10) << 16 | parseInt(g, 10) << 8 | parseInt(b, 10)).toString(16).padStart(6, '0')}`;
+
+    document.getElementById('preview').style.backgroundColor = color;
+    document.getElementById('hexCode').textContent = `十六进制颜色代码: ${hex.toUpperCase()}`;
+}
+
+updateColor();
+</script>
+         </div>
+       <div>
+<h1>简易货币汇率</h1>
+<p>预览:</p>
+         <p>===============</p>
+    <div class="container">
+        <h3>货币转换器（人民币至美元、欧元、英镑、日元）</h3>
+        <input type="number" id="amount" placeholder="请输入人民币金额">
+        <select id="currency">
+            <option value="USD">美元</option>
+            <option value="EUR">欧元</option>
+            <option value="GBP">英镑</option>
+            <option value="JPY">日元</option>
+        </select>
+        <button onclick="window.currencyConverter()">转换</button>
+        <p id="resultCNYtobe"></p>
+    </div>
+
+    <script>
+        (function() {
+            const API_KEY = 'YOUR_API_KEY';
+            const API_URL = 'https://api.exchangerate-api.com/v4/latest/CNY';
+
+            async function fetchExchangeRate() {
+                const response = await fetch(`${API_URL}?access_key=${API_KEY}`);
+                const data = await response.json();
+                return data.rates;
+            }
+
+            async function convertCurrency() {
+                const amountInput = document.getElementById('amount');
+                const currencyInput = document.getElementById('currency');
+                const resultOutput = document.getElementById('resultCNYtobe');
+
+                const amount = parseFloat(amountInput.value);
+                const currency = currencyInput.value;
+
+                if (isNaN(amount) || amount <= 0) {
+                    resultOutput.innerText = '请输入有效的金额。';
+                    return;
+                }
+
+                const rates = await fetchExchangeRate();
+                const rate = rates[currency];
+                const convertedAmount = amount * rate;
+                resultOutput.innerText = `${amount} 人民币 = ${convertedAmount.toFixed(2)} ${currency}`;
+            }
+
+            // GPT:将函数暴露给全局作用域，以便按钮可以调用
+            window.currencyConverter = convertCurrency;
+        })();
+    </script>
+         </div>
+         <div>
+    <h1>十进制转换二进制</h1>
+<p>预览:</p>
+         <p>===============</p>
+    <script>
+        function convertToBinary() {
+            // TAT
+            var decimalNumber = document.getElementById('decimalInput').value;
+            // waw
+            var binaryNumber = parseInt(decimalNumber, 10).toString(2);
+            // fuck you
+            document.getElementById('binaryOutput').innerHTML = binaryNumber;
+        }
+    </script>
+    <form>
+        <label for="decimalInput">输入十进制数:</label>
+        <input type="text" id="decimalInput" name="decimalInput">
+        <input type="button" value="转换" onclick="convertToBinary()">
+    </form>
+    <p>二进制结果: <span id="binaryOutput"></span></p>
+        </div>
+       <div>
+    <h1>时间简表工具</h1>
+<p>预览:</p>
+         <p>===============</p>
+    <div id="currentDate"></div>
+    <div id="lunarDate"></div>
+    <div id="season"></div>
+    <div id="daysToNextSaturday"></div>
+    <div id="dayOfYear"></div>
+    <div id="chineseFestival"></div>
+    <div id="solarTerms"></div>
+    <div id="internationalFestival"></div>
+
+    <script>
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = today.getMonth() + 1;
+        const day = today.getDate();
+        const hours = today.getHours();
+        const minutes = today.getMinutes();
+        const dayOfWeek = today.getDay();
+
+        // 当前时间，星期显示为中文“星期X”
+        const weekDays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+        const weekDay = weekDays[dayOfWeek];
+        document.getElementById('currentDate').innerHTML = `当前时间：${year}年${month}月${day}日，${weekDay}，${hours}时${minutes}分`;
+
+        // 显示季节
+        const seasons = ["冬季", "春季", "夏季", "秋季", "冬季"];
+        const season = seasons[Math.floor((month - 1) / 3)];
+        document.getElementById('season').innerHTML = `当前季节：${season}`;
+
+        // 显示今天距离周六还有天
+        const daysToNextSaturday = (6 - dayOfWeek + 7) % 7;
+        document.getElementById('daysToNextSaturday').innerHTML = `今天距离周六还有${daysToNextSaturday}天`;
+
+        // 显示今天是今年的第几天
+        const dayOfYear = Math.floor((today - new Date(year, 0, 0)) / 1000 / 60 / 60 / 24) + 1;
+        document.getElementById('dayOfYear').innerHTML = `今天是今年的第${dayOfYear}天`;
+
+        // 简化的农历日期计算
+        function getLunarDate(year, month, day) {
+            // 这里使用一个简化的算法，仅用于示例
+            // 实际的农历转换需要一个更复杂的算法
+            const lunarNewYear = new Date(year, 0, 23); // 假设农历正月初一在1月23日
+            const daysSinceLunarNewYear = Math.floor((today - lunarNewYear) / 1000 / 60 / 60 / 24);
+            const lunarMonth = Math.ceil((daysSinceLunarNewYear - 1) / 30) + 1;
+            const lunarDay = (daysSinceLunarNewYear - 1) % 30 + 1;
+            document.getElementById('lunarDate').innerHTML = `农历：${lunarMonth}月${lunarDay}日`;
+        }
+
+        getLunarDate(year, month, day);
+
+        // 显示中国传统节日
+        const chineseFestival = checkChineseFestival(year, month, day);
+        document.getElementById('chineseFestival').innerHTML = chineseFestival;
+
+        // 显示节气
+        const solarTerms = checkSolarTerms(month, day);
+        document.getElementById('solarTerms').innerHTML = solarTerms;
+
+        // 显示国际节日
+        const internationalFestival = checkInternationalFestival(month, day);
+        document.getElementById('internationalFestival').innerHTML = internationalFestival;
+
+        function checkChineseFestival(year, month, day) {
+            const festivals = {
+                "春节": [1, 23], // 假设春节在公历1月23日
+                "元宵节": [1, 15],
+                "龙抬头、社日节": [2, 2],
+                "清明节": [4, 5],
+                "端午节": [5, 5],
+                "七夕节": [7, 7],
+                "中秋节": [8, 15],
+                "重阳节": [9, 9],
+                "除夕": [12, 31] // 假设除夕在12月31日
+            };
+            for (const [festival, [fMonth, fDay]] of Object.entries(festivals)) {
+                if (month === fMonth && day === fDay) {
+                    return `今天是：${festival}`;
+                }
+            }
+            return "今天不是节日";
+        }
+
+        function checkSolarTerms(month, day) {
+            const terms = {
+                "立春": [2, 4],
+                "雨水": [2, 19],
+                "惊蛰": [3, 5],
+                "春分": [3, 20],
+                "清明": [4, 4],
+                "谷雨": [4, 19],
+                "立夏": [5, 5],
+                "小满": [5, 20],
+                "芒种": [6, 5],
+                "夏至": [6, 21],
+                "小暑": [7, 6],
+                "大暑": [7, 22],
+                "立秋": [8, 7],
+                "处暑": [8, 22],
+                "白露": [9, 7],
+                "秋分": [9, 22],
+                "寒露": [10, 8],
+                "霜降": [10, 23],
+                "立冬": [11, 7],
+                "小雪": [11, 22],
+                "大雪": [12, 6],
+                "冬至": [12, 21],
+                "小寒": [1, 5],
+                "大寒": [1, 20]
+            };
+            for (const [term, [tMonth, tDay]] of Object.entries(terms)) {
+                if (month === tMonth && day === tDay) {
+                    return `今天是：${term}`;
+                }
+            }
+            return "今天没有节气";
+        }
+
+        function checkInternationalFestival(month, day) {
+            const festivals = {
+                "六一儿童节": [6, 1],
+                "圣诞节": [12, 25]
+            };
+            for (const [festival, [fMonth, fDay]] of Object.entries(festivals)) {
+                if (month === fMonth && day === fDay) {
+                    return `今天是：${festival}`;
+                }
+            }
+            return "今天没有国际节日";
+        }
+    </script>
+   </div>
+  <div>    
+<h1>随机语句显示工具</h1>
+<p>预览:</p>
+         <p>===============</p>
+<script>
+const quotes = [
+    {
+        quote: "知识就是力量。",
+        translation:"Knowledge is power.",
+        author: "弗朗西斯·培根"
+    },
+    {
+        quote: "我思故我在。",
+        translation: "I think, therefore I am.",
+        author: "笛卡尔"
+    },
+    {
+        quote: "时间就是金钱。",
+        translation: "Time is money.",
+        author: "本杰明·富兰克林"
+    },
+    {
+        quote: "海上生明月，天涯共此时。",
+        translation: "The moon is born above the sea,From afar, we share this sight with thee.",
+        author: "张九龄"
+    },
+      {
+        quote: "但愿人长久，千里共婵娟。",
+        translation: "May we live long and well,Though apart, together we dwell.",
+        author: "苏轼"
+    },
+      {
+        quote: "两岸猿声啼不住，轻舟已过万重山。",
+        translation: "The monkeys' cries on both banks don't cease,My light boat glides past countless hills with ease.",
+        author: "王之涣"
+    },
+      {
+        quote: "会当凌绝顶，一览众山小。",
+        translation: "We shall climb the highest peak,And see all mountains small and meek.",
+        author: "杜甫"
+    },
+      {
+        quote: "无边落木萧萧下，不尽长江滚滚来。",
+        translation: "Leaves fall endlessly, a rustling sound,The Yangtze flows on, forever unbound.",
+        author: "杜甫"
+    },
+      {
+        quote: "明月几时有？把酒问青天。",
+        translation: "When will the bright moon appear?I lift my cup and ask the azure sky.",
+        author: "苏轼"
+    },
+      {
+        quote: "人生得意须尽欢，莫使金樽空对月。",
+        translation: "When life brings joy, one must fully partake,Don't let the golden cup face the moon, alone and forsake..",
+        author: "李白"
+    },
+      {
+        quote: "欲穷千里目，更上一层楼。",
+        translation: "To see a thousand miles, climb one more floor,To reach beyond the horizon, seek ever more.",
+        author: "王之涣"
+    },
+      {
+        quote: "山重水复疑无路，柳暗花明又一村。",
+        translation: "Mountains multiply, waters loop, a path seems lost,Yet through dark willows, bright flowers, a new village is crossed.",
+        author: "陆游"
+    },
+      {
+        quote: "纸上得来终觉浅，绝知此事要躬行。",
+        translation: "What's learned on paper seems shallow at best,To truly know, one must act, put theory to the test.",
+        author: "陆游"
+    },
+    {
+        quote: "月落乌啼霜满天，江枫渔火对愁眠。",
+        translation:"At moonset cry the crows, streaking the frosty sky,Dimly lit fishing boats‘neath maples sadly lie.",
+        author: "张继"
+    },
+    {
+        quote: "孤帆远影碧空尽，唯见长江天际流。",
+        translation:"A lonely sail's distant shadow fades into the azure sky,Only the Yangtze's flow is seen, stretching to the edge of the eye.",
+        author: "李白"
+    },
+
+      {
+        quote: "星垂平野阔，月涌大江流。",
+        translation:"Stars hang low over the vast plains, the moon rises, making the great river surge.",
+        author: "杜甫"
+    },
+
+      {
+        quote: "大漠孤烟直，长河落日圆。",
+        translation:"In the vast desert, a lone smoke rises straight,The long river flows, with the setting sun's round gate.",
+        author: "王维"
+    },
+
+      {
+        quote: "笨鸟先飞早入林，笨人勤学早成材。",
+        translation:"A slow bird must start flying early to get to the woods first; a slow person must study diligently to succeed early. ",
+        author: "《省世格言》"
+    },
+
+      {
+        quote: "书山有路勤为径，学海无涯苦作舟。",
+        translation:"In the mountain of books, diligence is the path; in the sea of learning, suffering is the boat.",
+        author: "《增广贤文》"
+    },
+
+      {
+        quote: "不怨天，不尤人。",
+        translation:"Do not complain about heaven, nor blame others.",
+        author: "《论语》"
+    },
+
+      {
+        quote: "生于忧患，死于安乐。",
+        translation:"Knowledge is power.",
+        author: "孟子"
+    },
+
+      {
+        quote: "知识就是力量。",
+        translation:"One is born into troubles, and dies in ease.",
+        author: "弗朗西斯·培根"
+    },
+
+      {
+        quote: "三思而后行。",
+        translation:"Think three times before you act.",
+        author: "《论语》"
+    },
+
+      {
+        quote: "知之者不如好之者，好之者不如乐之者。",
+        translation:"Those who know it are not as good as those who love it, and those who love it are not as good as those who take pleasure in it.",
+        author: "《论语》"
+    },
+
+      {
+        quote: "工欲善其事，必先利其器。",
+        translation:"If a craftsman wishes to do his work well, he must first sharpen his tools.",
+        author: "《论语》"
+    },
+
+      {
+        quote: "三人行，必有我师焉。",
+        translation:"When walking with three people, I can always find a teacher among them.",
+        author: "《论语》"
+    },
+{
+        quote: "学而不思则罔，思而不学则殆。",
+        translation:"If you study without thinking, you will be lost; if you think without studying, you will be in danger.",
+        author: "《论语》"
+    },
+{
+        quote: "天行健，君子以自强不息。",
+        translation:"Think three times before you act.",
+        author: "《论语》"
+    },
+{
+        quote: "三思而后行。",
+        translation:"Think three times before you act.",
+        author: "《论语》"
+    },
+
+  
+  
+];
+
+function getRandomQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    return quotes[randomIndex];
+}
+
+function updateQuote() {
+    const quote = getRandomQuote();
+    document.getElementById('quote').innerText = quote.quote;
+    document.getElementById('translation').innerText = quote.translation;
+    document.getElementById('author').innerText = quote.author;
+}
+
+window.onload = updateQuote;
+</script>
+</head>
+<body>
+<h1>随机语句</h1>
+<p id="quote"></p>
+<p>EN:<span id="translation"></span></p>
+<p>——  <span id="author"></span></p>
+  <p>(随机显示一句，页面打开和刷新时切换)</p>
+    <!-- 备注:到这即可 -->
+</body>
+</html>

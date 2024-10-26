@@ -48,6 +48,8 @@ function timeupdate() {
     let time = hour + ":" + min + ":" + sec;
     document.getElementById("time").innerHTML = time;
 }
+<<<<<<< HEAD
+=======
 
 function scrollDotMove() {
     let dot = document.getElementById("scrollDot");
@@ -59,3 +61,4 @@ function scrollDotMove() {
 }
 
 window.addEventListener("scroll", scrollDotMove);
+>>>>>>> e7bcf6b39b745f4917668866cac405b88bcadbd9
