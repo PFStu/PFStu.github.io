@@ -157,10 +157,39 @@ a:hover {
     font-size: 38px;
 }
 
+.titlebox {
+    padding: 0 10px;
+    margin-top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 2px solid #4a18fd;
+    transition: 0.2s;
+    box-shadow: 0 0 20px #4a18fd;
+}
+
+.titlebox2 {
+    padding: 0 10px;
+    margin-top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 2px solid #184dfd;
+    transition: 0.2s;
+    box-shadow: 0 0 20px #181cfd;
+}
+
 .text {
     text-align: center;
     font-family: 'MiSans' , Arial, Helvetica, sans-serif;
     color:#000;
+    margin: 5px;
 }
 
 .light-theme .sections{
@@ -220,8 +249,6 @@ footer {
 #tools-link {background-size: 30%;background-image: url(../img/Tools.svg);background-position: center;background-repeat: no-repeat;}
 #resources-link {background-size: 40%;background-image: url(../img/Resources.svg);background-position: center;background-repeat: no-repeat;}
 #software-link {background-size: 50%;background-image: url(../img/Software.svg);background-position: center;background-repeat: no-repeat;}
-<<<<<<< HEAD
-=======
 
 .scrollline {
     position: fixed;
@@ -255,4 +282,3 @@ footer {
         box-shadow: 0 0 15px #6818fd;
     }
 }
->>>>>>> e7bcf6b39b745f4917668866cac405b88bcadbd9

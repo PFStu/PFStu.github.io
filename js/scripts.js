@@ -48,8 +48,6 @@ function timeupdate() {
     let time = hour + ":" + min + ":" + sec;
     document.getElementById("time").innerHTML = time;
 }
-<<<<<<< HEAD
-=======
 
 function scrollDotMove() {
     let dot = document.getElementById("scrollDot");
@@ -61,4 +59,19 @@ function scrollDotMove() {
 }
 
 window.addEventListener("scroll", scrollDotMove);
->>>>>>> e7bcf6b39b745f4917668866cac405b88bcadbd9
+
+document.querySelectorAll(".titlebox").forEach(function(titlebox) {
+    titlebox.addEventListener("mousemove", function(event) {
+        const rect = titlebox.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        const xPercent = (x / rect.width) * 100;
+        const yPercent = (y / rect.height) * 100;
+        const tiltX = (yPercent - 50) * 0.5;
+        const tiltY = (xPercent - 50) * -0.5;
+        titlebox.style.transform = `perspective(500px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+    });
+    titlebox.addEventListener("mouseout", function() {
+        titlebox.style.transform = `perspective(500px) rotateX(0deg) rotateY(0deg)`;
+    });
+});
