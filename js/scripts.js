@@ -42,9 +42,9 @@ window.onload = function(){
 }
 
 function timeupdate() {
-    let hour = new Date().getHours();
-    let min = new Date().getMinutes();
-    let sec = new Date().getSeconds();
+    let hour = String(new Date().getHours()).padStart(2, '0');
+    let min = String(new Date().getMinutes()).padStart(2, '0');
+    let sec = String(new Date().getSeconds()).padStart(2, '0');
     let time = hour + ":" + min + ":" + sec;
     document.getElementById("time").innerHTML = time;
 }

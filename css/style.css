@@ -6,6 +6,7 @@ body {
     flex-direction: column;
     height: 100vh;
     transition: 0.3s;
+    background-size: cover;
 }
 
 .navbar {
@@ -86,6 +87,18 @@ body {
     .menu-toggle {
         display: flex;
     }
+
+    .backTop {
+        display: none;
+    }
+
+    .follow {
+        display: none;
+    }
+
+    .time {
+        display: none;
+    }
 }
 
 .logo-text {
@@ -123,7 +136,6 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: backgroundAnimation 10s linear infinite;
-    text-shadow: 0 0 10px #6818fdbd;
 }
 
 .dark-theme .text.title {
@@ -134,6 +146,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: backgroundAnimation 10s linear infinite;
+    text-shadow: 0 0 10px #6818fdbd;
 }
 
 
@@ -205,7 +218,7 @@ a:hover {
     margin: 5px;
     padding: 10px;
     margin: 0;
-    text-shadow: #4a18fd8f 0 0 42.5px;
+    text-shadow: none;
 }
 
 .light-theme .sections{
@@ -213,19 +226,27 @@ a:hover {
 }
 
 .dark-theme{
-    background: #333;
+    background: url(../img/Dark.png) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.light-theme{
+    background: url(../img/Light.png) no-repeat center center fixed;
+    background-size: cover;
 }
 
 .light-theme .text{
     text-align: center;
     font-family: 'MiSans' , Arial, Helvetica, sans-serif;
     color:#000;
+    text-shadow: none;
 }
 
 .dark-theme .text{
     text-align: center;
     font-family: 'MiSans' , Arial, Helvetica, sans-serif;
     color: #fff;
+    text-shadow: #4a18fd 0px 0px 20px;
 }
 
 #themeToggle {
@@ -254,7 +275,7 @@ footer {
 .title {
     font-size: 36px;
     font-family: 'MiSans', cursive;
-    background: linear-gradient(to right, #bef762, #51fead, #00c3ff);
+    background: black;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -297,4 +318,29 @@ footer {
     100% {
         box-shadow: 0 0 15px #6818fd;
     }
+}
+
+.backTop {
+    scroll-behavior: smooth;
+    position: fixed;
+    bottom: 10px;
+    left: 20px;
+}
+
+.follow {
+    scroll-behavior: smooth;
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+}
+
+.time {
+    position: fixed;
+    width: 140px;
+    bottom: 70px;
+    right: 20px;
+    padding: 20px;
+    background-color: #525eff60;
+    border-radius: 5px;
+    border: #4a18fd 2px solid;
 }
