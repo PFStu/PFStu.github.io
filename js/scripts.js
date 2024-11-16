@@ -75,3 +75,39 @@ document.querySelectorAll(".titlebox").forEach(function(titlebox) {
         titlebox.style.transform = `perspective(100px) rotateX(0deg) rotateY(0deg)`;
     });
 });
+
+
+const music = document.getElementById('music');
+const musicTitle = document.querySelector('.music-title');
+const musicBtn = document.querySelector('.music-btn');
+const progressBar = document.querySelector('.progress-bar');
+
+
+musicTitle.textContent = music.src.split('/').pop().split('.')[0];
+
+musicBtn.addEventListener('click', () => {
+    if (music.paused) {
+        music.play();
+        musicBtn.textContent = '暂停';
+    } else {
+        music.pause();
+        musicBtn.textContent = '播放';
+    }
+});
+
+music.addEventListener('timeupdate', () => {
+    const progress = (music.currentTime / music.duration) * 100;
+    progressBar.value = progress;
+});
+
+
+progressBar.addEventListener('input', () => {
+    const seekTime = (progressBar.value / 100) * music.duration;
+    music.currentTime = seekTime;
+});
+
+
+music.addEventListener('ended', () => {
+    musicBtn.textContent = '播放';
+    progressBar.value = 0;
+});

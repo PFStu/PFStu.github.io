@@ -99,6 +99,31 @@ body {
     .time {
         display: none;
     }
+
+    .music-player {
+        display: none;
+        opacity: 0;
+    }
+
+    .music-btn {
+        display: none;
+    }
+
+    .music-info {
+        display: none;
+    }
+
+    .music-title {
+        display: none;
+    }
+
+    .progress-bar {
+        display: none;
+    }
+
+    #music {
+        display: none;
+    }
 }
 
 .logo-text {
@@ -226,12 +251,12 @@ a:hover {
 }
 
 .dark-theme{
-    background: url(../img/Dark.png) no-repeat center center fixed;
+    background: url(https://img.picui.cn/free/2024/11/16/67388b2be87ac.png) no-repeat center center fixed;
     background-size: cover;
 }
 
 .light-theme{
-    background: url(../img/Light.png) no-repeat center center fixed;
+    background: url(https://img.picui.cn/free/2024/11/16/67388b2f37e69.png) no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -336,11 +361,73 @@ footer {
 
 .time {
     position: fixed;
-    width: 140px;
+    width: 150px;
     bottom: 70px;
     right: 20px;
     padding: 20px;
     background-color: #525eff60;
     border-radius: 5px;
     border: #4a18fd 2px solid;
+    justify-content: center;
+    align-items: center;
+}
+
+.music-player {
+    display: flex;
+    left: 20px;
+    bottom: 75px;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    background-color: #282c34;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.music-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.music-info {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.music-btn {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.music-btn:hover {
+    background-color: #e91e63;
+}
+
+.progress-bar {
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 5px;
+    border-radius: 5px;
+    background: #555;
+}
+
+.progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #ff4081;
+    cursor: pointer;
 }
