@@ -431,3 +431,40 @@ footer {
     background: #ff4081;
     cursor: pointer;
 }
+
+.music-back-btn,
+.music-next-btn {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px;
+}
+
+.music-back-btn:hover,
+.music-next-btn:hover {
+    background-color: #e91e63;
+}
+
+.music-btn-container {
+    justify-content: center;
+}
+
+.music-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    animation: musicImg 5s infinite ease-in-out
+}
+
+@keyframes musicImg {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

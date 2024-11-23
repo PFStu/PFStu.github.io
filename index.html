@@ -145,9 +145,14 @@
     </section>
     <footer>
         <div class="music-player">
-            <div class="music-title">歌曲名称</div>
-            <div class="music-info">闲暇时间听会儿Feint的歌吧~</div>
-            <button class="music-btn">播放</button>
+            <img src="" class="music-img"></img>
+            <div class="music-title">Music_Name</div>
+            <div class="music-info">闲暇时间听会儿歌吧~</div>
+            <div class="music-btn-container">
+                <button class="music-back-btn">上一首</button>
+                <button class="music-btn">播放</button>
+                <button class="music-next-btn">下一首</button>
+            </div>
             <input type="range" class="progress-bar" value="0" min="0" max="100">
             <audio id="music" src="music/Phosphor.mp3"></audio>
         </div>

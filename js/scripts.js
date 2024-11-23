@@ -76,14 +76,11 @@ document.querySelectorAll(".titlebox").forEach(function(titlebox) {
     });
 });
 
-
 const music = document.getElementById('music');
 const musicTitle = document.querySelector('.music-title');
 const musicBtn = document.querySelector('.music-btn');
 const progressBar = document.querySelector('.progress-bar');
 
-
-musicTitle.textContent = music.src.split('/').pop().split('.')[0];
 
 musicBtn.addEventListener('click', () => {
     if (music.paused) {
@@ -111,3 +108,51 @@ music.addEventListener('ended', () => {
     musicBtn.textContent = '播放';
     progressBar.value = 0;
 });
+
+const tracks = [
+    { title: "Phosphor", src: "music/Phosphor.mp3" },
+    { title: "Fading Wind", src: "music/FadingWind.mp3" },
+    { title: "SEPARATION", src: "music/SEPARATION.mp3" }
+];
+
+const musicImgs = [
+    { music:"Phosphor", img: "img/Phosphor.jpg" }
+    ,{ music:"FadingWind", img: "img/FadingWind.jpg" }
+    ,{ music:"SEPARATION", img: "img/SEPARATION.jpg" }
+]
+
+let currentTrackIndex = 0;
+
+
+function loadTrack() {
+    document.querySelector('.music-img').src = musicImgs[currentTrackIndex].img;
+    music.src = tracks[currentTrackIndex].src;
+    musicTitle.textContent = tracks[currentTrackIndex].title;
+    music.play();
+}
+
+document.querySelector('.music-back-btn').addEventListener('click', () => {
+    document.querySelector('.music-img').src = musicImgs[currentTrackIndex].img;
+    if (currentTrackIndex > 0) {
+        currentTrackIndex--;
+        loadTrack();
+        musicBtn.textContent = '暂停';
+    } else {
+        alert("已到达第一首曲目");
+    }
+});
+
+
+document.querySelector('.music-next-btn').addEventListener('click', () => {
+    document.querySelector('.music-img').src = musicImgs[currentTrackIndex].img;
+    if (currentTrackIndex < tracks.length - 1) {
+        currentTrackIndex++;
+        loadTrack();
+        musicBtn.textContent = '暂停';
+    } else {
+        alert("已到达最后一首曲目");
+    }
+});
+
+
+loadTrack();
