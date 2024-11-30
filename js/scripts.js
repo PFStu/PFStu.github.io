@@ -110,9 +110,9 @@ music.addEventListener('ended', () => {
 });
 
 const tracks = [
-    { title: "Phosphor", src: "music/Phosphor.mp3" },
-    { title: "Fading Wind", src: "music/FadingWind.mp3" },
-    { title: "SEPARATION", src: "music/SEPARATION.mp3" }
+    { title: "Phosphor", src: "https://pfstu.netlify.app/music/Phosphor.mp3" },
+    { title: "Fading Wind", src: "https://pfstu.netlify.app/music/FadingWind.mp3" },
+    { title: "SEPARATION", src: "https://pfstu.netlify.app/music/SEPARATION.mp3" }
 ];
 
 const musicImgs = [
