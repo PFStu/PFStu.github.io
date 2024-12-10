@@ -7,7 +7,22 @@ body {
     height: 100vh;
     transition: 0.3s;
     background-size: cover;
+    background-color: white;
 }
+
+
+body.dark-theme {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    transition: 0.3s;
+    background-size: cover;
+    background-color: black;
+}
+
 
 .navbar {
     display: flex;
