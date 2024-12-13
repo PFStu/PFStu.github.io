@@ -483,3 +483,8 @@ footer {
         transform: rotate(360deg);
     }
 }
+
+
+.theme-text {
+    color: white; /* Light mode text color */
+}
