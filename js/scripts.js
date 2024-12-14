@@ -45,6 +45,9 @@ window.onload = function(){
     setInterval(timeupdate, 1000);
 }
 
+document.documentElement.style.setProperty('--primary-color', localStorage.getItem('primaryColor') || '#0077cc');
+document.documentElement.style.setProperty('--secondary-color', getSimilarColor(localStorage.getItem('primaryColor') || '#0077cc'));
+
 function timeupdate() {
     let hour = String(new Date().getHours()).padStart(2, '0');
     let min = String(new Date().getMinutes()).padStart(2, '0');
@@ -192,6 +195,7 @@ document.addEventListener('DOMContentLoaded', function() {
         item.addEventListener('click', function() {
             const primaryColor = this.style.backgroundColor;
             document.documentElement.style.setProperty('--primary-color', primaryColor);
+            localStorage.setItem('primaryColor', primaryColor);
             const secondaryColor = getSimilarColor(primaryColor);
             document.documentElement.style.setProperty('--secondary-color', secondaryColor);
         });
