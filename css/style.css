@@ -1,3 +1,18 @@
+:root {
+    --primary-color: #6818fd;
+    --secondary-color: #4a18fd;
+    --tertiary-color: #ae4efc;
+    --background-light: #fff;
+    --background-dark: #000;
+    --text-light: #000;
+    --text-dark: #fff;
+    --link-color: #4b4b4b;
+    --hover-color: #ae4efc;
+    --border-color: #4a18fd;
+    --button-hover: #e91e63;
+    --button-bg: #ff4081;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -7,22 +22,12 @@ body {
     height: 100vh;
     transition: 0.3s;
     background-size: cover;
-    background-color: white;
+    background-color: var(--background-light);
 }
-
 
 body.dark-theme {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    transition: 0.3s;
-    background-size: cover;
-    background-color: black;
+    background-color: var(--background-dark);
 }
-
 
 .navbar {
     display: flex;
@@ -61,14 +66,12 @@ body.dark-theme {
     transition: color 0.3s;
     border-radius: 5px;
     padding: 20px 25px;
-    transition: 0.6s;
     background-color: #1d1919;
 }
 
-
 .nav-links a:hover {
-    background-color: #ae4efc;
-    box-shadow: 0 0 10px #ae4efc;
+    background-color: var(--hover-color);
+    box-shadow: 0 0 10px var(--hover-color);
 }
 
 .menu-toggle {
@@ -94,7 +97,7 @@ body.dark-theme {
         background-color: #333;
         width: 100%;
     }
-    
+
     .nav-links.active {
         display: flex;
     }
@@ -103,47 +106,17 @@ body.dark-theme {
         display: flex;
     }
 
-    .backTop {
-        display: none;
-    }
-
-    .follow {
-        display: none;
-    }
-
-    .time {
-        display: none;
-    }
-
-    .music-player {
-        display: none;
-        opacity: 0;
-    }
-
-    .music-btn {
-        display: none;
-    }
-
-    .music-info {
-        display: none;
-    }
-
-    .music-title {
-        display: none;
-    }
-
-    .progress-bar {
-        display: none;
-    }
-
+    .backTop,
+    .follow,
+    .time,
+    .music-player,
+    .music-btn,
+    .music-info,
+    .music-title,
+    .progress-bar,
     #music {
         display: none;
     }
-}
-
-.logo-text {
-    font-size: 24px;
-    font-weight: bold;
 }
 
 .text.title {
@@ -168,33 +141,14 @@ body.dark-theme {
     }
 }
 
-.light-theme .text.title {
-    font-size: 50px;
-    background: linear-gradient(to right, #f77062, #fe5196, #ff0080, #7c4dff, #4568dc, #2980b9, #2c3e50);
-    background-size: 300%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: backgroundAnimation 10s linear infinite;
-}
-
 .dark-theme .text.title {
-    font-size: 50px;
-    background: linear-gradient(to right, #f77062, #fe5196, #ff0080, #7c4dff, #4568dc, #2980b9, #2c3e50);
-    background-size: 300%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: backgroundAnimation 10s linear infinite;
-    text-shadow: 0 0 10px #6818fdbd;
+    text-shadow: 0 0 10px var(--primary-color);
 }
-
 
 @font-face {
     font-family: 'MiSans';
     src: url('../fonts/MiSans-Semibold.ttf');
 }
-
 
 a {
     display: inline-block;
@@ -204,12 +158,12 @@ a {
     margin: 5px;
     border-radius: 5px;
     transition: 0.3s;
-    background-color: #4b4b4b;
+    background-color: var(--link-color);
 }
 
 a:hover {
-    background-color: #ae4efc;
-    box-shadow: 0 0 30px #ae4efc;
+    background-color: var(--hover-color);
+    box-shadow: 0 0 30px var(--hover-color);
 }
 
 .div {
@@ -226,16 +180,16 @@ a:hover {
 
 .titlebox {
     padding: 0 10px;
-    margin-top: 0px;
+    margin-top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background-color: transparent;
     border-radius: 5px;
-    border: 2px solid #4a18fd;
+    border: 2px solid var(--secondary-color);
     transition: 0.2s;
-    box-shadow: 0 0 20px #4a18fd;
+    box-shadow: 0 0 20px var(--secondary-color);
 }
 
 .titlebox:hover {
@@ -243,50 +197,49 @@ a:hover {
 }
 
 @keyframes titlebox {
-    0%,100% {
-        box-shadow: 0 0 50px #4a18fd;
+    0%, 100% {
+        box-shadow: 0 0 50px var(--secondary-color);
     }
     50% {
-        box-shadow: 0 0 5px #4a18fd;
+        box-shadow: 0 0 5px var(--secondary-color);
     }
 }
 
 .text {
     text-align: center;
-    font-family: 'MiSans' , Arial, Helvetica, sans-serif;
-    color:#000;
+    font-family: 'MiSans', Arial, Helvetica, sans-serif;
+    color: var(--text-light);
     margin: 5px;
     padding: 10px;
-    margin: 0;
     text-shadow: none;
 }
 
-.light-theme .sections{
-    background: #fff;
+.light-theme .sections {
+    background: var(--background-light);
 }
 
-.dark-theme{
+.dark-theme {
     background: url(https://img.picui.cn/free/2024/11/16/67388b2be87ac.png) no-repeat center center fixed;
     background-size: cover;
 }
 
-.light-theme{
+.light-theme {
     background: url(https://img.picui.cn/free/2024/11/16/67388b2f37e69.png) no-repeat center center fixed;
     background-size: cover;
 }
 
-.light-theme .text{
+.light-theme .text {
     text-align: center;
-    font-family: 'MiSans' , Arial, Helvetica, sans-serif;
-    color:#000;
+    font-family: 'MiSans', Arial, Helvetica, sans-serif;
+    color: var(--text-light);
     text-shadow: none;
 }
 
-.dark-theme .text{
+.dark-theme .text {
     text-align: center;
-    font-family: 'MiSans' , Arial, Helvetica, sans-serif;
-    color: #fff;
-    text-shadow: #4a18fd 0px 0px 20px;
+    font-family: 'MiSans', Arial, Helvetica, sans-serif;
+    color: var(--text-dark);
+    text-shadow: var(--secondary-color) 0px 0px 20px;
 }
 
 #themeToggle {
@@ -315,17 +268,11 @@ footer {
 .title {
     font-size: 36px;
     font-family: 'MiSans', cursive;
-    background: black;
+    background: var(--background-dark);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-#home-link {background-size: 65%;background-image: url(../img/Home.svg);background-position: center;background-repeat: no-repeat;}
-#about-link {background-size: 30%;background-image: url(../img/About.svg);background-position: center;background-repeat: no-repeat;}
-#projects-link {background-size: 65%;background-image: url(../img/Projects.svg);background-position: center;background-repeat: no-repeat;}
-#tools-link {background-size: 30%;background-image: url(../img/Tools.svg);background-position: center;background-repeat: no-repeat;}
-#resources-link {background-size: 40%;background-image: url(../img/Resources.svg);background-position: center;background-repeat: no-repeat;}
-#software-link {background-size: 50%;background-image: url(../img/Software.svg);background-position: center;background-repeat: no-repeat;}
 
 .scrollline {
     position: fixed;
@@ -343,20 +290,20 @@ footer {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background-color: #6818fd;
-    box-shadow: 0 0 15px #6818fd;
+    background-color: var(--primary-color);
+    box-shadow: 0 0 15px var(--primary-color);
     animation: scrolldot 3s infinite;
 }
 
 @keyframes scrolldot {
     0% {
-        box-shadow: 0 0 15px #6818fd;
+        box-shadow: 0 0 15px var(--primary-color);
     }
     50% {
-        box-shadow: 0 0 5px #6818fd;
+        box-shadow: 0 0 5px var(--primary-color);
     }
     100% {
-        box-shadow: 0 0 15px #6818fd;
+        box-shadow: 0 0 15px var(--primary-color);
     }
 }
 
@@ -380,9 +327,9 @@ footer {
     bottom: 70px;
     right: 20px;
     padding: 20px;
-    background-color: #525eff60;
+    background-color: rgba(82, 94, 255, 0.6);
     border-radius: 5px;
-    border: #4a18fd 2px solid;
+    border: var(--secondary-color) 2px solid;
     justify-content: center;
     align-items: center;
 }
@@ -413,7 +360,7 @@ footer {
 }
 
 .music-btn {
-    background-color: #ff4081;
+    background-color: var(--button-bg);
     color: white;
     border: none;
     border-radius: 5px;
@@ -423,7 +370,7 @@ footer {
 }
 
 .music-btn:hover {
-    background-color: #e91e63;
+    background-color: var(--button-hover);
 }
 
 .progress-bar {
@@ -443,13 +390,13 @@ footer {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background: #ff4081;
+    background: var(--button-bg);
     cursor: pointer;
 }
 
 .music-back-btn,
 .music-next-btn {
-    background-color: #ff4081;
+    background-color: var(--button-bg);
     color: white;
     border: none;
     border-radius: 5px;
@@ -461,7 +408,7 @@ footer {
 
 .music-back-btn:hover,
 .music-next-btn:hover {
-    background-color: #e91e63;
+    background-color: var(--button-hover);
 }
 
 .music-btn-container {
@@ -472,7 +419,7 @@ footer {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    animation: musicImg 5s infinite ease-in-out
+    animation: musicImg 5s infinite ease-in-out;
 }
 
 @keyframes musicImg {
@@ -484,7 +431,6 @@ footer {
     }
 }
 
-
 .theme-text {
-    color: white; /* Light mode text color */
+    color: var(--text-dark);
 }
