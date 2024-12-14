@@ -110,9 +110,10 @@ body.dark-theme {
     .follow,
     .time,
     .music-player,
-    .music-btn,
     .music-info,
     .music-title,
+    .music-img,
+    .music-btn-container,
     .progress-bar,
     #music {
         display: none;
