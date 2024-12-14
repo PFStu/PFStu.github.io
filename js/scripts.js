@@ -10,9 +10,11 @@ let theme = localStorage.getItem('theme') || 'light';
 document.body.classList.add(theme === 'dark' ? 'dark-theme' : 'light-theme');
 if (theme === 'dark') {
     document.getElementById("title").innerHTML = "Have a good night";
+    localStorage.setItem('theme', 'dark');
     document.getElementById("themeToggle").innerHTML = "🌙";
 } else {
     document.getElementById("title").innerHTML = "Enjoy your day";
+    localStorage.setItem('theme', 'light');
     document.getElementById("themeToggle").innerHTML = "☀️";
 }
 document.getElementById('themeToggle').addEventListener('click', () => {
@@ -20,12 +22,14 @@ document.getElementById('themeToggle').addEventListener('click', () => {
         document.getElementById("title").innerHTML = "Have a good night";
         document.getElementById("themeToggle").innerHTML = "🌙";
         document.body.classList.remove('light-theme');
+        localStorage.setItem('theme', 'dark');
         document.body.classList.add('dark-theme');
         theme = 'dark';
     } else {
         document.getElementById("title").innerHTML = "Enjoy your day";
         document.getElementById("themeToggle").innerHTML = "☀️";
         document.body.classList.remove('dark-theme');
+        localStorage.setItem('theme', 'light');
         document.body.classList.add('light-theme');
         theme = 'light';
     }
