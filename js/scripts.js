@@ -180,3 +180,27 @@ themeToggleButton.addEventListener('click', () => {
 
 
 loadTrack();
+
+document.addEventListener('DOMContentLoaded', function() {
+    const colorItems = document.querySelectorAll('.color-select-item');
+
+    colorItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const primaryColor = this.style.backgroundColor;
+            document.documentElement.style.setProperty('--primary-color', primaryColor);
+            const secondaryColor = getSimilarColor(primaryColor);
+            document.documentElement.style.setProperty('--secondary-color', secondaryColor);
+        });
+    });
+});
+
+function getSimilarColor(color) {
+    const rgb = color.match(/\d+/g);
+    if (!rgb || rgb.length < 3) return color;
+
+    const r = Math.min(255, parseInt(rgb[0]) + 40);
+    const g = Math.min(255, parseInt(rgb[1]) + 40);
+    const b = Math.min(255, parseInt(rgb[2]) + 40);
+
+    return `rgb(${r}, ${g}, ${b})`;
+}

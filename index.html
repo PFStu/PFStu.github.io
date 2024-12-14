@@ -18,12 +18,12 @@
             <button id="themeToggle"></button>
             <nav>
                 <ul class="nav-links">
-                    <li><a id="home-link" href="" title="首页"></a></li>
-                    <li><a id="about-link" href="pages/About.html" target="_blank" title="关于"></a></li>
-                    <li><a id="projects-link" href="#projects" title="项目"></a></li>
-                    <li><a id="tools-link" href="PFTools/PFTools.html"  target="_blank" title="工具"></a></li>
-                    <li><a id="resources-link" href="pfsources/index.html"  target="_blank" title="资源"></a></li>
-                    <li><a id="software-link" href="pfsoft/index.html"  target="_blank" title="软件"></a></li>
+                    <li><a id="home-link" href="" title="首页"><img src="img/Home.svg"></a></li>
+                    <li><a id="about-link" href="pages/About.html" target="_blank" title="关于"><img src="img/About.svg"></a></li>
+                    <li><a id="projects-link" href="pages/projects.html" title="项目"><img src="img/Projects.svg"></a></li>
+                    <li><a id="tools-link" href="PFTools/PFTools.html"  target="_blank" title="工具"><img src="img/Tools.svg"></a></li>
+                    <li><a id="resources-link" href="pfsources/index.html"  target="_blank" title="资源"><img src="img/Resources.svg"></a></li>
+                    <li><a id="software-link" href="pfsoft/index.html"  target="_blank" title="软件"><img src="img/Software.svg"></a></li>
                 </ul>
             </nav>
             <div class="menu-toggle" id="menuToggle">
@@ -42,135 +42,30 @@
     <div></div>
     <h1 id="welcome" class="text">Welcome!</h1>
     <p id="thanks" class="text">本站使用Mi sans字体</p>
-    <div>
-        <p class="text">---------------------------------------------</p>
+    <div class="explore-container">
+        <div class="explore">
+            <p class="explore-text">🎉探索</p>
+        </div>
+        <div class="cutline"></div>
+        <div class="explore-items">
+            <a href="pages/About.html" target="_blank" class="explore-item"><p class="explore-item-text">🎫关于我们</p></a>
+            <a href="pages/projects.html" class="explore-item" target="_blank"><p class="explore-item-text">🎨项目</p></a>
+            <a href="PFTools/PFTools.html" target="_blank" class="explore-item"><p class="explore-item-text">🔧工具</p></a>
+        </div>
     </div>
-    <section id="sections">
-        <p id="projects" class="text">Our Projects</p>
-        <section id="pfdocs" class="div">
-            <div class="titlebox">
-                <p id="pfdocs-title" class="text">PF文档中心</p>
-            </div>
-            <p class="text">一个在线文档中心，分享许多有用的知识及bilibili视频，持续更新</p>
-            <a href="https://pfstu.ct.ws/docs" target="_blank"><span class="text">进入PF文档中心</span></a>
-        </section>
-        <div class="line">
-            <p class="text">---------------------------</p>
+    <div class="color-select-container">
+        <div class="color-select">
+            <p class="color-select-text">🎨颜色选择</p>
         </div>
-        <section id="pfchat" class="div">
-            <div class="titlebox">
-                <p id="pfchat-title" class="text">PF聊天房</p>
-            </div>
-            <p class="text">一个基于Web的聊天室，支持多人聊天，图片分享，以及更多功能。</p>
-            <a href="https://pfstu.ct.ws/chat/" target="_blank"><span class="text">进入PF聊天房</span></a>
-        </section>
-        <div class="line">
-            <p class="text">---------------------------</p>
+        <div class="color-select-items">
+            <div class="color-select-item" style="background-color: #0077cc;"><span class="text">清澈蓝</span></div>
+            <div class="color-select-item" style="background-color: #ff6600;"><span class="text">忠实橘</span></div>
+            <div class="color-select-item" style="background-color: #00cc66;"><span class="text">青春绿</span></div>
+            <div class="color-select-item" style="background-color: #ffcc00;"><span class="text">琥珀黄</span></div>
+            <div class="color-select-item" style="background-color: #9933ff;"><span class="text">深邃紫</span></div>
+            <div class="color-select-item" style="background-color: #ff3399;"><span class="text">暖暖粉</span></div>
         </div>
-        <section id="pfbilidownloader" class="div">
-            <div class="titlebox">
-                <p id="pfbilidownloader-title" class="text">PFB站视频下载工具</p>
-            </div>
-            <a href="https://pfstu.ct.ws/bvd/" target="_blank"><span class=text>进入PF B站视频下载工具详情页</span></a>
-        </section>
-        <div class="line">
-            <p class="text">---------------------------</p>
-        </div>
-        <section id="pfmedia-addon" class="div">
-            <div class="titlebox">
-                <p id="pfmedia-addon-title" class="text">PFMedia Addon</p>
-            </div>
-            <p id="pfmedia-addon-more" class="text">一个小小的浏览器插件，用于捕获网页中的媒体并下载</p>
-            <a href="files/addon.zip" download><span class="text">直接下载</span></a>
-        </section>
-        <div class="line">
-            <p class="text">---------------------------</p>
-        </div>
-        <section id="softs" class="div">
-            <div class="titlebox">
-                <p id="softs-title" class="text">PF软件集</p>
-            </div>
-            <a href="pfsoft/index.html" id="softs-link" class="link" target="_blank"><span class="text">进入PF软件集详情页</span></a>
-        </section>
-        <div class="line">
-            <p class="text">---------------------------</p>
-        </div>
-        <section id="pfsources" class="div">
-            <div class="titlebox">
-                <p id="pfsources-title" class="text">PF资源库</p>
-            </div>
-            <a href="pfsources/index.html" id="pfsources-link" class="link" target="_blank"><span class="text">进入PF资源库详情页</span></a>
-        </section>
-        <div class="line">
-            <p class="text">---------------------------</p>
-        </div>
-        <section id="win8" class="div">
-            <div class="titlebox">
-                <p id="win8-title" class="text">Windows 8</p>
-            </div>
-            <a href="https://wwdr.lanzoum.com/b04f0t63i" id="win8-link" class="link" target="_blank"><span class="text">Download(密码:win8)</span></a>
-        </section>
-        <div class="line">
-            <p class="text">---------------------------</p>
-        </div>
-        <section id="win10horror" class="div">
-            <div class="titlebox">
-                <p id="win10-horror" class="text">Win10 Horror</p>
-            </div>
-            <p id="win10-horror-tips" class="text">该内容可能引人不适，请谨慎下载</p>
-            <a href="https://wwp.lanzouu.com/b03xaoxva" id="win10-horror-link" class="link" target="_blank"><span class="text">Download(密码:31si)</span></a>
-        </section>
-        <div>
-            <p class="text">---------------------------</p>
-        </div>
-        <section id="PixelPE" class="div">
-            <div class="titlebox">
-                <p id="pixelpe-title" class="text">PixelPE</p>
-            </div>
-            <p id="pixelpe-more" class="text">基于LightnPE,适用于UEFI,BIOS的强大PE维护工具</p>
-            <a href="../PE/Index.html" id="link-pixelpe" class="link" target="_blank"><span class="text">进入PixelPE详情页</span></a>
-        </section>
-        <div>
-            <p class="text">---------------------------</p>
-        </div>
-        <section id="Tools" class="div">
-            <div class="titlebox">
-                <p id="Tools-title" class="text">PF小工具 by 一百1000000</p>
-            </div>
-            <a href="../PFTools/PFTools.html" target="_blank" class="link"><span class="text">进入PF简易工具箱</span></a>
-        </section>
-        <div>
-            <p class="text">---------------------------</p>
-        </div>
-        <section id="PF Windows10" class="div">
-            <div class="titlebox">
-                <p id="PF-Windows10-title" class="text">PF Windows</p>
-            </div>
-            <p id="PF-Windows10-tips" class="text">各种个性化强劲修改版Windows</p>
-            <a href="pfwins/pfwindows.html" id="PF-Windows10-link" class="link" target="_blank"><span class="text">进入PF Windows介绍页</span></a>
-        </section>
-        <div>
-            <p class="text">--------------------------</p>
-        </div>
-        <section id="PFWebGame" class="div">
-            <div class="titlebox">
-                <p id="PF-WebGame-title" class="text">PixelForge WebGame</p>
-            </div>
-            <p id="PF-WebGame-tips" class="text">想休息一下？不妨来玩<br/>PixelForgeWebGame</p>
-            <a href="../PixelForge在线游戏/Index.html" id="PF-WebGame-link" class="link" target="_blank"><span class="text">进入PixelForgeWebGame</span></a>
-        </section>
-        <div>
-            <p class="text">--------------------------</p>
-        </div>
-        <section id="PFencodeTools" class="div">
-            <div class="titlebox">
-                <p id="pfencode-title" class="text">PF 加密/编码工具箱</p>
-            </div>
-            <p id="pfencode-more" class="text">支持十多种常用加密和编码协议，支持解密</p>
-            <a href="https://github.com/PFStu/pf-encoder" id="link-pfencode-repo" class="link" target="_blank"><span class="text">GithubRepository</span></a>
-            <a href="https://wwdr.lanzouv.com/iLB2C2937qle" id="link-pfencode-download" class="link" target="_blank"><span class="text">Download(密码:di9q)</span></a>
-        </section>
-    </section>
+    </div>
     <footer>
         <div class="music-player">
             <img src="" class="music-img">
@@ -189,7 +84,7 @@
         <span class="theme-text">2023-2024 Pixel Forge Studio</span>
         </font>
         <p>&nbsp;&nbsp;&nbsp;</p>
-        <a href="mailto:mc_bow@outlook.com" class="text">
+        <a href="mailto:mc_bow@outlook.com" class="text" id="email">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
                 <path fill="#D3D3D3" d="M28 6H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2m-2.2 2L16 14.78L6.2 8ZM4 24V8.91l11.43 7.91a1 1 0 0 0 1.14 0L28 8.91V24Z"/>
             </svg>
