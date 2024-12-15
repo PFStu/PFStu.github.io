@@ -16,5 +16,5 @@
     <path d="M0,350 L200,150 L400,350 Z" fill="url(#mountainGradient1)" />
     <path d="M200,350 L400,200 L600,350 Z" fill="url(#mountainGradient2)" />
     <path d="M400,350 L600,150 L800,350 Z" fill="url(#mountainGradient3)" />
-    <circle cx="100" cy="80" r="40" fill="white" />
+    <circle cx="100" cy="80" r="40" fill="yellow" />
 </svg>
