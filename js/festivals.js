@@ -245,10 +245,8 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
         style.textContent += animationStyle;
 
-        const festivalInfo = document.createElement('div');
-        festivalInfo.classList.add('festival-info');
+        const festivalInfo = document.body.getElementById('festival-info');
         festivalInfo.innerText = currentFestival.info;
-        document.body.appendChild(festivalInfo);
 
         setInterval(() => {
             const elem = document.createElement('div');
