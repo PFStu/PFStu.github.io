@@ -43,7 +43,7 @@
             font-size: 3em;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 添加文字阴影效果 */
         }
-        .bilibili-box, .qq-box {
+        .bilibili-box, .qq-box, .info-box {
             background-color: white;
             padding: 20px;
             border-radius: 10px;
@@ -53,14 +53,14 @@
             width: calc(100% - 100px); /* 比设备分辨率小50个像素点 */
             max-width: 800px; /* 设置最大宽度 */
         }
-        .bilibili-box:hover, .qq-box:hover {
+        .bilibili-box:hover, .qq-box:hover, .info-box:hover {
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
         }
-        .bilibili-box h2, .qq-box h2 {
+        .bilibili-box h2, .qq-box h2, .info-box h2 {
             margin: 0 0 10px 0;
             font-size: 1.5em;
         }
-        .bilibili-box p, .qq-box p {
+        .bilibili-box p, .qq-box p, .info-box p {
             margin: 0;
             display: flex;
             align-items: center;
@@ -68,15 +68,15 @@
             padding: 10px 0;
             border-bottom: 1px dashed gray; /* 添加灰色虚线分割 */
         }
-        .bilibili-box p:last-child, .qq-box p:last-child {
+        .bilibili-box p:last-child, .qq-box p:last-child, .info-box p:last-child {
             border-bottom: none; /* 去掉最后一个段落的分割线 */
         }
-        .bilibili-box img, .qq-box img {
+        .bilibili-box img, .qq-box img, .info-box img {
             width: 32px;
             height: 32px;
             margin-right: 10px;
         }
-        .bilibili-box button, .qq-box button {
+        .bilibili-box button, .qq-box button, .info-box button {
             background-color: transparent;
             border: none;
             font-size: 1.5em;
@@ -84,7 +84,7 @@
             margin-left: 10px; /* 将按钮移到文字右边 */
             transition: transform 0.2s ease, color 0.2s ease; /* 添加悬浮动画 */
         }
-        .bilibili-box button:hover, .qq-box button:hover {
+        .bilibili-box button:hover, .qq-box button:hover, .info-box button:hover {
             transform: scale(1.2); /* 悬浮时放大 */
             color: #007bff; /* 悬浮时改变颜色 */
         }
@@ -117,14 +117,17 @@
         </p>
     </div>
     <div class="qq-box">
-        <h2>我们的QQ</h2>
+        <h2>我们的社交账号</h2>
         <p>
-            <img src="https://30078178.s21i.faiusr.com/2/6/ABUIABACGAAgntDqtwYo9KqOEjBkOGQ.jpg" alt="图标">
+            <img src="../img/skype.svg" alt="图标">
             𝑃𝑖𝑥𝑒𝑙𝐹𝑜𝑟𝑔𝑒(群)
-            <button onclick="copyToClipboard('929578771')">复制</button>
+            <a href="https://join.skype.com/qVWyvjpuOYeG" target="_blank">→</a>
         </p>
     </div>
-
+    <div class="info-box">
+        <h2>###www.pfstu.ct.ws导航栏图标来源:https://yesicon.app/oui,版权归属于原作者OpenSearch Contributors
+            https://github.com/opensearch-project/oui,开源协议:Apache License 2.0</h2>
+    </div>
     <script>
         const body = document.getElementById('body');
         const blurToggle = document.getElementById('blur-toggle');

@@ -1,0 +1,20 @@
+<svg width="100%" height="100%" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="mountainGradient1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#8B4513" />
+            <stop offset="100%" stop-color="#5C4033" />
+        </linearGradient>
+        <linearGradient id="mountainGradient2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#5C4033" />
+            <stop offset="100%" stop-color="#3B2F2C" />
+        </linearGradient>
+        <linearGradient id="mountainGradient3" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#3B2F2C" />
+            <stop offset="100%" stop-color="#2E2E2E" />
+        </linearGradient>
+    </defs>
+    <path d="M0,350 L200,150 L400,350 Z" fill="url(#mountainGradient1)" />
+    <path d="M200,350 L400,200 L600,350 Z" fill="url(#mountainGradient2)" />
+    <path d="M400,350 L600,150 L800,350 Z" fill="url(#mountainGradient3)" />
+    <circle cx="100" cy="80" r="40" fill="white" />
+</svg>

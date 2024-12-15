@@ -23,6 +23,11 @@ body {
     transition: 0.3s;
     background-size: cover;
     background-color: var(--background-light);
+    background-image: url('mountains.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
 }
 
 body.dark-theme {
@@ -61,12 +66,28 @@ body.dark-theme {
 }
 
 .nav-links a {
+    background-color: rgb(138, 138, 138);
     color: white;
     text-decoration: none;
     transition: color 0.3s;
     border-radius: 5px;
-    padding: 20px 25px;
-    background-color: #1d1919;
+    padding: 10px 10px;
+    margin-bottom: 5px;
+    width: 20px;
+    height: 20px;
+    transition: 0.3s;
+}
+
+.nav-links li {
+    justify-items: center;
+    align-items: center;
+    display: flex;
+}
+
+.nav-links img {
+    margin: auto;
+    width: 20px;
+    height: 20px;
 }
 
 .nav-links a:hover {
@@ -143,16 +164,12 @@ body.dark-theme {
     }
 }
 
-.dark-theme .text.title {
-    text-shadow: 0 0 10px var(--primary-color);
-}
-
 @font-face {
     font-family: 'MiSans';
     src: url('../fonts/MiSans-Semibold.ttf');
 }
 
-a {
+a:not(.nav-links a) {
     display: inline-block;
     color: white;
     text-decoration: none;
@@ -185,33 +202,6 @@ a:hover {
     font-size: 38px;
 }
 
-.titlebox {
-    padding: 0 10px;
-    margin-top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: transparent;
-    border-radius: 5px;
-    border: 2px solid var(--secondary-color);
-    transition: 0.2s;
-    box-shadow: 0 0 20px var(--secondary-color);
-}
-
-.titlebox:hover {
-    animation: titlebox 2s infinite;
-}
-
-@keyframes titlebox {
-    0%, 100% {
-        box-shadow: 0 0 50px var(--secondary-color);
-    }
-    50% {
-        box-shadow: 0 0 5px var(--secondary-color);
-    }
-}
-
 .text {
     text-align: center;
     font-family: 'MiSans', Arial, Helvetica, sans-serif;
@@ -219,20 +209,6 @@ a:hover {
     margin: 5px;
     padding: 10px;
     text-shadow: none;
-}
-
-.light-theme .sections {
-    background: var(--background-light);
-}
-
-.dark-theme {
-    background: url(https://img.picui.cn/free/2024/11/16/67388b2be87ac.png) no-repeat center center fixed;
-    background-size: cover;
-}
-
-.light-theme {
-    background: url(https://img.picui.cn/free/2024/11/16/67388b2f37e69.png) no-repeat center center fixed;
-    background-size: cover;
 }
 
 .light-theme .text {
@@ -518,7 +494,7 @@ footer {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);`
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 80%;
     margin-bottom: 50px;
     background-color: #131313;
@@ -573,8 +549,108 @@ footer {
     transform: scale(1.1);
 }
 
-.navbar a {
-    padding: 10px 10px;
-    min-width: 30px;
-    min-height: 30px;
+.notice-board {
+    width: 85%;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px auto;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+    box-shadow: 0 0 20px var(--primary-color);
+}
+
+.notice-container {
+    padding: 0;
+    margin: 0;
+}
+
+.notice {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    position: relative;
+}
+
+.notice:last-child {
+    border-bottom: none;
+}
+
+.notice-text {
+    margin-bottom: 10px;
+}
+
+.notice-date {
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+    font-size: 0.9em;
+    color: #999;
+}
+
+.text {
+    font-size: 1em;
+    color: #333;
+}
+
+.load-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.load-button:hover {
+    background-color: var(--button-hover);
+}
+
+.notice-board::-webkit-scrollbar {
+    width: 10px;
+}
+
+.notice-board::-webkit-scrollbar-track {
+    background: var(--secondary-color);
+    border-radius: 10px;
+    height: 90%;
+}
+
+.notice-board::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+.notice-board::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+.mountain-layer {
+    position: fixed;
+    top: 160px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+}
+
+.layer1 {
+    background-image: url('../img/mount_light.svg');
+    z-index: -3;
+}
+
+.layer2 {
+    background-image: url('../img/mount_light.svg');
+    z-index: -2;
+}
+
+.layer3 {
+    background-image: url('../img/mount_light.svg');
+    z-index: -1;
 }

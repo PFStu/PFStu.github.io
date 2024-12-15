@@ -12,10 +12,16 @@ if (theme === 'dark') {
     document.getElementById("title").innerHTML = "Have a good night";
     localStorage.setItem('theme', 'dark');
     document.getElementById("themeToggle").innerHTML = "🌙";
+    document.querySelectorAll('.layer1, .layer2, .layer3').forEach(layer => {
+        layer.style.backgroundImage = "url('../img/mount_light.svg')";
+    });    
 } else {
     document.getElementById("title").innerHTML = "Enjoy your day";
     localStorage.setItem('theme', 'light');
     document.getElementById("themeToggle").innerHTML = "☀️";
+    document.querySelectorAll('.layer1, .layer2, .layer3').forEach(layer => {
+        layer.style.backgroundImage = "url('../img/mount_dark.svg')";
+    });    
 }
 document.getElementById('themeToggle').addEventListener('click', () => {
     if (theme === 'light') {
@@ -25,6 +31,9 @@ document.getElementById('themeToggle').addEventListener('click', () => {
         localStorage.setItem('theme', 'dark');
         document.body.classList.add('dark-theme');
         theme = 'dark';
+        document.querySelectorAll('.layer1, .layer2, .layer3').forEach(layer => {
+            layer.style.backgroundImage = "url('../img/mount_light.svg')";
+        });    
     } else {
         document.getElementById("title").innerHTML = "Enjoy your day";
         document.getElementById("themeToggle").innerHTML = "☀️";
@@ -32,6 +41,9 @@ document.getElementById('themeToggle').addEventListener('click', () => {
         localStorage.setItem('theme', 'light');
         document.body.classList.add('light-theme');
         theme = 'light';
+        document.querySelectorAll('.layer1, .layer2, .layer3').forEach(layer => {
+            layer.style.backgroundImage = "url('../img/mount_dark.svg')";
+        });    
     }
     
     //localStorage.setItem('theme', theme);
@@ -229,3 +241,47 @@ const daysUntil2024 = calculateDaysDifference(targetDate2024);
 const daysUntil2023 = calculateDaysDifference(targetDate2023);
 document.getElementById('website-days').textContent = websiteDays;
 document.getElementById('studio-days').textContent = studioDays
+
+document.addEventListener('DOMContentLoaded', function() {
+    const noticeContainer = document.getElementById('noticeContainer');
+    const loadButton = document.getElementById('loadButton');
+    const body = document.body;
+    body.addEventListener('mousemove', function(event) {
+        const rect = body.getBoundingClientRect();
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+        const offsetX1 = (mouseX / rect.width) * 10 - 5;
+        const offsetY1 = (mouseY / rect.height) * 5 - 2.5;
+        const offsetX2 = (mouseX / rect.width) * 20 - 10;
+        const offsetY2 = (mouseY / rect.height) * 10 - 5;
+        const offsetX3 = (mouseX / rect.width) * 30 - 15;
+        const offsetY3 = (mouseY / rect.height) * 15 - 7.5;
+        document.querySelector('.layer1').style.backgroundPosition = `${offsetX1}px ${offsetY1}px`;
+        document.querySelector('.layer2').style.backgroundPosition = `${offsetX2}px ${offsetY2}px`;
+        document.querySelector('.layer3').style.backgroundPosition = `${offsetX3}px ${offsetY3}px`;
+    });
+
+    loadButton.addEventListener('click', function() {
+        fetch('notices/notices.txt')
+            .then(response => response.text())
+            .then(data => {
+                noticeContainer.innerHTML = '';
+                const notices = data.split('\n').slice(0, 6);
+                notices.forEach(notice => {
+                    const [content, date] = notice.split('$');
+                    const noticeItem = document.createElement('div');
+                    noticeItem.className = 'notice';
+                    const noticeText = document.createElement('p');
+                    noticeText.className = 'notice-text text';
+                    noticeText.textContent = content;
+                    const noticeDate = document.createElement('p');
+                    noticeDate.className = 'notice-date text';
+                    noticeDate.textContent = date;
+                    noticeItem.appendChild(noticeText);
+                    noticeItem.appendChild(noticeDate);
+                    noticeContainer.appendChild(noticeItem);
+                });
+            })
+            .catch(error => console.error('读取公告文件时出错:', error));
+    });
+});
