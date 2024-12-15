@@ -27,17 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
             animation: fall linear;
             pointer-events: none;
         }
-        .festival-info {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 36px;
-            font-weight: bold;
-            color: #ffffff;
-            text-shadow: 2px 2px 4px #000000;
-            z-index: 1001;
-        }
         @keyframes fall {
             0% {
                 transform: translateY(0) rotate(0deg);
@@ -245,8 +234,10 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
         style.textContent += animationStyle;
 
-        const festivalInfo = document.body.getElementById('festival-info');
-        festivalInfo.innerText = currentFestival.info;
+        const festivalInfo = document.getElementById('festival-info');
+        if (festivalInfo) {
+            festivalInfo.innerText = currentFestival.info;
+        }
 
         setInterval(() => {
             const elem = document.createElement('div');
