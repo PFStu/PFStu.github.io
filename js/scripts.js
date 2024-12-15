@@ -13,14 +13,14 @@ if (theme === 'dark') {
     localStorage.setItem('theme', 'dark');
     document.getElementById("themeToggle").innerHTML = "🌙";
     document.querySelectorAll('.layer1, .layer2, .layer3').forEach(layer => {
-        layer.style.backgroundImage = "url('../img/mount_light.svg')";
+        layer.style.backgroundImage = "url('../img/mount_dark.svg')";
     });    
 } else {
     document.getElementById("title").innerHTML = "Enjoy your day";
     localStorage.setItem('theme', 'light');
     document.getElementById("themeToggle").innerHTML = "☀️";
     document.querySelectorAll('.layer1, .layer2, .layer3').forEach(layer => {
-        layer.style.backgroundImage = "url('../img/mount_dark.svg')";
+        layer.style.backgroundImage = "url('../img/mount_light.svg')";
     });    
 }
 document.getElementById('themeToggle').addEventListener('click', () => {
@@ -32,7 +32,7 @@ document.getElementById('themeToggle').addEventListener('click', () => {
         document.body.classList.add('dark-theme');
         theme = 'dark';
         document.querySelectorAll('.layer1, .layer2, .layer3').forEach(layer => {
-            layer.style.backgroundImage = "url('../img/mount_light.svg')";
+            layer.style.backgroundImage = "url('../img/mount_dark.svg')";
         });    
     } else {
         document.getElementById("title").innerHTML = "Enjoy your day";
@@ -42,7 +42,7 @@ document.getElementById('themeToggle').addEventListener('click', () => {
         document.body.classList.add('light-theme');
         theme = 'light';
         document.querySelectorAll('.layer1, .layer2, .layer3').forEach(layer => {
-            layer.style.backgroundImage = "url('../img/mount_dark.svg')";
+            layer.style.backgroundImage = "url('../img/mount_light.svg')";
         });    
     }
     
