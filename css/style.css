@@ -481,9 +481,6 @@ footer {
 }
 
 .explore {
-    position: relative;
-    top: -10px;
-    left: -255px;
     border-radius: 20px;
     padding: 3px 10px;
     background: black;
