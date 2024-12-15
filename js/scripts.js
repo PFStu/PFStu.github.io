@@ -213,10 +213,19 @@ function getSimilarColor(color) {
     return `rgb(${r}, ${g}, ${b})`;
 }
 
-fetch('https://pfstu.ct.ws/requests/getdays.php')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('website-days').textContent = data.website_days;
-            document.getElementById('studio-days').textContent = data.studio_days;
-        })
-        .catch(error => console.error('Error:', error));
+const currentDate = new Date();
+
+const websiteStartDate = new Date('2024-01-01');
+const studioStartDate = new Date('2023-08-01');
+function calculateDaysDifference(startDate) {
+    const diffTime = currentDate - startDate;
+    return Math.floor(diffTime / (1000 * 60 * 60 * 24));
+}
+const websiteDays = calculateDaysDifference(websiteStartDate);
+const studioDays = calculateDaysDifference(studioStartDate);
+const targetDate2024 = new Date('2024-01-01');
+const targetDate2023 = new Date('2023-08-01');
+const daysUntil2024 = calculateDaysDifference(targetDate2024);
+const daysUntil2023 = calculateDaysDifference(targetDate2023);
+document.getElementById('website-days').textContent = websiteDays;
+document.getElementById('studio-days').textContent = studioDays
