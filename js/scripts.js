@@ -212,3 +212,11 @@ function getSimilarColor(color) {
 
     return `rgb(${r}, ${g}, ${b})`;
 }
+
+fetch('https://pfstu.ct.ws/requests/getdays.php')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('website-days').textContent = data.website_days;
+            document.getElementById('studio-days').textContent = data.studio_days;
+        })
+        .catch(error => console.error('Error:', error));
