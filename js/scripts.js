@@ -101,6 +101,29 @@ const musicBtn = document.querySelector('.music-btn');
 const progressBar = document.querySelector('.progress-bar');
 
 
+fetch('notices/notices.txt')
+.then(response => response.text())
+.then(data => {
+    noticeContainer.innerHTML = '';
+    const notices = data.split('\n').slice(0, 6);
+    notices.forEach(notice => {
+        const [content, date] = notice.split('$');
+        const noticeItem = document.createElement('div');
+        noticeItem.className = 'notice';
+        const noticeText = document.createElement('p');
+        noticeText.className = 'notice-text text';
+        noticeText.textContent = content;
+        const noticeDate = document.createElement('p');
+        noticeDate.className = 'notice-date text';
+        noticeDate.textContent = date;
+        noticeItem.appendChild(noticeText);
+        noticeItem.appendChild(noticeDate);
+        noticeContainer.appendChild(noticeItem);
+    });
+})
+.catch(error => console.error('读取公告文件时出错:', error));
+
+
 musicBtn.addEventListener('click', () => {
     if (music.paused) {
         music.play();
