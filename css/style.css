@@ -561,6 +561,25 @@ footer {
     box-shadow: 0 0 20px var(--primary-color);
 }
 
+.light-theme .notice-board {
+    border-color: gray;
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: 20px auto;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+    box-shadow: 0 0 20px var(--primary-color);
+}
+.dark-theme .notice-board {
+    border-color: #ccc;
+    background-color: #131313;
+    padding: 10px;
+    margin: 20px auto;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+    box-shadow: 0 0 20px var(--primary-color);
+}
+
 .notice-container {
     padding: 0;
     margin: 0;
