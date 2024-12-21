@@ -218,7 +218,7 @@ a:hover {
     text-shadow: none;
 }
 
-.dark-theme .text {
+.dark-theme .text:not(.title) {
     text-align: center;
     font-family: 'MiSans', Arial, Helvetica, sans-serif;
     color: var(--text-dark);
@@ -646,7 +646,6 @@ footer {
 .notice-board::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
-
 
 .mountain-layer {
     position: fixed;

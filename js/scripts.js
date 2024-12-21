@@ -1,3 +1,61 @@
+const currentURI = window.location.href;
+if (currentURI === "https://www.pfstu.ct.ws/devtool/index.html" || currentURI === "https://www.pfstu.ct.ws/devtool/" || currentURI === "https://pfstu.netlify.app/devtool/index.html" || currentURI === "https://pfstu.netlify.app/devtool/") {
+
+document.getElementById('clearLocalStorage').onclick = function() {
+    localStorage.clear();
+    displayOutput('localStorage 已清空');
+};
+
+document.getElementById('checkDomain').onclick = function() {
+    const domain = window.location.hostname;
+    displayOutput('当前域名是: ' + domain);
+};
+
+document.getElementById('readLocalStorage').onclick = function() {
+    let output = 'localStorage 内容:\n';
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+        output += `${key}: ${value}\n`;
+    }
+    displayOutput(output);
+};
+
+document.getElementById('readCookies').onclick = function() {
+    const cookies = document.cookie;
+    displayOutput('Cookies 内容: ' + cookies);
+};
+
+document.getElementById('deleteLocalStorage').onclick = function() {
+    const key = document.getElementById('deleteKey').value;
+    if (key in localStorage) {
+        localStorage.removeItem(key);
+        displayOutput(`已删除 localStorage 中的键: ${key}`);
+    } else {
+        displayOutput(`键: ${key} 不存在于 localStorage`);
+    }
+    document.getElementById('deleteKey').value = '';
+};
+
+document.getElementById('showTime').onclick = function() {
+    const localTime = new Date();
+    const utcTime = new Date(localTime.toUTCString());
+    const offsetInMilliseconds = localTime.getTime() - utcTime.getTime();
+
+    const output = `
+        当前 UTC 时间: ${utcTime.toISOString().replace('T', ' ').substring(0, 19)}
+        当前本地时间: ${localTime.toISOString().replace('T', ' ').substring(0, 19)}
+        偏差: ${offsetInMilliseconds} 毫秒
+    `;
+    displayOutput(output);
+};
+
+function displayOutput(message) {
+    const outputDiv = document.getElementById('output');
+    outputDiv.style.display = 'block';
+    outputDiv.textContent = message;
+}
+}
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.querySelector('.nav-links');
 
@@ -59,6 +117,10 @@ window.onload = function(){
 
 document.documentElement.style.setProperty('--primary-color', localStorage.getItem('primaryColor') || '#0077cc');
 document.documentElement.style.setProperty('--secondary-color', getSimilarColor(localStorage.getItem('primaryColor') || '#0077cc'));
+            document.documentElement.style.setProperty('--secondary-color', getSimilarColor(localStorage.getItem('primaryColor') || '#0077cc'));
+            document.documentElement.style.setProperty('--hover-color', getSimilarColor(localStorage.getItem('primaryColor') || '#0077cc'));
+            document.documentElement.style.setProperty('--tertiary-color', getSimilarColor(localStorage.getItem('primaryColor') || '#0077cc'));
+            document.documentElement.style.setProperty('--border-color', getSimilarColor(localStorage.getItem('primaryColor') || '#0077cc'));
 
 function timeupdate() {
     let hour = String(new Date().getHours()).padStart(2, '0');
@@ -207,20 +269,6 @@ if (currentTheme) {
     body.classList.toggle('dark-theme', currentTheme === 'dark');
 }
 
-
-// themeToggleButton.addEventListener('click', () => {
-
-//     body.classList.toggle('light-theme');
-
-//     if (body.classList.contains('dark-theme')) {
-//         localStorage.setItem('theme', 'dark');
-//     } else {
-//         localStorage.setItem('theme', 'light');
-//     }
-// });
-
-
-
 loadTrack();
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -233,6 +281,9 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('primaryColor', primaryColor);
             const secondaryColor = getSimilarColor(primaryColor);
             document.documentElement.style.setProperty('--secondary-color', secondaryColor);
+            document.documentElement.style.setProperty('--hover-color', secondaryColor);
+            document.documentElement.style.setProperty('--tertiary-color', secondaryColor);
+            document.documentElement.style.setProperty('--border-color', secondaryColor);
         });
     });
 });
@@ -308,3 +359,23 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => console.error('读取公告文件时出错:', error));
     });
 });
+
+document.getElementById('clearLocalStorage').onclick = function() {
+    localStorage.clear();
+    displayOutput('localStorage 已清空');
+};
+
+document.getElementById('checkDomain').onclick = function() {
+    const domain = window.location.hostname;
+    displayOutput('当前域名是: ' + domain);
+};
+
+document.getElementById('readLocalStorage').onclick = function() {
+    let output = 'localStorage 内容:\n';
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+        output += `${key}: ${value}\n`;
+    }
+    displayOutput(output);
+};
