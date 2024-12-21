@@ -168,6 +168,14 @@ body.dark-theme {
     font-family: 'MiSans';
     src: url('../fonts/MiSans-Semibold.ttf');
 }
+@font-face {
+    font-family: 'Hussar1';
+    src: url('../fonts/HussarTechnicznyOutlineOblique-oOEA.otf');
+}
+@font-face {
+    font-family: 'Hussar2';
+    src: url('../fonts/HussarTechnicznyOblique-XeLa.otf');
+}
 
 a:not(.nav-links a) {
     display: inline-block;
@@ -671,4 +679,25 @@ footer {
 .layer3 {
     background-image: url('../img/mount_light.svg');
     z-index: -1;
+}
+
+.info-title {
+    font-size: 36px;
+}
+
+.dark-theme .info-title {
+    font-family: 'Hussar1','Arial';
+}
+
+.light-theme .info-title {
+    font-family: 'Hussar2','Arial';
+}
+
+.info {
+    font-size: 18px;
+}
+
+.information {
+    display: column;
+    text-align: center;
 }
