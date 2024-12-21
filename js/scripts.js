@@ -302,7 +302,7 @@ function getSimilarColor(color) {
 const currentDate = new Date();
 
 const websiteStartDate = new Date('2024-01-01');
-const studioStartDate = new Date('2023-08-01');
+const studioStartDate = new Date('2022-08-22');
 function calculateDaysDifference(startDate) {
     const diffTime = currentDate - startDate;
     return Math.floor(diffTime / (1000 * 60 * 60 * 24));
