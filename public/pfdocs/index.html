@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PF Docs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/monokai.min.css">
+    <style>
+        :root {
+            --bg-light: #ffffff;
+            --bg-dark: #181818;
+            --text-light: #333333;
+            --text-dark: #f0f0f0;
+            --code-bg: #000000;
+            --code-color: #ffffff;
+            --button-bg: #007bff;
+            --button-hover-bg: #0056b3;
+        }
+
+        body {
+            display: flex;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+            background-color: var(--bg-light);
+            color: var(--text-light);
+            padding: 20px;
+        }
+
+        body.dark-mode {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+
+        nav {
+            width: 200px;
+            margin-right: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 10px 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-light);
+        }
+
+        nav ul li a:hover {
+            color: var(--button-bg);
+        }
+
+        main {
+            flex: 1;
+        }
+
+        h1, h2, h3 {
+            margin-top: 20px;
+        }
+
+        .code-block {
+            background: var(--code-bg);
+            padding: 10px;
+            border-radius: 5px;
+            color: var(--code-color);
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            background-color: var(--button-bg);
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--button-hover-bg);
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #28a745;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 34px;
+            height: 20px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 20px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 14px;
+            width: 14px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            border-radius: 50%;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(14px);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h2>文档目录</h2>
+        <ul>
+            <li><a href="#" onclick="showSection('file1')">文件 1</a></li>
+            <li><a href="#" onclick="showSection('file2')">文件 2</a></li>
+            <li><a href="#" onclick="showSection('file3')">文件 3</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <h1>PF Docs模版</h1>
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
+                <span class="slider"></span>
+            </label>
+        </header>
+
+        <section id="file1" class="section active">
+            <h2>文件 1</h2>
+            <p>这是文件 1 的内容。可以包含 Markdown 格式的文本和其他元素。</p>
+            <h2>代码示例</h2>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyCode()">复制代码</button>
+                <pre><code class="language-javascript">function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+}</code></pre>
+            </div>
+        </section>
+
+        <section id="file2" class="section">
+            <h2>文件 2</h2>
+            <p>这是文件 2 的内容。你可以在这里加入更多信息。</p>
+        </section>
+
+        <section id="file3" class="section">
+            <h2>文件 3</h2>
+            <p>这是文件 3 的内容。这里可以写各种内容。</p>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+</html>

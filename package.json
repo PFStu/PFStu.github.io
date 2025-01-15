@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bowser": "^2.11.0",
     "next": "latest",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

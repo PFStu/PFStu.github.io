@@ -18,7 +18,7 @@ export const Projects: React.FC = () => {
                         <p className="text-lg text-gray-300 leading-relaxed">
                             一个在线文档中心，分享许多有用的知识及Bilibili视频，持续更新。
                         </p>
-                        <a href="https://pfstu.ct.ws/docs" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-gray-200 transition-all duration-300">
+                        <a href="https://pfstu.ct.ws/docs/" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-gray-200 transition-all duration-300">
                             进入PF文档中心
                         </a>
                     </section>
@@ -110,7 +110,7 @@ export const Projects: React.FC = () => {
                         <p id="pixelpe-more" className="text-lg text-gray-300 leading-relaxed">
                             基于LightnPE,适用于UEFI,BIOS的强大PE维护工具。
                         </p>
-                        <a href="/pe/" id="link-pixelpe" className="text-lg font-semibold hover:text-gray-200 transition-all duration-300" target="_blank" rel="noopener noreferrer">
+                        <a href="PE/Index.html" id="link-pixelpe" className="text-lg font-semibold hover:text-gray-200 transition-all duration-300" target="_blank" rel="noopener noreferrer">
                             进入PixelPE详情页
                         </a>
                     </section>
@@ -120,7 +120,7 @@ export const Projects: React.FC = () => {
                                 PF小工具 by 一百1000000
                             </h3>
                         </div>
-                        <a href="/pftools/pftools" className="text-lg font-semibold hover:text-gray-200 transition-all duration-300" target="_blank" rel="noopener noreferrer">
+                        <a href="PFTools/PFTools.html" className="text-lg font-semibold hover:text-gray-200 transition-all duration-300" target="_blank" rel="noopener noreferrer">
                             进入PF简易工具箱
                         </a>
                     </section>

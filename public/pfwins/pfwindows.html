@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PF Windows</title>
+        <meta charset="UTF-8">
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .card {
+                border: 1px solid #ccc;
+                border-radius: 20px;
+                padding: 10px;
+                margin: 10px;
+                width: calc(50% - 10px);
+                height: 400px;
+                box-shadow: 2px 2px 5px #ccc;
+                transition: .3s;
+            }
+            .card:hover {
+                transform: scale(1.025);
+                box-shadow: 5px 5px 10px #ccc;
+            }
+            .card h2 {
+                text-align: center;
+            }
+            #windows10 {
+                background: linear-gradient(to bottom right, #ec9155, #e1ec48);
+            }
+            #windows11 {
+                background: linear-gradient(to bottom right, #3798f3, #7448ec);
+            }
+            #windows7 {
+                background: linear-gradient(to bottom right, #78b92c, #36cfd4);
+            }
+            img {
+                border-radius: 10px;
+                width: 100%;
+                height: 60%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="card" id="windows10" onclick="window.open('windows10.html')">
+            <h2>PF Windows10</h2>
+            <img src="Windows10.jpg" alt="PF Windows10" title="PF Windows10" width="100%" height="60%">
+            <p>一款强大的自定义Windows,包含多种工具,高度个性化,适合办公,写代码</p>
+        </div>
+        <div class="card" id="windows11" onclick="window.open('windows11.html')">
+            <h2>PF Windows11</h2>
+            <img src="Windows11.jpg" alt="PF Windows11" title="PF Windows10" width="100%" height="60%">
+            <p>一个非常漂亮的Windows11,贴合日常使用,适合游戏,写代码</p>
+        </div>
+        <div class="card" id="windows7" onclick="window.open('windows7.html')">
+            <h2>PF Windows7</h2>
+            <img src="Windows7.jpg" alt="PF Windows7" title="PF Windows10" width="100%" height="60%">
+            <p>一个极其完善的win7,关键他是32位!</p>
+        </div>
+    </body>
+</html>
