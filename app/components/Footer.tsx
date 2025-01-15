@@ -1,3 +1,4 @@
+// components/Footer.tsx
 import React, { useEffect, useState } from "react";
 import { detectBrowser } from "../utils/detectBrower";
 
@@ -8,7 +9,7 @@ const Footer = () => {
   useEffect(() => {
     setIsMounted(true);
 
-    const { name, version } = detectBrowser() || { name: 'Unknown', version: 'Unknown' };
+    const { name = 'Unknown', version = 'Unknown' } = detectBrowser() || {};
     setBrowserInfo({ name, version });
   }, []);
 
