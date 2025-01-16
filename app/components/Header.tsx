@@ -2,6 +2,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { FaHome, FaUser, FaFolder, FaEnvelope } from 'react-icons/fa';
+import Image from 'next/image';
 
 export const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,7 +38,7 @@ export const Header: React.FC = () => {
             <header className="py-4 px-8 backdrop-filter backdrop-blur-lg mx-10 my-4 rounded-lg bg-gray-800 absolute top-0 left-0 right-0 z-50 bg-opacity-25">
                 <div className="container mx-auto flex justify-between items-center">
                     <div className="flex items-center">
-                        <img src="/logo.png" alt="Logo" className="h-10 w-10 mr-3" />
+                        <Image src="/logo.png" alt="Logo" className="h-10 w-10 mr-3" />
                         <h1 className="text-2xl font-bold">PixelForge Studio</h1>
                     </div>
                     <nav className="hidden md:flex space-x-6">
