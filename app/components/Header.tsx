@@ -1,6 +1,7 @@
 'use client'
 import React from 'react';
 import { useState } from 'react';
+import { FaHome, FaUser, FaFolder, FaEnvelope } from 'react-icons/fa';
 
 export const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,18 +26,37 @@ export const Header: React.FC = () => {
                     overflow: hidden;
                     transition: max-height 300ms ease-in-out;
                 }
+                .icon-with-label:hover .label {
+                    display: inline;
+                }
+                .label {
+                    display: none;
+                    margin-left: 8px;
+                }
             `}</style>
-            <header className="py-4 px-8 sd backdrop-filter backdrop-blur-lg mx-10 my-4 rounded-lg bg-gray-800 absolute top-0 left-0 right-0 z-50 bg-opacity-25">
+            <header className="py-4 px-8 backdrop-filter backdrop-blur-lg mx-10 my-4 rounded-lg bg-gray-800 absolute top-0 left-0 right-0 z-50 bg-opacity-25">
                 <div className="container mx-auto flex justify-between items-center">
                     <div className="flex items-center">
                         <img src="/logo.png" alt="Logo" className="h-10 w-10 mr-3" />
                         <h1 className="text-2xl font-bold">PixelForge Studio</h1>
                     </div>
                     <nav className="hidden md:flex space-x-6">
-                        <a href="#home" className="hover:text-gray-300 transition duration-300 hover-effect">Home</a>
-                        <a href="#about" className="hover:text-gray-300 transition duration-300 hover-effect">About</a>
-                        <a href="#projects" className="hover:text-gray-300 transition duration-300 hover-effect">Projects</a>
-                        <a href="#contact" className="hover:text-gray-300 transition duration-300 hover-effect">Contact</a>
+                        <a href="#home" className="hover:text-gray-300 transition duration-300 hover-effect flex items-center icon-with-label">
+                            <FaHome className="w-6 h-6" />
+                            <span className="label">Home</span>
+                        </a>
+                        <a href="#about" className="hover:text-gray-300 transition duration-300 hover-effect flex items-center icon-with-label">
+                            <FaUser className="w-6 h-6" />
+                            <span className="label">About</span>
+                        </a>
+                        <a href="#projects" className="hover:text-gray-300 transition duration-300 hover-effect flex items-center icon-with-label">
+                            <FaFolder className="w-6 h-6" />
+                            <span className="label">Projects</span>
+                        </a>
+                        <a href="#contact" className="hover:text-gray-300 transition duration-300 hover-effect flex items-center icon-with-label">
+                            <FaEnvelope className="w-6 h-6" />
+                            <span className="label">Contact</span>
+                        </a>
                     </nav>
                     <button 
                         onClick={toggleMenu} 
@@ -68,17 +88,41 @@ export const Header: React.FC = () => {
                 </div>
                 {isMenuOpen ? (
                     <nav className="md:hidden mt-4 space-y-4 text-center bg-gray-800 slide-in">
-                        <a href="#home" className="block hover:text-gray-300 transition-colors duration-300 hover-effect">Home</a>
-                        <a href="#about" className="block hover:text-gray-300 transition-colors duration-300 hover-effect">About</a>
-                        <a href="#services" className="block hover:text-gray-300 transition-colors duration-300 hover-effect">Services</a>
-                        <a href="#contact" className="block hover:text-gray-300 transition-colors duration-300 hover-effect">Contact</a>
+                        <a href="#home" className="block hover:text-gray-300 transition-colors duration-300 hover-effect flex items-center icon-with-label">
+                            <FaHome className="w-6 h-6" />
+                            <span className="label">Home</span>
+                        </a>
+                        <a href="#about" className="block hover:text-gray-300 transition-colors duration-300 hover-effect flex items-center icon-with-label">
+                            <FaUser className="w-6 h-6" />
+                            <span className="label">About</span>
+                        </a>
+                        <a href="#projects" className="block hover:text-gray-300 transition-colors duration-300 hover-effect flex items-center icon-with-label">
+                            <FaFolder className="w-6 h-6" />
+                            <span className="label">Projects</span>
+                        </a>
+                        <a href="#contact" className="block hover:text-gray-300 transition-colors duration-300 hover-effect flex items-center icon-with-label">
+                            <FaEnvelope className="w-6 h-6" />
+                            <span className="label">Contact</span>
+                        </a>
                     </nav>
                 ) : (
                     <nav className="md:hidden mt-4 space-y-4 text-center bg-gray-800 slide-out">
-                        <a href="#home" className="block hover:text-gray-300 transition-colors duration-300 hover-effect">Home</a>
-                        <a href="#about" className="block hover:text-gray-300 transition-colors duration-300 hover-effect">About</a>
-                        <a href="#services" className="block hover:text-gray-300 transition-colors duration-300 hover-effect">Services</a>
-                        <a href="#contact" className="block hover:text-gray-300 transition-colors duration-300 hover-effect">Contact</a>
+                        <a href="#home" className="block hover:text-gray-300 transition-colors duration-300 hover-effect flex items-center icon-with-label">
+                            <FaHome className="w-6 h-6" />
+                            <span className="label">Home</span>
+                        </a>
+                        <a href="#about" className="block hover:text-gray-300 transition-colors duration-300 hover-effect flex items-center icon-with-label">
+                            <FaUser className="w-6 h-6" />
+                            <span className="label">About</span>
+                        </a>
+                        <a href="#projects" className="block hover:text-gray-300 transition-colors duration-300 hover-effect flex items-center icon-with-label">
+                            <FaFolder className="w-6 h-6" />
+                            <span className="label">Projects</span>
+                        </a>
+                        <a href="#contact" className="block hover:text-gray-300 transition-colors duration-300 hover-effect flex items-center icon-with-label">
+                            <FaEnvelope className="w-6 h-6" />
+                            <span className="label">Contact</span>
+                        </a>
                     </nav>
                 )}
             </header>

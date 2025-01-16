@@ -1,9 +1,10 @@
 'use client'
 import React from 'react';
+import Languages from './Languages';
 
 export const About: React.FC = () => {
     return (
-        <section className="bg-gray-100 py-16 flex flex-col md:flex-row items-center" id="about">
+        <section className="bg-gray-100 py-16 items-center flex flex-col" id="about">
             <div className="container mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center">
                 <div className="md:w-1/2 mb-8 md:mb-0 mx-7">
                     <img src="/about.png" alt="About Us" className="w-full h-auto rounded-lg shadow-lg" />
@@ -21,7 +22,7 @@ export const About: React.FC = () => {
                     </p>
                 </div>
             </div>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-8 md:mt-16 transition-all duration-300">我们的作品</button>
+            <Languages />
         </section>
     );
 };

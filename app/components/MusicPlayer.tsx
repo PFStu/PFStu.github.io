@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useRef, useEffect } from 'react';
+import { FaMusic } from 'react-icons/fa';
 
 const musicFiles = [
     { name: 'Phosphor', file: 'Phosphor.mp3' },
@@ -79,7 +80,7 @@ const MusicPlayer: React.FC = () => {
                     className="fixed left-4 bottom-4 w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center shadow-lg cursor-pointer"
                     onClick={toggleHidden}
                 >
-                    <span className="text-white">🎵</span>
+                    <span className="text-white"><FaMusic /></span>
                 </div>
             ) : (
                 <section className="fixed left-4 bottom-4 w-[300px] bg-gray-900 bg-opacity-50 backdrop-blur-lg rounded-xl p-4 shadow-lg z-50">
