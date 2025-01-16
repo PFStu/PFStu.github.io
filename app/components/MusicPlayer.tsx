@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 const musicFiles = [
     { name: 'Phosphor', file: 'Phosphor.mp3' },
     { name: 'FadingWind', file: 'FadingWind.mp3' },
-    { name: 'SAPARTION', file: 'SAPARTION.mp3' },
+    { name: 'SEPARATION', file: 'SEPARATION.mp3' },
 ];
 
 const MusicPlayer: React.FC = () => {
@@ -82,7 +82,7 @@ const MusicPlayer: React.FC = () => {
                     <span className="text-white">🎵</span>
                 </div>
             ) : (
-                <section className="fixed left-4 bottom-4 w-[300px] bg-gray-900 bg-opacity-50 backdrop-blur-lg rounded-xl p-4 shadow-lg">
+                <section className="fixed left-4 bottom-4 w-[300px] bg-gray-900 bg-opacity-50 backdrop-blur-lg rounded-xl p-4 shadow-lg z-50">
                     <div className="p-4">
                         <audio
                             ref={audioRef}
