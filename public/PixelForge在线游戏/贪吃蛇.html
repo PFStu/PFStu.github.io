@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪吃蛇游戏</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #00274d; /* 深蓝色背景 */
+            font-family: Arial, sans-serif;
+        }
+
+        #game-container {
+            position: relative;
+        }
+
+        #gameCanvas {
+            background-color: #000;
+            border: 2px solid #fff;
+        }
+
+        #status {
+            margin-right: 20px;
+            color: #fff;
+            font-size: 18px;
+            background-color: #000; /* 黑色背景 */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .controls-row {
+            display: flex;
+        }
+
+        .control-button {
+            width: 60px;
+            height: 60px;
+            background: #000; /* 黑色背景 */
+            border: 1px solid #fff; /* 白色边框 */
+            color: #fff; /* 白色字体 */
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.3s ease;
+            margin: 5px;
+        }
+
+        .control-button:active {
+            background: #333; /* 按下时背景变成深灰色 */
+        }
+
+        #up {
+            margin-bottom: 10px;
+        }
+
+        #left, #right {
+            margin: 0 10px;
+        }
+
+        #down {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="status">
+        <p>分数: <span id="score">0</span></p>
+        <p>血量: <span id="health">100</span></p>
+    </div>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+    </div>
+    <div class="controls">
+        <div class="controls-row">
+            <div class="control-button" id="left">A</div>
+            <div class="control-button" id="up">W</div>
+            <div class="control-button" id="right">D</div>
+        </div>
+        <div class="control-button" id="down">S</div>
+    </div>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const scoreElement = document.getElementById('score');
+        const healthElement = document.getElementById('health');
+
+        const canvasSize = 400;
+        const gridSize = 20;
+        const snakeSpeed = 150;
+
+        let snake = [{ x: 60, y: 60 }];
+        let direction = 'RIGHT';
+        let food = { x: 100, y: 100 };
+        let score = 0;
+        let health = 100;
+        let gameInterval;
+
+        canvas.width = canvasSize;
+        canvas.height = canvasSize;
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw the snake
+            ctx.fillStyle = '#0f0'; // 绿色
+            snake.forEach(part => ctx.fillRect(part.x, part.y, gridSize, gridSize));
+
+            // Draw the food
+            ctx.fillStyle = '#f00'; // 红色
+            ctx.fillRect(food.x, food.y, gridSize, gridSize);
+        }
+
+        function update() {
+            // Calculate new head position based on current direction
+            const head = { ...snake[0] };
+
+            switch (direction) {
+                case 'UP':
+                    head.y -= gridSize;
+                    break;
+                case 'DOWN':
+                    head.y += gridSize;
+                    break;
+                case 'LEFT':
+                    head.x -= gridSize;
+                    break;
+                case 'RIGHT':
+                    head.x += gridSize;
+                    break;
+            }
+
+            // Check if the snake has eaten the food
+            if (head.x === food.x && head.y === food.y) {
+                score += 10;
+                health = Math.min(100, health + 10); // Regain health if eating food
+                scoreElement.textContent = score;
+                healthElement.textContent = health;
+
+                // Generate new food position
+                food = {
+                    x: Math.floor(Math.random() * (canvasSize / gridSize)) * gridSize,
+                    y: Math.floor(Math.random() * (canvasSize / gridSize)) * gridSize
+                };
+            } else {
+                snake.pop(); // Remove the last part of the snake
+            }
+
+            // Add new head to the snake
+            snake.unshift(head);
+
+            // Check for collisions with walls or itself
+            if (head.x < 0 || head.x >= canvasSize || head.y < 0 || head.y >= canvasSize || collision(head)) {
+                gameOver();
+                return;
+            }
+
+            draw();
+        }
+
+        function collision(head) {
+            return snake.slice(1).some(part => part.x === head.x && part.y === head.y);
+        }
+
+        function gameOver() {
+            clearInterval(gameInterval);
+            alert('游戏结束');
+        }
+
+        function startGame() {
+            gameInterval = setInterval(update, snakeSpeed);
+        }
+
+        document.getElementById('up').addEventListener('click', () => {
+            if (direction !== 'DOWN') direction = 'UP';
+        });
+
+        document.getElementById('left').addEventListener('click', () => {
+            if (direction !== 'RIGHT') direction = 'LEFT';
+        });
+
+        document.getElementById('right').addEventListener('click', () => {
+            if (direction !== 'LEFT') direction = 'RIGHT';
+        });
+
+        document.getElementById('down').addEventListener('click', () => {
+            if (direction !== 'UP') direction = 'DOWN';
+        });
+
+        startGame();
+    </script>
+</body>
+</html>
