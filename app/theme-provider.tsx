@@ -8,6 +8,7 @@ import { useEffect } from 'react'
  */
 export type ThemeMode = 'light' | 'dark' | 'system'
 export type ResolvedTheme = 'light' | 'dark'
+export type ThemeName = 'morning' | 'midnight' | 'default'
 
 /**
  * Theme store definition
@@ -15,6 +16,7 @@ export type ResolvedTheme = 'light' | 'dark'
 interface ThemeStore {
   mode: ThemeMode
   resolvedTheme: ResolvedTheme
+  theme: ThemeName
   setTheme: (mode: ThemeMode) => void
 }
 
@@ -26,6 +28,7 @@ const useThemeStore = create<ThemeStore>()(
     (set) => ({
       mode: 'system',
       resolvedTheme: 'light',
+      theme: 'morning',
       setTheme: (mode) => set({ mode }),
     }),
     {
@@ -35,11 +38,22 @@ const useThemeStore = create<ThemeStore>()(
 )
 
 /**
+ * Calculate theme name based on time and resolved theme
+ */
+const calculateTheme = (resolvedTheme: ResolvedTheme): ThemeName => {
+  const hours = new Date().getHours()
+  const isDaytime = hours >= 6 && hours < 18
+  
+  if (resolvedTheme === 'light') {
+    return isDaytime ? 'morning' : 'midnight'
+  }
+  return 'default'
+}
+
+/**
  * Theme provider component
  */
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { mode, resolvedTheme, setTheme } = useThemeStore()
 
   // Resolve theme based on mode and system preference
@@ -54,7 +68,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }
 
     const newResolvedTheme = resolveTheme()
-    useThemeStore.setState({ resolvedTheme: newResolvedTheme })
+    const theme = calculateTheme(newResolvedTheme)
+    useThemeStore.setState({ resolvedTheme: newResolvedTheme, theme })
 
     // Apply theme to document
     document.documentElement.classList.remove('light', 'dark')
@@ -66,7 +81,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const listener = () => {
       if (mode === 'system') {
         const systemTheme = mediaQuery.matches ? 'dark' : 'light'
-        useThemeStore.setState({ resolvedTheme: systemTheme })
+        const theme = calculateTheme(systemTheme)
+        useThemeStore.setState({ resolvedTheme: systemTheme, theme })
         document.documentElement.classList.remove('light', 'dark')
         document.documentElement.classList.add(systemTheme)
         document.documentElement.style.colorScheme = systemTheme
@@ -84,6 +100,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
  * Hook to use theme in components
  */
 export function useTheme() {
-  const { mode, resolvedTheme, setTheme } = useThemeStore()
-  return { mode, resolvedTheme, setTheme }
+  const { mode, resolvedTheme, theme, setTheme } = useThemeStore()
+  return { mode, resolvedTheme, theme, setTheme }
 }
