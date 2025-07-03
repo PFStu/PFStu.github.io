@@ -26,7 +26,7 @@
   --accent: 210 100% 50%;
   --accent-foreground: 0 0% 98%;
   --border: 240 5.9% 80%;
-  --radius: 0.5rem;
+  --radius: 0.5rem; 
   
   /* Special colors */
   --neon-blue: 190 100% 60%;
@@ -59,7 +59,27 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Animation utilities */
+/* Tech grid background */
+.tech-grid {
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-grid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 0;
+}
+
+/* Enhanced animations */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -79,6 +99,36 @@ body {
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* Enhanced neon effects */
+.neon-text-blue {
+  color: hsl(var(--neon-blue));
+  text-shadow: 
+    0 0 5px hsl(var(--neon-blue)/0.5),
+    0 0 15px hsl(var(--neon-blue)/0.3),
+    0 0 30px hsl(var(--neon-blue)/0.1);
+}
+
+.neon-border-blue {
+  box-shadow: 
+    0 0 5px hsl(var(--neon-blue)/0.5),
+    0 0 15px hsl(var(--neon-blue)/0.3),
+    inset 0 0 5px hsl(var(--neon-blue)/0.5);
+}
+
+/* Particle effect */
+.particle {
+  position: absolute;
+  background: hsl(var(--neon-blue));
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Utility classes */

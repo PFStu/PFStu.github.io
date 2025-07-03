@@ -54,7 +54,7 @@ const calculateTheme = (resolvedTheme: ResolvedTheme): ThemeName => {
  * Theme provider component
  */
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const { mode, resolvedTheme, setTheme } = useThemeStore()
+  const { mode } = useThemeStore()
 
   // Resolve theme based on mode and system preference
   useEffect(() => {

@@ -80,6 +80,7 @@ export const About: React.FC = () => {
         </a>
       </div>
     </section>
+
     <Languages />
     </>
   )

@@ -2,13 +2,16 @@
 import React from 'react'
 import { Header } from './Header'
 import Image from 'next/image'
+import { Particles } from './Particles'
 
 export function Welcome() {
     return (
         <>
-        <Header />
-        <div className="flex flex-col items-center justify-center min-h-screen px-4 py-20 tech-grid bg-gradient-to-b from-transparent to-black/10">
-            <div className="max-w-3xl mx-auto text-center relative z-10">
+          <div className="relative">
+            <Header />
+            <div className="flex flex-col items-center justify-center min-h-screen px-4 py-20 tech-grid bg-gradient-to-b from-transparent to-black/10 relative overflow-hidden">
+              <Particles />
+              <div className="max-w-3xl mx-auto text-center relative z-10">
                 <div className="mb-8">
                     <Image 
                         src="/logo.png" 
@@ -24,12 +27,18 @@ export function Welcome() {
                 <p className="text-xl text-gray-300 mb-8 animate-fade-in-up delay-300">
                     用代码创造数字体验，用心打造每一个细节
                 </p>
-                <div className="mt-8 animate-fade-in-up delay-500">
-                    <div className="flex justify-center space-x-4">
-                        <a href="#projects" className="px-6 py-3 glass text-white rounded-lg hover:bg-blue-500/30 transition-all">
+                <div className="mt-12 animate-fade-in-up delay-500">
+                    <div className="flex justify-center space-x-6">
+                        <a 
+                            href="#projects" 
+                            className="px-8 py-4 glass text-white rounded-lg border border-blue-400/30 hover:border-blue-400/50 hover:shadow-[0_0_10px_2px_hsl(var(--neon-blue)/0.2)] transition-all duration-300 transform hover:scale-[1.02]"
+                        >
                             查看项目
                         </a>
-                        <a href="#contact" className="px-6 py-3 glass text-white border border-white/20 rounded-lg hover:bg-white/10 transition-all">
+                        <a 
+                            href="#contact" 
+                            className="px-8 py-4 glass text-white rounded-lg border border-blue-400/30 hover:border-blue-400/50 hover:shadow-[0_0_10px_2px_hsl(var(--neon-blue)/0.2)] transition-all duration-300 transform hover:scale-[1.02]"
+                        >
                             联系我们
                         </a>
                     </div>
@@ -51,8 +60,10 @@ export function Welcome() {
                     </svg>
                     <p className="mt-2 text-gray-500">向下滑动</p>
                 </div>
+              </div>
             </div>
-        </div>
+          </div>
+
         </>
     )
 }

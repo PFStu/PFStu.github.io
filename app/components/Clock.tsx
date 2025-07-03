@@ -1,7 +1,11 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import { useTheme } from '../theme-provider'
+import { themeColors } from '../config/theme'
 
+/**
+ * Clock component that displays current time with theme-based styling
+ */
 const Clock: React.FC = () => {
   const [time, setTime] = useState<Date | null>(null)
   const { theme } = useTheme()
@@ -22,67 +26,57 @@ const Clock: React.FC = () => {
     })
   }
 
-  const getThemeColors = () => {
-    switch (theme) {
-      case 'morning':
-        return {
-          clock: 'bg-white/90 border-blue-200',
-          text: 'text-blue-900',
-          hour: 'bg-blue-600',
-          minute: 'bg-blue-400',
-          second: 'bg-blue-300'
-        }
-      case 'midnight':
-        return {
-          clock: 'bg-purple-900/80 border-purple-700',
-          text: 'text-purple-100',
-          hour: 'bg-purple-500',
-          minute: 'bg-purple-400',
-          second: 'bg-purple-300'
-        }
-      default:
-        return {
-          clock: 'bg-gray-800/80 border-gray-700',
-          text: 'text-gray-100',
-          hour: 'bg-green-500',
-          minute: 'bg-green-400',
-          second: 'bg-green-300'
-        }
-    }
-  }
-
-  const colors = getThemeColors()
-
-  const getHandStyles = (type: 'hour' | 'minute' | 'second') => {
+  const getHandAngle = (type: 'hour' | 'minute' | 'second') => {
     const hours = time.getHours()
     const minutes = time.getMinutes()
     const seconds = time.getSeconds()
 
-    const hourAngle = (hours % 12) * 30 + minutes / 2
-    const minuteAngle = minutes * 6 + seconds / 10
-    const secondAngle = seconds * 6
-
-    const angle = type === 'hour' ? hourAngle : type === 'minute' ? minuteAngle : secondAngle
-    const bgColor = type === 'hour' ? colors.hour : type === 'minute' ? colors.minute : colors.second
-
-    return {
-      transform: `rotate(${angle}deg)`,
-      width: type === 'hour' ? '4px' : type === 'minute' ? '3px' : '2px',
-      height: type === 'hour' ? '25%' : type === 'minute' ? '35%' : '40%',
-      backgroundColor: bgColor,
-      bottom: '50%',
-      left: '50%',
-      transformOrigin: 'bottom',
-      borderRadius: '4px'
+    switch (type) {
+      case 'hour': return (hours % 12) * 30 + minutes / 2
+      case 'minute': return minutes * 6 + seconds / 10
+      case 'second': return seconds * 6
     }
+  }
+
+  const colors = themeColors[theme]
+
+  const handBaseStyles = {
+    bottom: '50%',
+    left: '50%',
+    transformOrigin: 'bottom',
+    borderRadius: '4px'
+  }
+
+  const hourHandStyles = {
+    ...handBaseStyles,
+    transform: `rotate(${getHandAngle('hour')}deg)`,
+    width: '4px',
+    height: '25%',
+    backgroundColor: colors.hour
+  }
+
+  const minuteHandStyles = {
+    ...handBaseStyles,
+    transform: `rotate(${getHandAngle('minute')}deg)`,
+    width: '3px',
+    height: '35%',
+    backgroundColor: colors.minute
+  }
+
+  const secondHandStyles = {
+    ...handBaseStyles,
+    transform: `rotate(${getHandAngle('second')}deg)`,
+    width: '2px',
+    height: '40%',
+    backgroundColor: colors.second
   }
 
   return (
     <div className="fixed bottom-0 right-0 m-4 backdrop-filter backdrop-blur-lg rounded-full p-4 z-50">
       <div className={`relative border rounded-full w-32 h-32 ${colors.clock} transition-colors duration-300`}>
-        <div className="absolute transform origin-bottom" style={getHandStyles('hour')}></div>
-        <div className="absolute transform origin-bottom" style={getHandStyles('minute')}></div>
-        <div className="absolute transform origin-bottom" style={getHandStyles('second')}></div>
+        <div className="absolute" style={hourHandStyles}></div>
+        <div className="absolute" style={minuteHandStyles}></div>
+        <div className="absolute" style={secondHandStyles}></div>
         <h2 className={`text-xl font-medium absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${colors.text}`}>
           {formatTime(time)}
         </h2>

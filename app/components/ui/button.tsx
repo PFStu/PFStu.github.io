@@ -1,38 +1,30 @@
 'use client'
 import React from 'react'
 
-type ButtonProps = {
-  variant?: 'default' | 'secondary' | 'outline' | 'ghost' | 'link'
-  size?: 'default' | 'sm' | 'lg'
-} & React.ButtonHTMLAttributes<HTMLButtonElement>
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'secondary'
+  children: React.ReactNode
+}
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className = '', variant = 'default', size = 'default', ...props }, ref) => {
-    const baseClasses = 'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none'
-    
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ variant = 'primary', children, className, ...props }, ref) => {
+    const baseClasses = 'inline-block px-4 py-2 text-sm font-medium rounded transition-all opacity-90 hover:opacity-100 transform hover:scale-105 text-shadow-lg'
     const variantClasses = {
-      default: 'bg-primary text-primary-foreground hover:bg-primary-dark',
-      secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary-dark',
-      outline: 'border border-input bg-transparent hover:bg-accent hover:text-accent-foreground',
-      ghost: 'hover:bg-accent hover:text-accent-foreground',
-      link: 'underline-offset-4 hover:underline text-primary'
-    }
-
-    const sizeClasses = {
-      default: 'h-10 py-2 px-4',
-      sm: 'h-9 px-3 rounded-md',
-      lg: 'h-11 px-8 rounded-md'
+      primary: 'bg-green-400 text-white hover:shadow-[0_0_25px_10px_rgba(74,222,128,0.8)]',
+      secondary: 'bg-blue-400 text-white hover:shadow-[0_0_25px_10px_rgba(96,165,250,0.8)]'
     }
 
     return (
       <button
-        className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
         ref={ref}
+        className={`${baseClasses} ${variantClasses[variant]} ${className}`}
+        style={{textShadow: '0 0 5px rgba(0,0,0,0.3)'}}
         {...props}
-      />
+      >
+        {children}
+      </button>
     )
   }
 )
-Button.displayName = 'Button'
 
-export { Button }
+Button.displayName = 'Button'
