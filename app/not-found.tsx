@@ -42,14 +42,14 @@ export default function NotFound() {
           <div className="flex justify-center gap-4">
             <Button 
               onClick={() => router.back()}
-              variant="outline"
+              variant="primary"
               className="px-6 py-3 glass hover:neon-border-blue"
             >
               ← 返回上一页
             </Button>
             <Button 
               onClick={() => router.push('/')}
-              variant="default" 
+              variant="secondary" 
               className="px-6 py-3 bg-gradient-to-r bg-green-600 hover:scale-110"
             >
               返回主页 →

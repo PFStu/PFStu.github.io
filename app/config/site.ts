@@ -79,13 +79,13 @@ export const projects: Project[] = [
   },
   {
     name: 'PF软件集',
-    type: 'UNSUPPORTED',
+    type: 'tool',
     description: '精选实用软件合集',
     link: 'pfsoft/index.html'
   },
   {
     name: 'PF资源库',
-    type: 'UNSUPPORTED',
+    type: 'app-resources',
     description: '各种创意资源和素材',
     link: 'pfsources/index.html'
   },
@@ -103,7 +103,7 @@ export const projects: Project[] = [
   },
   {
     name: 'PF小工具',
-    type: 'tools',
+    type: 'tool',
     description: '一百1000000开发的实用小工具集',
     link: 'PFTools/PFTools.html'
   },

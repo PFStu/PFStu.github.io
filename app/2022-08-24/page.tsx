@@ -11,7 +11,7 @@ export default function Anniversary() {
   const router = useRouter()
   const isDark = resolvedTheme === 'dark'
   const [daysSince, setDaysSince] = useState(0)
-  const confettiRef = useRef<ReturnType<typeof confetti>>()
+  const confettiRef = useRef<Promise<void> | null>(null)
 
   useEffect(() => {
     const startDate = new Date('2022-08-24')
@@ -29,14 +29,14 @@ export default function Anniversary() {
 
     const timer = setTimeout(() => {
       if (confettiRef.current) {
-        confettiRef.current = undefined
+        confettiRef.current = null
       }
     }, 5000)
 
     return () => {
       clearTimeout(timer)
       if (confettiRef.current) {
-        confettiRef.current = undefined
+        confettiRef.current = null
       }
     }
   }, [])
@@ -78,7 +78,7 @@ export default function Anniversary() {
           <div className="flex justify-center gap-4">
             <Button 
               onClick={() => router.push('/')}
-              variant="default" 
+              variant="primary"
               className="px-6 py-3 bg-gradient-to-r from-yellow-500 to-red-500 hover:from-yellow-600 hover:to-red-600"
             >
               返回主页

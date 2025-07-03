@@ -49,6 +49,7 @@ export const Particles = () => {
       }
       
       draw() {
+        if (!ctx) return
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
         ctx.fillStyle = this.color
@@ -63,6 +64,7 @@ export const Particles = () => {
     
     // Draw connections between particles
     const drawConnections = () => {
+      if (!ctx) return
       for (let a = 0; a < particles.length; a++) {
         for (let b = a; b < particles.length; b++) {
           const dx = particles[a].x - particles[b].x
