@@ -60,7 +60,7 @@ export default function Anniversary() {
           </div>
           
           <h2 className={`text-4xl font-bold mb-6 ${textColor}`}>
-            PixelForge 工作室周年庆
+            PixelForge 工作室
           </h2>
 
           <div className={`text-2xl mb-8 ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>

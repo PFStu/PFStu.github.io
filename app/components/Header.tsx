@@ -5,7 +5,7 @@ import { useTheme } from '../theme-provider'
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { mode, setTheme } = useTheme()
+  const { mode, theme, setTheme } = useTheme()
 
   const navItems = [
     { name: 'Home', hash: '' },
@@ -34,8 +34,19 @@ export const Header = () => {
       : <FiSun className="text-primary" />
   }
 
+  const getThemeClass = () => {
+    switch(theme) {
+      case 'morning':
+        return 'bg-gradient-to-r from-amber-50 to-blue-50 dark:from-gray-900 dark:to-gray-800'
+      case 'midnight':
+        return 'bg-gradient-to-r from-blue-900 to-purple-900'
+      default:
+        return 'bg-white dark:bg-black'
+    }
+  }
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/30 dark:bg-black/30 border-b border-gray-200/20 dark:border-gray-800/20 transition-colors duration-300">
+    <header className={`fixed top-0 left-0 right-0 z-50 ${getThemeClass()} border-b border-gray-200/20 dark:border-gray-800/20 transition-colors duration-300`}>
       <div className="container mx-auto px-4 py-3">
         {/* Desktop Navigation */}
           <div className="hidden md:flex items-center justify-between">

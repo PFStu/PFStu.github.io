@@ -1,7 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
 
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: currentColor }
+}
+
+.typewriter {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.15em solid;
+  animation: 
+    typing var(--typewriter-duration) steps(var(--typewriter-steps)) var(--typewriter-delay) forwards,
+    blink-caret 0.75s step-end infinite;
+}
+
+.typewriter::after {
+  content: attr(data-text);
+  visibility: hidden;
+}
 /* Base font definitions */
 @font-face {
   font-family: 'Source Han Sans';
